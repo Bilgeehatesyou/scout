@@ -716,6 +716,20 @@ footer {
   .event-item { grid-template-columns: 60px 1fr; }
   .event-type { display: none; }
   .footer-grid { grid-template-columns: 1fr; }
+    .gallery-grid {
+    display: flex;
+    flex-direction: column;
+  }
+  .gallery-item {
+    height: 250px;
+    width: 100%;
+  }
+   /* Landscape break */
+  .landscape-break {
+    min-height: 280px;
+    background-size: cover;
+    background-position: center center;
+  }
 }
 
 /* ── Cursor caret харагдахгүй болгох ── */
@@ -741,3 +755,4 @@ nav a,
   -moz-user-select: none;
   user-select: none;
 }
+
