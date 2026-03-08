@@ -1,0 +1,118 @@
+/* ============================================================
+   MONGOLIAN SCOUT ASSOCIATION — DESIGN TOKENS
+   Брэндийн стандарт өнгө, фонт бүгд энд
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap');
+
+:root {
+
+  /* ── BRAND COLORS (Өнгөний стандарт) ───────────────────────
+     Зураг 1-ээс авсан яг брэндийн өнгөнүүд               */
+
+  --color-dark-blue:    #112e50;   /* Хар хөх */
+  --color-primary:      #1d4382;   /* Үндсэн өнгө / Хөх */
+  --color-accent:       #fed800;   /* Туслах өнгө / Шар */
+
+  /* Derived shades */
+  --color-primary-light:  #2a5aad;
+  --color-primary-pale:   #e8effa;
+  --color-primary-deep:   #0d2a4e;
+
+  /* Surfaces */
+  --color-bg:             #ffffff;
+  --color-bg-alt:         #f0f4fb;
+  --color-surface:        #ffffff;
+  --color-surface-dark:   #112e50;
+  --color-surface-mid:    #1d4382;
+
+  /* Text */
+  --color-text:               #112e50;
+  --color-text-muted:         rgba(17, 46, 80, 0.6);
+  --color-text-faint:         rgba(17, 46, 80, 0.35);
+  --color-text-on-dark:       #ffffff;
+  --color-text-on-dark-muted: rgba(255, 255, 255, 0.65);
+
+  /* Danger */
+  --color-danger: #C0392B;
+
+  /* ── TYPOGRAPHY (Брэнд фонт: Montserrat) ───────────────────
+     Зураг 2-оос авсан                                     */
+
+  --font-display: 'Montserrat', sans-serif;
+  --font-body:    'Montserrat', sans-serif;
+
+  /* Weights */
+  --weight-light:   300;
+  --weight-regular: 400;
+  --weight-medium:  500;
+  --weight-semibold:600;
+  --weight-bold:    700;
+  --weight-black:   900;
+
+  /* Font sizes */
+  --text-xs:    0.7rem;
+  --text-sm:    0.82rem;
+  --text-base:  0.88rem;
+  --text-md:    1rem;
+  --text-lg:    1.1rem;
+  --text-xl:    1.25rem;
+  --text-2xl:   1.6rem;
+  --text-3xl:   2rem;
+  --text-hero:  clamp(2.8rem, 7vw, 6rem);
+  --text-section-title: clamp(1.8rem, 3.5vw, 2.8rem);
+
+  /* Line heights */
+  --leading-tight:   0.95;
+  --leading-snug:    1.15;
+  --leading-normal:  1.7;
+  --leading-relaxed: 1.85;
+
+  /* Letter spacing */
+  --tracking-tight:   -0.02em;
+  --tracking-normal:   0;
+  --tracking-wide:     0.06em;
+  --tracking-wider:    0.12em;
+  --tracking-widest:   0.25em;
+
+  /* ── SPACING ────────────────────────────────────────────── */
+  --space-1:  4px;  --space-2:  8px;  --space-3: 12px;
+  --space-4: 16px;  --space-5: 20px;  --space-6: 24px;
+  --space-7: 28px;  --space-8: 32px;  --space-9: 36px;
+  --space-10:40px;  --space-12:48px;  --space-14:56px;
+  --space-16:64px;  --space-20:80px;  --space-section: 100px;
+
+  /* ── BORDERS ────────────────────────────────────────────── */
+  --radius-sm:   4px;
+  --radius-md:   8px;
+  --radius-lg:   16px;
+  --radius-full: 9999px;
+
+  --border-thin:   1px solid rgba(29, 67, 130, 0.15);
+  --border-medium: 2px solid var(--color-primary);
+  --border-accent: 1px solid var(--color-accent);
+  --border-white:  1px solid rgba(255,255,255,0.2);
+
+  /* ── SHADOWS ────────────────────────────────────────────── */
+  --shadow-sm:   0 4px 12px rgba(17, 46, 80, 0.08);
+  --shadow-md:   0 8px 24px rgba(17, 46, 80, 0.12);
+  --shadow-lg:   0 20px 48px rgba(17, 46, 80, 0.15);
+  --shadow-xl:   0 24px 56px rgba(17, 46, 80, 0.25);
+  --shadow-text: 0 4px 30px rgba(0,0,0,0.5);
+
+  /* ── TRANSITIONS ────────────────────────────────────────── */
+  --transition-fast:   0.2s ease;
+  --transition-base:   0.3s ease;
+  --transition-slow:   0.4s ease;
+  --transition-reveal: 0.7s ease;
+
+  /* ── LAYOUT ─────────────────────────────────────────────── */
+  --container-max: 1200px;
+  --nav-height:    72px;
+
+  /* ── Z-INDEX ────────────────────────────────────────────── */
+  --z-base:  1;
+  --z-card:  10;
+  --z-nav:   100;
+  --z-modal: 200;
+}
