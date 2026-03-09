@@ -40,12 +40,14 @@ body {
   background: var(--color-surface-dark);
   border-bottom: 2px solid var(--color-primary);
   overflow-x: auto;
+   touch-action: pan-x;  
 }
 .prog-tabs {
   display: flex;
   max-width: var(--container-max); margin: 0 auto;
   padding: 0 var(--space-8);
   gap: 0;
+    touch-action: pan-x;  
 }
 .prog-tab {
   font-family: var(--font-display);
