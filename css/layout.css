@@ -314,6 +314,9 @@
   .gallery-grid               { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
   .gallery-item:first-child   { grid-row: auto; grid-column: auto; }
   .prog-cards-grid            { grid-template-columns: 1fr; }
+  .landscape-break {
+    background-attachment: scroll;
+  }
 }
 @media (max-width: 700px) {
   .prog-card-img { height: 180px; }
