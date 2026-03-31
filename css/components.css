@@ -11,7 +11,7 @@
 .act-carousel-wrapper {
   position: relative;
   height: 430px;
-  overflow: visible;
+  overflow: hidden;
   padding-top: 24px;
 }
 .act-carousel {

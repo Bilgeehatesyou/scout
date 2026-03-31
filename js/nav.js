@@ -23,9 +23,43 @@
       if (entry.isIntersecting) {
         entry.target.classList.add('visible');
         observer.unobserve(entry.target);
+
+        /* Carousel-тай элемент visible болмогц render дуудна */
+        if (entry.target.querySelector('#actCarousel')) {
+          requestAnimationFrame(() => {
+            window.dispatchEvent(new Event('carousel-reveal'));
+          });
+        }
       }
     });
   }, { threshold: 0.12 });
 
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+})();
+
+
+/* ── PATTERN TOGGLE ── */
+(function () {
+  const KEY = 'scout-pattern';
+
+  const stored = localStorage.getItem(KEY);
+  const isOn = stored === null ? true : stored === 'true';
+  if (!isOn) document.body.classList.add('no-pattern');
+
+  const btn = document.createElement('button');
+  btn.className = 'pattern-switch' + (isOn ? ' pattern-switch--on' : '');
+  btn.setAttribute('aria-label', 'Pattern toggle');
+  btn.innerHTML = `
+    <span class="pattern-switch__label">Pattern</span>
+    <span class="pattern-switch__toggle"></span>
+  `;
+
+  btn.addEventListener('click', () => {
+    const nowOn = document.body.classList.toggle('no-pattern');
+    const patternOn = !nowOn;
+    localStorage.setItem(KEY, String(patternOn));
+    btn.classList.toggle('pattern-switch--on', patternOn);
+  });
+
+  document.body.appendChild(btn);
 })();

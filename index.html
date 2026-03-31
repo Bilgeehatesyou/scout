@@ -21,11 +21,11 @@
       <img class="logo-color"  src="img/huh_logo_texttei.png"    alt="Монголын Скаутын Холбоо" />
     </a>
     <ul>
-      <li><a href="#about">About</a></li>
-      <li><a href="#values">Values</a></li>
-      <li><a href="#programs">Programs</a></li>
-      <li><a href="#events">Events</a></li>
-      <li><a href="#join">Join Us</a></li>
+      <li><a href="#about">Тухай</a></li>
+      <li><a href="history.html">Үнэт зүйлс</a></li>
+      <li><a href="#programs">Хөтөлбөр</a></li>
+      <li><a href="events.html">Арга хэмжээ</a></li>
+      <li><a href="#join">Нэгдэх</a></li>
     </ul>
   </div>
 </nav>
@@ -50,26 +50,34 @@
   <div class="container">
     <div class="about-grid">
       <div class="about-visual reveal">
-        <div class="about-img"></div>
+        <!-- Зургийн slider -->
+        <div class="about-slider" id="aboutSlider">
+          <div class="about-slide active" style="background-image:url('img/gadaa_mash_olon.jpg')"></div>
+          <div class="about-slide" style="background-image:url('img/buunuuruu_alhah.jpg')"></div>
+          <div class="about-slide" style="background-image:url('img/oluulaa_alhaj_bna.jpg')"></div>
+          <div class="about-slide" style="background-image:url('img/heer.jpg')"></div>
+          <div class="about-slide" style="background-image:url('img/olon_uls.jpg')"></div>
+          <div class="about-slide" style="background-image:url('img/cub_hovguun.jpg')"></div>
+          <div class="about-slide" style="background-image:url('img/scout_tug.jpg')"></div>
+          <div class="about-slide" style="background-image:url('img/ulamjlal.jpg')"></div>
+          <div class="about-slide" style="background-image:url('img/hutulbur.jpg')"></div>
+          <div class="about-slide" style="background-image:url('img/scout_chuluut_zurag.jpg')"></div>
+          <div class="about-slider-dots" id="aboutSliderDots"></div>
+        </div>
         <div class="about-stat-strip">
-          <div class="stat"><span class="stat-num">15K+</span><span class="stat-label">Scouts</span></div>
-          <div class="stat"><span class="stat-num">21</span><span class="stat-label">Аймгууд</span></div>
-          <div class="stat"><span class="stat-num">33</span><span class="stat-label">Years</span></div>
-          <div class="stat"><span class="stat-num">170+</span><span class="stat-label">Nations</span></div>
+          <div class="stat"><span class="stat-num">15K+</span><span class="stat-label">Скаут</span></div>
+          <div class="stat"><span class="stat-num">21</span><span class="stat-label">Аймаг</span></div>
+          <div class="stat"><span class="stat-num">33</span><span class="stat-label">Жил</span></div>
+          <div class="stat"><span class="stat-num">170+</span><span class="stat-label">Улс</span></div>
         </div>
       </div>
       <div class="about-text reveal">
         <div class="section-label">БИДНИЙ ӨВ</div>
-        <h2 class="section-title">МОНГОЛ ХҮНИЙ<br /><em>СЭТГЭЛД ҮНДЭСЛЭСЭН</em></h2>
-        <p>1991 онд нийгмийн шилжилтийн үед хүүхдийн байгууллага хөдөлгөөний анхдагч болж үүссэн
-        Монголын Скаутын Холбоо нь Монгол улсын хүүхэд залуучуудыг эх оронч, тэсвэр хатуужилтай,
-        нийгэм болон байгаль дэлхийдээ хүндэтгэлтэй ирээдүйн иргэд болгохыг зорьж байна.</p>
-        <p>Дэлхийн Скаутын Хөдөлгөөний Байгууллагын бахархалт гишүүний хувьд бид Архангайн уудам
-        тал нутгаас эхлээд Говийн хязгааргүй мандал хүртэлх залуу монголчуудыг нэгтгэн,
-        манлайлал, зориг, ахан дүүсийн холбоог төлөвшүүлдэг.</p>
-        <blockquote class="about-quote">"Тал нутаг бидэнд хүч гэдэг ганцаараа зогсохоос бус,
-        харин нэгэн зүгт хамтдаа хөдлөхөөс төрдөг гэдгийг заадаг."</blockquote>
-        <a href="#programs" class="btn-primary">МАНАЙ ХӨТӨЛБӨРҮҮДТЭЙ ТАНИЛЦАХ</a>
+        <h2 class="section-title">МОНГОЛ ХҮНИЙ<br />СЭТГЭЛД ҮНДЭСЛЭСЭН</h2>
+        <p>Монголын Скаутын Холбоо нь хүүхэд, залуучуудыг бие даасан, хариуцлагатай, эх оронч иргэн болгон төлөвшүүлэх зорилготой сайн дурын, ашгийн бус байгууллага юм. Бид дэлхий даяар үйл ажиллагаа явуулдаг скаутын хөдөлгөөний нэг хэсэг бөгөөд залуучуудыг амьдралын ур чадварт суралцах, байгаль орчноо хайрлан хамгаалах, нийгэмдээ эерэг хувь нэмэр оруулахад чиглэсэн хөтөлбөрүүдийг хэрэгжүүлдэг.</p>
+        <p>Скаутын хөдөлгөөн нь 1991 оноос Монголд хөгжиж, өнөөдөр улс орон даяар олон мянган хүүхэд, залуучуудыг нэгтгээд байна. Манай хөтөлбөрүүд нь адал явдал, байгальд түшиглэсэн сургалт, багаар ажиллах, манлайлал, нийгмийн хариуцлагыг төлөвшүүлэх үйл ажиллагааг багтаадаг.</p>
+        <blockquote class="about-quote">"Амьдралд бэлэн" — Монголын Скаутын Холбооны уриа</blockquote>
+        <a href="history.html" class="btn-primary">СКАУТЫН ТҮҮХ →</a>
       </div>
     </div>
   </div>
@@ -80,7 +88,7 @@
   <div class="container">
     <div class="reveal">
       <div class="section-label">Скаутын тухай</div>
-      <h2 class="section-title">Скаут гэж <em>юу вэ?</em></h2>
+      <h2 class="section-title">Скаут гэж юу вэ?</h2>
       <p class="section-intro">Скаутын хөдөлгөөн нь 1907 онд үүсч, өнөөдөр дэлхийн 170 гаруй улсад
       60 сая гишүүнтэй дэлхийн хамгийн том залуучуудын байгууллага юм. Монголын Скаутын Холбоо
       1991 онд байгуулагдаж, уламжлалт нүүдэлчдийн ухаан болон орчин үеийн манлайллыг хослуулан
@@ -218,9 +226,9 @@
         <h3 class="subsection-title">Тоо баримт</h3>
         <div class="facts-grid">
           <div class="fact-item"><span class="fact-num">170+</span><span class="fact-label">Гишүүн улс</span></div>
-          <div class="fact-item"><span class="fact-num">60M</span><span class="fact-label">Дэлхийн скаут</span></div>
+          <div class="fact-item"><span class="fact-num">57M</span><span class="fact-label">Дэлхийн скаут</span></div>
           <div class="fact-item"><span class="fact-num">1907</span><span class="fact-label">Үүсгэн байгуулагдсан</span></div>
-          <div class="fact-item"><span class="fact-num">15K+</span><span class="fact-label">Монгол скаут</span></div>
+          <div class="fact-item"><span class="fact-num">12K+</span><span class="fact-label">Монгол скаут</span></div>
           <div class="fact-item"><span class="fact-num">21</span><span class="fact-label">Аймаг хамрагдсан</span></div>
           <div class="fact-item"><span class="fact-num">1991</span><span class="fact-label">МСХ байгуулагдсан</span></div>
         </div>
@@ -234,7 +242,7 @@
   <div class="container">
     <div class="reveal">
       <div class="section-label">Хөтөлбөрүүд</div>
-      <h2 class="section-title">Скаутын <em>Хөтөлбөрүүд</em></h2>
+      <h2 class="section-title">Скаутын Хөтөлбөрүүд</h2>
     </div>
     <div class="prog-cards-grid reveal">
 
@@ -244,7 +252,7 @@
         </div>
         <div class="prog-card-body">
           <h3>Насны ангилал</h3>
-          <p>Каб скаут (6–11), Скаут (12–15), Венчир (16-17), Ровер (18–25), Удирдагч — насан бүрт тохирсон хөтөлбөртэй.</p>
+          <p>Каб скаут (6–12), Скаут (12–17), Ровер (18–25), Удирдагч — насан бүрт тохирсон хөтөлбөртэй.</p>
           <div class="prog-card-actions">
             <a href="program.html" class="prog-btn prog-btn--primary">Дэлгэрэнгүй →</a>
           </div>
@@ -283,7 +291,7 @@
         </div>
         <div class="prog-card-body">
           <h3>Удирдагч сургалт</h3>
-          <p>БУБАШҮС → General Information Training → Модон Тэмдэгт гэсэн тасралтгүй хөгжлийн шаталсан сургалтын систем.</p>
+          <p>BTC → Basic Leader Training → Wood Badge гэсэн тасралтгүй хөгжлийн шаталсан сургалтын систем.</p>
           <div class="prog-card-actions">
             <a href="program.html#training" class="prog-btn prog-btn--primary">Дэлгэрэнгүй →</a>
           </div>
@@ -297,8 +305,8 @@
 <!-- ═══════════════ LANDSCAPE BREAK ═══════════════ -->
 <div class="landscape-break">
   <div class="landscape-quote">
-    <p>"Be Prepared — and in Mongolia, that means knowing both the wild steppe and the wide world."</p>
-    <cite>— Scout Motto, Mongolian Chapter</cite>
+    <p>"Бэлэн бай — Монголд энэ нь өргөн тал нутаг болон дэлхийг хоёуланг нь мэдэхийг хэлдэг."</p>
+    <cite>— Скаутын уриа, Монголын хэсэг</cite>
   </div>
 </div>
 
@@ -306,8 +314,8 @@
 <section id="events">
   <div class="container">
     <div class="reveal">
-      <div class="section-label">Stay Connected</div>
-      <h2 class="section-title">Upcoming <em>Events</em></h2>
+      <div class="section-label">Мэдэгдэл</div>
+      <h2 class="section-title">Удахгүй болох арга хэмжээ</h2>
     </div>
     <div class="events-list reveal"></div>
   </div>
@@ -317,8 +325,8 @@
 <section id="gallery">
   <div class="container">
     <div class="reveal">
-      <div class="section-label">Life in the Field</div>
-      <h2 class="section-title">Gallery</h2>
+      <div class="section-label">Хээрийн амьдрал</div>
+      <h2 class="section-title">Гэрэл зургийн цомог</h2>
     </div>
   </div>
   <!-- Зургийн background-image CSS-д тодорхойлогдсон (layout.css) -->
@@ -380,17 +388,17 @@
         Байгууллагын гишүүнээр ажиллаж байна.</p>
       </div>
       <div>
-        <div class="footer-heading">Navigation</div>
+        <div class="footer-heading">Цэс</div>
         <ul class="footer-links">
           <li><a href="#about">Бидний тухай</a></li>
-          <li><a href="#values">Бидний үнэт зүйлс</a></li>
-          <li><a href="#programs">Хөтөлбөрүүд</a></li>
-          <li><a href="#events">Арга хэмжээнүүд</a></li>
-          <li><a href="#join">Бидэнтэй нэгдэх</a></li>
+          <li><a href="history.html">Үнэт зүйлс</a></li>
+          <li><a href="#programs">Хөтөлбөр</a></li>
+          <li><a href="events.html">Арга хэмжээ</a></li>
+          <li><a href="#join">Нэгдэх</a></li>
         </ul>
       </div>
       <div>
-        <div class="footer-heading">Programs</div>
+        <div class="footer-heading">Хөтөлбөр</div>
         <ul class="footer-links">
           <li><a href="program.html#ages">Каб Скаут (6–12)</a></li>
           <li><a href="program.html#ages">Скаут (12–15)</a></li>
@@ -400,14 +408,14 @@
         </ul>
       </div>
       <div class="footer-contact">
-        <div class="footer-heading">Contact</div>
+        <div class="footer-heading">Холбоо барих</div>
         <p>Ulaanbaatar, Mongolia</p>
-        <p>info@scout.mn</p>
+        <p><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="8fe6e1e9e0cffcece0fafba1e2e1">[email&#160;protected]</a></p>
         <p>+976 011 32 4171</p>
       </div>
     </div>
     <div class="footer-bottom">
-      <p>© 2026 Mongolian Scout Association. All rights reserved.</p>
+      <p>© 2026 Монголын Скаутын Холбоо. Бүх эрх хуулиар хамгаалагдсан.</p>
       <span class="footer-scout-law">Be Prepared</span>
     </div>
   </div>
@@ -418,5 +426,6 @@
 <script src="js/carousel.js"></script>
 <script src="js/events.js"></script>
 <script src="js/form.js"></script>
+<script src="js/about-slider.js"></script>
 </body>
 </html>
