@@ -11,16 +11,23 @@
   let pastShown     = 0;
 
   /* ── Fetch JSON ── */
-  fetch('/scout/json/events.json')
-    .then(r => r.json())
-    .then(data => {
-      upcomingAll = data.filter(e => e.status === 'upcoming');
-      pastAll     = data.filter(e => e.status === 'past');
-      renderUpcoming();
-      renderPast();
-    })
-    .catch(err => console.error('events.json уншихад алдаа:', err));
+fetch('./json/events.json')
+  .then(r => {
+    if (!r.ok) {
+      throw new Error('JSON олдсонгүй: ' + r.status);
+    }
+    return r.json();
+  })
+  .then(data => {
+    console.log('JSON амжилттай уншигдлаа:', data);
 
+    upcomingAll = data.filter(e => e.status === 'upcoming');
+    pastAll     = data.filter(e => e.status === 'past');
+
+    renderUpcoming();
+    renderPast();
+  })
+  .catch(err => console.error('events.json алдаа:', err));
   /* ══════════════════════════════════════════
      UPCOMING
   ══════════════════════════════════════════ */
