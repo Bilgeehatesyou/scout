@@ -11,7 +11,7 @@
   let pastShown     = 0;
 
   /* ── Fetch JSON ── */
-  fetch('../json/events.json')
+  fetch('json/events.json')
     .then(r => r.json())
     .then(data => {
       upcomingAll = data.filter(e => e.status === 'upcoming');
