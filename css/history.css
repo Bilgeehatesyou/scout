@@ -88,23 +88,34 @@ body {
   width: 2px; background: var(--color-primary-pale);
 }
 .hist-timeline-item {
-  display: flex; gap: 40px; align-items: flex-start;
+  display: flex; gap: 40px; align-items: center;
   margin-bottom: var(--space-8); position: relative;
 }
 .hist-timeline-year {
   font-family: var(--font-display); font-size: var(--text-sm);
   font-weight: var(--weight-black); color: var(--color-primary);
-  min-width: 80px; text-align: right; padding-top: 4px;
-  flex-shrink: 0;
+  min-width: 80px; text-align: right; 
+  flex-shrink: 0; padding-top: 0;
+  display: flex; align-items: center;
+  justify-content: flex-end; align-self: stretch;
 }
 .hist-timeline-content {
-  background: rgba(255,255,255,0.96); border: var(--border-thin);
-  padding: var(--space-6) var(--space-7); flex: 1;
+  background: rgba(255,255,255,0.96);
+  border: var(--border-thin);
+  padding: var(--space-6) var(--space-7);
+  flex: 1;
   position: relative;
 }
+
 .hist-timeline-content::before {
-  content: ''; position: absolute; left: -10px; top: 14px;
-  width: 10px; height: 2px; background: var(--color-primary);
+  content: '';
+  position: absolute;
+  left: -10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 10px;
+  height: 2px;
+  background: var(--color-primary);
 }
 .hist-timeline-content h4 {
   font-family: var(--font-display); font-size: var(--text-base);

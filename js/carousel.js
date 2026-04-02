@@ -1,5 +1,7 @@
 /* ============================================================
    carousel.js — Activity Carousel
+   Яг 5 card харагдана. Visible бус card wrapper-оос гадагш.
+   Wrap үед: шууд position тавиад, дараа animate.
    ============================================================ */
 (function () {
   const wrapper       = document.querySelector('.act-carousel-wrapper');
@@ -9,26 +11,28 @@
 
   const cards = Array.from(carousel.querySelectorAll('.act-card'));
   const dots  = dotsContainer ? Array.from(dotsContainer.querySelectorAll('.act-dot')) : [];
-  const total = cards.length;
+  const total = cards.length;  // 6
   let current = 0;
-  let started = false;
+  let prev    = 0;
 
   const CARD_W  = 240;
   const CARD_H  = 360;
   const GAP     = 24;
   const VISIBLE = 2;
 
-  function getWidth() {
-    return wrapper.offsetWidth || wrapper.getBoundingClientRect().width || 0;
-  }
+  wrapper.style.overflow = 'hidden';
+  wrapper.style.position = 'relative';
 
+  /* card-ийн dist-аас байрлал тооцно */
   function calcLeft(dist, cw) {
     const cx = cw / 2;
     const natural = cx + dist * (CARD_W + GAP) - CARD_W / 2;
     if (Math.abs(dist) <= VISIBLE) return natural;
+    /* visible биш — wrapper гадагш */
     return dist > 0 ? cw + CARD_W * 2 : -(CARD_W * 3);
   }
 
+  /* dist тооцох — wrap ашиглахгүй, шууд зөрүү */
   function getDist(i, cur) {
     let d = i - cur;
     if (d >  total / 2) d -= total;
@@ -37,40 +41,31 @@
   }
 
   function setCard(card, dist, animate) {
-    const cw  = getWidth();
+    const cw  = carousel.offsetWidth;
     const abs = Math.abs(dist);
     const vis = abs <= VISIBLE;
 
-    card.style.transition = animate
+    card.style.transition      = animate
       ? 'left 0.65s cubic-bezier(.4,0,.2,1), transform 0.65s, opacity 0.35s'
       : 'none';
-
-    card.style.position    = 'absolute';
-    card.style.width       = CARD_W + 'px';
-    card.style.height      = CARD_H + 'px';
-    card.style.top         = '20px';
-    card.style.left        = calcLeft(dist, cw) + 'px';
-
+    card.style.position        = 'absolute';
+    card.style.width           = CARD_W + 'px';
+    card.style.height          = CARD_H + 'px';
+    card.style.top             = '20px';
+    card.style.left            = calcLeft(dist, cw) + 'px';
     card.style.transform       = `scale(${abs === 0 ? 1.05 : 0.95})`;
     card.style.transformOrigin = 'center center';
-
-    card.style.opacity =
-      abs === 0 ? 1 :
-      abs === 1 ? 0.72 :
-      abs === 2 ? 0.42 : 0;
-
-    card.style.zIndex        = vis ? (abs === 0 ? 10 : abs === 1 ? 6 : 3) : -1;
-    card.style.visibility    = vis ? 'visible' : 'hidden';
-    card.style.pointerEvents = vis ? 'auto' : 'none';
-
+    card.style.opacity         = abs === 0 ? 1 : abs === 1 ? 0.72 : abs === 2 ? 0.42 : 0;
+    card.style.zIndex          = abs === 0 ? 10 : abs === 1 ? 6 : abs === 2 ? 3 : 0;
+    card.style.pointerEvents   = vis ? 'auto' : 'none';
     card.classList.toggle('act-card--active', abs === 0);
   }
 
   function render(animate, prevCurrent) {
-    if (getWidth() === 0) return;
-
+    const cw = carousel.offsetWidth;
+    wrapper.style.height  = (CARD_H + 80) + 'px';
+    carousel.style.height = (CARD_H + 80) + 'px';
     carousel.style.position = 'relative';
-    carousel.style.height   = (CARD_H + 80) + 'px';
 
     cards.forEach((card, i) => {
       const distNew = getDist(i, current);
@@ -81,27 +76,39 @@
         return;
       }
 
+      /* Wrap detection:
+         Хэрэв card visible бус байрлалаас visible руу орж ирэх гэж байвал
+         эхлээд зөв гадаа талаас нь transition-гүй тавиад, дараа animate хийнэ */
       const wasVisible = Math.abs(distOld) <= VISIBLE;
       const isVisible  = Math.abs(distNew) <= VISIBLE;
 
       if (!wasVisible && isVisible) {
-        const entryDist = distNew > 0 ? (VISIBLE + 1) : -(VISIBLE + 1);
-        const entryLeft = calcLeft(entryDist, getWidth());
-
+        /* Ямар талаас орж ирэх вэ? distNew-ийн тэмдгээр */
+        const entryLeft = calcLeft(distNew > 0 ? VISIBLE + 1 : -(VISIBLE + 1), cw);
         card.style.transition = 'none';
-        card.style.visibility = 'hidden';
         card.style.left       = entryLeft + 'px';
         card.style.opacity    = '0';
-
+        /* Дараагийн frame-д animate */
         requestAnimationFrame(() => {
           requestAnimationFrame(() => {
-            card.style.visibility = 'visible';
             setCard(card, distNew, true);
           });
         });
       } else if (wasVisible && !isVisible) {
-        setCard(card, distNew, true);
-      } else {
+  const wrappedAcrossSides = Math.abs(distOld - distNew) > 1;
+
+  if (wrappedAcrossSides) {
+    const exitDist = distOld > 0 ? (VISIBLE + 1) : -(VISIBLE + 1);
+
+    setCard(card, exitDist, true);
+
+    setTimeout(() => {
+      setCard(card, distNew, false);
+    }, 650);
+  } else {
+    setCard(card, distNew, true);
+  }
+} else {
         setCard(card, distNew, animate);
       }
     });
@@ -111,7 +118,7 @@
 
   function goTo(idx) {
     const p = current;
-    current = ((idx % total) + total) % total;
+    current  = ((idx % total) + total) % total;
     render(true, p);
   }
 
@@ -120,17 +127,9 @@
     clearInterval(timer);
     timer = setInterval(() => {
       const p = current;
-      current = (current + 1) % total;
+      current  = (current - 1 + total) % total;
       render(true, p);
     }, 3000);
-  }
-
-  function init() {
-    if (started) return;
-    if (getWidth() === 0) return;
-    started = true;
-    render(false, current);
-    startAuto();
   }
 
   cards.forEach((card, i) => card.addEventListener('click', () => { goTo(i); startAuto(); }));
@@ -155,17 +154,26 @@
     touchX = null;
   });
 
-  window.addEventListener('resize',           () => render(false, current));
-  document.addEventListener('visibilitychange', () => { if (!document.hidden) render(false, current); });
-  window.addEventListener('focus',            () => render(false, current));
+  render(false, current);
+  startAuto();
+  window.addEventListener('resize', () => render(false, current));
 
-  /* nav.js-ийн reveal callback-аас дуудагдана */
-  window.addEventListener('carousel-reveal', init);
-
-  /* reveal class байхгүй эсвэл аль хэдийн visible бол шууд эхлүүл */
-  const actEl = wrapper.closest('.reveal');
-  if (!actEl || actEl.classList.contains('visible')) {
-    requestAnimationFrame(() => requestAnimationFrame(init));
+  /* Tab switch хийгээд буцаахад carousel дахин render хийнэ */
+  if (typeof IntersectionObserver !== 'undefined') {
+    const visObs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && carousel.offsetWidth > 0) {
+          render(false, current);
+        }
+      });
+    }, { threshold: 0.1 });
+    visObs.observe(wrapper);
   }
 
+  /* Page visibility (browser tab switch) дээр ч дахин render хийнэ */
+  document.addEventListener('visibilitychange', () => {
+    if (!document.hidden) {
+      setTimeout(() => render(false, current), 50);
+    }
+  });
 })();
