@@ -1,0 +1,108 @@
+[
+  {
+    "id": "bubashus-137",
+    "status": "upcoming",
+    "featured": true,
+    "badge": "🏕 Кемп",
+    "badgeType": "camp",
+    "eyebrow": "#137 дугаарт · Удахгүй",
+    "title": "БУБАШҮС #137",
+    "subtitle": "Бүлэг Байгуулалтын Шинэ Үеийн Сургууль",
+    "image": "img/olon_uls.jpg",
+    "description": "Оройн мэнд скаутуудаа! Урин дулаан цаг ирж буй энэ цагт бид бүхний хүсэн хүлээсэн 137-р БУБАШҮС-ын тов гарлаа! Найз нөхөд, хамт олонтойгоо хөгжилтэй цагийг өнгөрүүлж, скаутын ур чадваруудаа хөгжүүлэн, дурсамжаар дүүрэн 6 өдрийг Найрамдал зусланд хамтдаа өнгөрүүлцгээе!",
+    "info": {
+      "location": "Олон Улсын Хүүхдийн Найрамдал Цогцолбор",
+      "date": "2026 оны 4-р сарын 14–19 (6 өдөр, 5 шөнө)",
+      "age": "+8 болон дээш",
+      "fee": "515,000₮"
+    },
+    "includes": ["Хоол, байр", "Унаа", "Бүч", "Хөтөлбөрийн зардал"],
+    "bonus": "10+1 урамшуулал: 10 болон түүнээс дээш хүүхэд хариуцаж ирсэн багш үнэ төлбөргүй!",
+    "bank": {
+      "account": "48000500 · 5077216889",
+      "bank": "Хаан банк — Монголын Скаутын Холбоо",
+      "note": "Нэр, утасны дугаар, хаанаас оролцож буйгаа бичнэ үү"
+    },
+    "deadline": "2026 оны 4-р сарын 10",
+    "contacts": ["11-324171", "89390516", "88927079"],
+    "registerUrl": "https://forms.gle/jm86LgSDFAtrEqSG7",
+    "facebookUrl": "https://www.facebook.com/share/p/1Bced77QUZ/"
+  },
+  
+  {
+    "id": "warrior-challenge",
+    "status": "upcoming",
+    "featured": false,
+    "badge": "🌍 Олон улс",
+    "badgeType": "intl",
+    "eyebrow": "Jamboree Activity Highlight",
+    "title": "Warrior Challenge",
+    "subtitle": "Жамбори дахь онцлох арга хэмжээ",
+    "image": "",
+    "imageBg": "linear-gradient(135deg, #6b1f00 0%, #a33000 100%)",
+    "description": "At the Warrior Challenge, you will experience how the warriors of Chinggis Khaan trained, competed and celebrated. Challenge yourself at Jamboree in Mongolia!",
+    "info": {
+      "location": "Монгол улс",
+      "date": "2026 он",
+      "age": "Бүх нас",
+      "fee": "Жамборийн бүртгэлтэй"
+    },
+    "includes": [],
+    "bonus": "",
+    "bank": null,
+    "deadline": "",
+    "contacts": [],
+    "registerUrl": "https://forms.gle/yaeDR7RnJm8QbAYt9",
+    "facebookUrl": "https://www.facebook.com/share/p/1Bced77QUZ/"
+  },
+  {
+    "id": "bubashus-136",
+    "status": "past",
+    "featured": false,
+    "badge": "🏕 Кемп",
+    "badgeType": "camp",
+    "eyebrow": "#136 дугаарт",
+    "title": "БУБАШҮС #136",
+    "subtitle": "",
+    "image": "img/gadaa_mash_olon.jpg",
+    "description": "Амжилттай зохион байгуулагдсан 136-р БУБАШҮС кемп.",
+    "info": {
+      "location": "Найрамдал цогцолбор",
+      "date": "2025 он",
+      "age": "+8",
+      "fee": ""
+    },
+    "includes": [],
+    "bonus": "",
+    "bank": null,
+    "deadline": "",
+    "contacts": [],
+    "registerUrl": "",
+    "facebookUrl": ""
+  },
+  {
+    "id": "jamboree-2023",
+    "status": "past",
+    "featured": false,
+    "badge": "🌍 Олон улс",
+    "badgeType": "intl",
+    "eyebrow": "2023 он · Солонгос",
+    "title": "World Scout Jamboree 2023",
+    "subtitle": "",
+    "image": "img/oluulaa_alhaj_bna.jpg",
+    "description": "25-р Дэлхийн Жамбори дээр Монголын скаутууд амжилттай оролцлоо.",
+    "info": {
+      "location": "Солонгос улс",
+      "date": "2023 он",
+      "age": "12–17",
+      "fee": ""
+    },
+    "includes": [],
+    "bonus": "",
+    "bank": null,
+    "deadline": "",
+    "contacts": [],
+    "registerUrl": "",
+    "facebookUrl": ""
+  }
+]
