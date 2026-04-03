@@ -148,10 +148,10 @@ fetch('./json/events.json')
   function buildInfoList(ev) {
     if (!ev.info) return '';
     const rows = [
-      ev.info.location ? `<li><strong>📍 Байршил</strong>${esc(ev.info.location)}</li>` : '',
-      ev.info.date     ? `<li><strong>📅 Огноо</strong>${esc(ev.info.date)}</li>`     : '',
-      ev.info.age      ? `<li><strong>👦 Нас</strong>${esc(ev.info.age)}</li>`        : '',
-      ev.info.fee      ? `<li><strong>💰 Төлбөр</strong>${esc(ev.info.fee)}</li>`    : '',
+      ev.info.location ? `<li><strong>Байршил</strong>${esc(ev.info.location)}</li>` : '',
+      ev.info.date     ? `<li><strong>Огноо</strong>${esc(ev.info.date)}</li>`     : '',
+      ev.info.age      ? `<li><strong>Нас</strong>${esc(ev.info.age)}</li>`        : '',
+      ev.info.fee      ? `<li><strong>Төлбөр</strong>${esc(ev.info.fee)}</li>`    : '',
     ].filter(Boolean).join('');
     return rows ? `<ul class="ev-info-list">${rows}</ul>` : '';
   }
@@ -166,7 +166,7 @@ fetch('./json/events.json')
 
   function buildBonus(ev) {
     if (!ev.bonus) return '';
-    return `<div class="ev-bonus">🎁 &nbsp;${esc(ev.bonus)}</div>`;
+    return `<div class="ev-bonus">&nbsp;${esc(ev.bonus)}</div>`;
   }
 
   function buildBank(ev) {

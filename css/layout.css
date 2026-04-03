@@ -199,7 +199,7 @@
 }
 .landscape-break::before {
   content: ''; position: absolute; inset: 0;
-  background-image: url('../img/pattern_blue_color.png');
+
   background-size: 250px auto; opacity: 0.06;
 }
 .landscape-quote { text-align: center; color: var(--color-text-on-dark); padding: 0 var(--space-5); position: relative; z-index: 1; }

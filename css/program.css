@@ -299,7 +299,7 @@ body {
    BADGE SYSTEM
    ============================================================ */
 .badge-system { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-6); margin-top: 48px; }
-.badge-intro  { font-size: var(--text-lg); color: var(--color-text-muted); font-weight: var(--weight-regular); line-height: 1.7; margin-bottom: 32px; }
+.badge-intro  { font-size: var(--text-lg); color: var(--color-text); font-weight: var(--weight-regular); line-height: 1.7; margin-bottom: 32px; }
 .badge-tier   { border: var(--border-thin); background: rgba(255,255,255,0.96); overflow: hidden; }
 .badge-tier-header {
   padding: var(--space-5) var(--space-6);
@@ -332,22 +332,15 @@ body {
    АЛТАН ШОНХОР
    ============================================================ */
 .altan-shonhor-section { margin-top: 72px; text-align: center; }
-.altan-shonhor-intro   { font-size: var(--text-lg); color: var(--color-text-muted); font-weight: var(--weight-regular); line-height: 1.7; max-width: 640px; margin: 0 auto 32px; }
+.altan-shonhor-intro   { font-size: var(--text-lg); color: var(--color-text); font-weight: var(--weight-regular); line-height: 1.7; max-width: 640px; margin: 0 auto 32px; }
 .altan-shonhor-inner   { display: flex; flex-direction: column; align-items: center; gap: var(--space-6); margin-top: 32px; }
 .altan-shonhor-img     { width: 200px; height: 200px; object-fit: contain; filter: drop-shadow(0 8px 28px rgba(17,46,80,0.22)); }
 
 /* ============================================================
    CURRICULUM
    ============================================================ */
-.curriculum-body { font-size: var(--text-lg); color: var(--color-text-muted); font-weight: var(--weight-regular); line-height: 1.8; margin-bottom: var(--space-8); }
-.impact-box  { border: var(--border-thin); background: rgba(255,255,255,0.96); padding: var(--space-8); margin-top: var(--space-8); }
-.impact-list { display: flex; flex-direction: column; gap: var(--space-4); }
-.impact-item { padding: var(--space-4); }
-.impact-item--accent  { border-left: 3px solid var(--color-accent);  background: var(--color-primary-pale); }
-.impact-item--primary { border-left: 3px solid var(--color-primary); background: var(--color-bg-alt); }
-.impact-item--green   { border-left: 3px solid #4caf50;              background: var(--color-bg-alt); }
-.impact-item__title   { font-family: var(--font-display); font-size: var(--text-sm); color: var(--color-primary); display: block; margin-bottom: 6px; }
-.impact-item__desc    { font-size: var(--text-sm); color: var(--color-text-muted); }
+.curriculum-body { font-size: var(--text-lg); color: var(--color-text); font-weight: var(--weight-regular); line-height: 1.8; margin-bottom: var(--space-8); }
+
 
 /* ============================================================
    TRAINING STEPS
@@ -369,12 +362,6 @@ body {
 .step-content h4 { font-family: var(--font-display); font-size: var(--text-base); font-weight: var(--weight-bold); color: var(--color-surface-dark); margin-bottom: var(--space-3); }
 .step-content p  { font-size: var(--text-md); color: var(--color-text-muted); line-height: 1.6; }
 
-/* ============================================================
-   CONCLUSION + CTA
-   ============================================================ */
-.conclusion-box        { margin-top: 48px; border: var(--border-thin); background: rgba(255,255,255,0.96); padding: var(--space-10); }
-.conclusion-box__title { font-family: var(--font-display); font-size: var(--text-xl); font-weight: var(--weight-bold); color: var(--color-surface-dark); margin-bottom: var(--space-5); }
-.conclusion-box__body  { font-size: var(--text-lg); color: var(--color-text-muted); font-weight: var(--weight-regular); line-height: 1.8; }
 
 .cta-block            { text-align: center; margin-top: 64px; }
 .cta-block__title     { font-family: var(--font-display); font-size: clamp(1.6rem, 3.5vw, 2.8rem); font-weight: var(--weight-bold); color: var(--color-surface-dark); margin-bottom: var(--space-5); }
