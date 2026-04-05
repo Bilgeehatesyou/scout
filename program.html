@@ -1,626 +1,821 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="mn">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Хөтөлбөр — Монголын Скаутын Холбоо</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/theme.css" />
-  <link rel="stylesheet" href="css/base.css" />
-  <link rel="stylesheet" href="css/program.css" />
-</head>
-<body>
-
-<!-- ═══════════════ NAV ═══════════════ -->
-<nav id="main-nav">
-  <div class="nav-inner">
-    <a href="index.html" class="nav-logo">
-      <img class="logo-white" src="img/tsagaan_logo_texttei.png" alt="Монголын Скаутын Холбоо" />
-      <img class="logo-color"  src="img/huh_logo_texttei.png"    alt="Монголын Скаутын Холбоо" />
-    </a>
-    <ul>
-      <li><a href="index.html#about">Нүүр</a></li>
-      <li><a href="history.html">Түүх</a></li>
-      <li><a href="program.html" class="nav-link--active">Хөтөлбөр</a></li>
-      <li><a href="events.html">Арга хэмжээ</a></li>
-      <li><a href="index.html#join">Нэгдэх</a></li>
-    </ul>
-  </div>
-</nav>
-
-<!-- ═══════════════ HERO ═══════════════ -->
-<div class="prog-hero">
-  <div class="prog-hero-content">
-    <h1>Скаутын <em>Хөтөлбөр</em></h1>
-  </div>
-</div>
-
-<!-- ═══════════════ STICKY TABS ═══════════════ -->
-<div class="prog-tabs-bar">
-  <div class="prog-tabs">
-    <a href="#intro"      class="prog-tab active">Танилцуулга</a>
-    <a href="#ages"       class="prog-tab">Насны ангилал</a>
-    <a href="#badges"     class="prog-tab">Тэмдэгт</a>
-    <a href="#curriculum" class="prog-tab">Хөтөлбөрийн уялдаа</a>
-    <a href="#training"   class="prog-tab">Сургалт</a>
-  </div>
-</div>
-
-
-
-
-
-<!-- ═══════════════════════════════════════════
-     SECTION 2 — НАСНЫ АНГИЛАЛ
-     ═══════════════════════════════════════════ -->
-<section class="prog-section prog-section--alt" id="ages">
-  <div class="container">
-
-    <div class="reveal">
-      <div class="section-label">Хөгжлийн замнал</div>
-      <h2 class="section-title">Насны ангилал</h2>
-      <p class="section-intro">Монголын Скаутын Холбоо нь Нийслэлийн 9 дүүрэг, 21 аймагт үйл
-      ажиллагаа явуулдаг бөгөөд хүүхэд бүрийн нас, хөгжилд тохирсон хөтөлбөртэй.</p>
-    </div>
-
-    <div class="age-stages reveal">
-      <div class="age-stage age-stage--cub">
-        <div class="age-stage-header">
-          <span class="age-stage-icon">🐺</span>
-          <div class="age-stage-range">6–12 нас</div>
-          <div class="age-stage-name">Каб Скаут</div>
-          <div class="age-stage-mn">Cub Scout</div>
-        </div>
-        <div class="age-stage-body">
-          <p>Каб нас нь 6–12 насны хүүхдүүдэд зориулсан скаутын хөдөлгөөний анхан шатны хөгжлийн
-          үе. Хүүхдийг тоглоом, сонирхолтой үйл ажиллагаагаар дамжуулан суралцах, хамт олны дунд
-          зөв төлөвшихэд чиглэдэг.</p>
-          <p>Кабууд нь бүлгээрээ буюу "кабын бүлэг"-ээр дамжин ажилладаг. Хамтын ажиллагаа,
-          нөхөрлөл, буусдыг хүндлэх, энгийн хариуцлагийг эзэмшдэг.</p>
-          <div class="age-stage-tags">
-            <span class="age-tag">Чоно каб</span>
-            <span class="age-tag">Буга каб</span>
-            <span class="age-tag">Баавгай каб</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="age-stage age-stage--scout">
-        <div class="age-stage-header">
-          <span class="age-stage-icon">⚜️</span>
-          <div class="age-stage-range">12–15 нас</div>
-          <div class="age-stage-name">Скаут</div>
-          <div class="age-stage-mn">Scout</div>
-        </div>
-        <div class="age-stage-body">
-          <p>12–17 насны хүүхэд, өсвөр үеийнхний бие бялдар, оюун ухаан, нийгмийн хөгжлийг
-          дэмжих зорилготой хөгжлийн шат юм.</p>
-          <p>Монгол орны уур амьсгал, улирлын онцлогт тохируулан танхимын болон байгальд
-          түшиглэсэн хэлбэрээр зохион байгуулдаг.</p>
-          <div class="age-stage-tags">
-            <span class="age-tag">Жилд 368 цаг</span>
-            <span class="age-tag">Байгальд сургалт</span>
-            <span class="age-tag">Зуны зуслан</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="age-stage age-stage--venture">
-        <div class="age-stage-header">
-          <span class="age-stage-icon">⚜️</span>
-          <div class="age-stage-range">16–17 нас</div>
-          <div class="age-stage-name">Венчир</div>
-          <div class="age-stage-mn">Venture</div>
-        </div>
-        <div class="age-stage-body">
-          <p>Өсвөр насны скаутуудыг ирээдүйн удирдагч болгоход чиглэх үе шат.</p>
-          <p>Бүлгийн цуглаан зохион байгуулж, нийгмийн амьдралд скаутаар дамжуулан
-          оролцож эхэлдэг.</p>
-          <div class="age-stage-tags">
-            <span class="age-tag">Жилд 368 цаг</span>
-            <span class="age-tag">Байгальд сургалт</span>
-            <span class="age-tag">Зуны зуслан</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="age-stage age-stage--rover">
-        <div class="age-stage-header">
-          <span class="age-stage-icon">🌐</span>
-          <div class="age-stage-range">18–25 нас</div>
-          <div class="age-stage-name">Ровер Скаут</div>
-          <div class="age-stage-mn">Rover Scout</div>
-        </div>
-        <div class="age-stage-body">
-          <p>Ровер скаутын салбар нь 18–25 насны залуучуудыг хамарсан, скаутын хөдөлгөөний
-          хамгийн идэвхтэй, нийгэмд чиглэсэн салбар юм.</p>
-          <p>Роверууд нь сайн дурын ажил, манлайлал, олон улсын харилцаагаар дамжуулан
-          туршлага хуримтлуулж, амьдралын бодит ур чадварыг эзэмшдэг.</p>
-          <div class="age-stage-tags">
-            <span class="age-tag">Алтан шонхор</span>
-            <span class="age-tag">ATAS Mongolia</span>
-            <span class="age-tag">Сайн дурын ажил</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Удирдагч full-width -->
-    <div class="age-stages age-stages--leader-row reveal">
-      <div class="age-stage age-stage--leader">
-        <div class="age-stage-header">
-          <span class="age-stage-icon">🦅</span>
-          <div class="age-stage-range">Насанд хүрэгчид</div>
-          <div class="age-stage-name">Скаутын удирдагч</div>
-          <div class="age-stage-mn">Scout Leader</div>
-        </div>
-        <div class="age-stage-body">
-          <p>Скаутын удирдагч нь хүүхэд, залуучуудын хөгжилд туслах, хөтөлбөрийн хэрэгжилтийг
-          хангах насанд хүрсэн гишүүд юм. BTC болон Wood Badge сургалтаар мэргэжлийн ур
-          чадвараа дээшлүүлдэг.</p>
-          <div class="age-stage-tags">
-            <span class="age-tag">БУБАШҮС</span>
-            <span class="age-tag">Модон Тэмдэгт</span>
-            <span class="age-tag">Кабын удирдагч</span>
-            <span class="age-tag">Скаутын удирдагч</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Сургалтын хэлбэр -->
-    <div class="reveal section-block">
-      <div class="section-label">Скаут нас — 12–15</div>
-      <h3 class="section-title section-title--sm">Сургалтын хэлбэр</h3>
-    </div>
-    <div class="compare-grid reveal">
-      <div class="compare-card">
-        <div class="compare-header compare-header--scout">Танхимын сургалт</div>
-        <div class="compare-body">
-          <li>10 дугаар сарын 1-нээс 5 дугаар сарын 1-ний өдөр хүртэл</li>
-          <li>7 хоногт 1 удаа, 32 долоо хоног</li>
-          <li>Нэг удаагийн сургалт 90 хүртэлх минут</li>
-          <li>Бүлгийн цуглаан болон онлайн мэдлэг, ур чадварын сургалтууд</li>
-        </div>
-      </div>
-      <div class="compare-card">
-        <div class="compare-header compare-header--school">Байгальд түшиглэсэн сургалт</div>
-        <div class="compare-body">
-          <li>5 дугаар сараас 9 дүгээр сар хүртэл</li>
-          <li>Байгальд түшиглэсэн зуны арга хэмжээ</li>
-          <li>Майхант зуслан, цугларалтууд зохион байгуулагдана</li>
-          <li>Хээрийн явган аялал — 80 цаг (сард 1 удаа)</li>
-          <li>Зуны зуслан, цугларалт — 240 цаг (2 удаа)</li>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<!-- ═══════════════════════════════════════════
-     SECTION 3 — ТЭМДЭГТ
-     ═══════════════════════════════════════════ -->
-<section class="prog-section" id="badges">
-  <div class="container">
-
-    <div class="reveal">
-      <div class="section-label">Хувийн хөгжил</div>
-      <h2 class="section-title" style="margin-bottom:32px;">Мэдлэг, Дадал, Чадварын Тэмдэгт</h2>
-      <div style="height:32px"></div>
-      <p class="section-intro">Скаутын эгнээнд нэгдсэн хүн бүр өөрийн нас, хөгжлийн онцлогт тохирсон сургалтын хөтөлбөр, сорилт, болзлыг үе шаттайгаар биелүүлснээр мэдлэг, ур чадвар, дадлаа хөгжүүлж, ахиц дэвшлээ илэрхийлэх тэмдэг, зэрэглэл хүртдэг.</p>
-    </div>
-
-    <div class="highlight-box reveal">
-      <p>Тэмдгийн тогтолцооны үндсэн зорилго, эрхэм үнэ цэнэ нь түүнийг зөв, зохистой хэрэгжүүлсэн тохиолдолд скаут бүрийн хөгжлийн явцад тулгарч болох бэрхшээл, хоцрогдлыг арилгаж, тэднийг идэвх санаачилгатай, өөртөө итгэлтэйгээр урагшлахад дэмжлэг үзүүлэхэд оршино. Энэхүү тогтолцоо нь скаутуудад мэдлэг, боловсрол, ур чадвараа тасралтгүй хөгжүүлэх боломжийг олгож, амжилтад хүрэхийн төлөө өөрийгөө хөгжүүлэх урам зоригийг төрүүлдэг.</p>
-      <p class="highlight-box__cite">— Баден Пауэл</p>
-    </div>
-
-    <!-- Каб насны тэмдгүүд -->
-    <div class="reveal section-block">
-      <div class="section-label">Каб нас (6–12)</div>
-      <h3 class="section-title section-title--sm">Кабын зэрэглэлийн тэмдэг</h3>
-    </div>
-    <div class="badge-system reveal">
-      <div class="badge-tier badge-tier--cub-wolf">
-        <div class="badge-tier-header">
-          <div>
-            <div class="badge-tier-name">🐺 Чоно каб</div>
-            <div class="badge-tier-sub">1-2-р ангийн сурагч · 12 шалгуур</div>
-          </div>
-        </div>
-        <div class="badge-tier-body">
-          <p>ЕБС-ийн 1-2-р ангийн сурагчдын батлагдсан хөтөлбөрийн дагуу Биеийн тамир,
-          Дүрслэх урлаг, технологи, Хүн ба орчин, Иргэний ёс зүйн боловсрол хичээлийн
-          агуулгатай уялдаж байна.</p>
-          <div class="badge-subjects">
-            <span class="badge-subject">Бие, бялдар, ур чадвар</span>
-            <span class="badge-subject">Гэр ахуйн дархан</span>
-            <span class="badge-subject">Төрийн далбаа</span>
-            <span class="badge-subject">Монгол ардын мэндлэх ёс</span>
-            <span class="badge-subject">Манай гэр бүл</span>
-            <span class="badge-subject">Аюулгүй байдал</span>
-            <span class="badge-subject">Цуглуулга</span>
-            <span class="badge-subject">Эрүүл мэнд</span>
-          </div>
-        </div>
-      </div>
-      <div class="badge-tier badge-tier--cub-deer">
-        <div class="badge-tier-header">
-          <div>
-            <div class="badge-tier-name">🦌 Буга каб</div>
-            <div class="badge-tier-sub">3-4-р ангийн сурагч · 24 шалгуур</div>
-          </div>
-        </div>
-        <div class="badge-tier-body">
-          <p>ЕБС-ийн 3-4-р ангийн сурагчдын батлагдсан хөтөлбөрийн дагуу Биеийн тамир,
-          Монгол хэл, Хүн ба орчин, Дүрслэх урлаг, технологи, Хүн ба нийгэм хичээлийн
-          агуулгатай уялдаж байна.</p>
-          <div class="badge-subjects">
-            <span class="badge-subject">Ардын аман зохиол</span>
-            <span class="badge-subject">Өнгөрсөн үеийн түүхийн мөчүүд</span>
-            <span class="badge-subject">Байгаль дэлхий</span>
-            <span class="badge-subject">Мэдээлэл</span>
-            <span class="badge-subject">Загвар зохиох</span>
-            <span class="badge-subject">Хоол хийх</span>
-            <span class="badge-subject">Спорт</span>
-            <span class="badge-subject">Аялал</span>
-          </div>
-        </div>
-      </div>
-      <div class="badge-tier badge-tier--cub-bear">
-        <div class="badge-tier-header">
-          <div>
-            <div class="badge-tier-name">🐻 Баавгай каб</div>
-            <div class="badge-tier-sub">5-р ангийн сурагч · 5 шалгуур</div>
-          </div>
-        </div>
-        <div class="badge-tier-body">
-          <p>ЕБС-ийн 5-р ангийн сурагчдын батлагдсан хөтөлбөрийн дагуу Хүн ба нийгэм
-          хичээлийн агуулгатай уялдаж байна.</p>
-          <div class="badge-subjects">
-            <span class="badge-subject">Миний амьдардаг газар</span>
-            <span class="badge-subject">Гэр бүлээ онцгой болгох</span>
-            <span class="badge-subject">Өөрийгөө эрүүл ба аюулгүй байлгах</span>
-            <span class="badge-subject">Үүнийг би яаж хэлэх вэ?</span>
-            <span class="badge-subject">Эрүүл агаарт гарцгааяа</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Скаут насны тэмдгүүд -->
-    <div class="reveal section-block">
-      <div class="section-label">Скаут нас (6–12-р анги)</div>
-      <h3 class="section-title section-title--sm">Скаутын зэрэглэлийн тэмдэг</h3>
-    </div>
-    <p class="badge-intro reveal">65 төрлийн мэдлэг, дадал, чадварын тэмдэгтийг 6–12-р ангийн
-    сурагчид өөрийн хичээлийн агуулгатай уялдуулан бүрэн хамгаалах боломжтой. 65 төрлийн
-    тэмдэгт нь ЕБ сургуулийн сурагчдын батлагдсан хөтөлбөрийн
-    <strong>20 төрлийн хичээлийн агуулгатай</strong> уялдаж байна.</p>
-
-    <div class="badge-system reveal">
-      <div class="badge-tier badge-tier--hurel">
-        <div class="badge-tier-header">
-          <div>
-            <div class="badge-tier-name"><span class="badge-dot badge-dot--hurel"></span>Хүрэл сум</div>
-            <div class="badge-tier-sub">6-7-р ангийн сурагч</div>
-          </div>
-        </div>
-        <div class="badge-tier-body">
-          <p>Хүрэл сум нь үндсэн 5 мэдлэг, дадал, чадварын тэмдэгийг хамгаалсан байх ёстой
-          бөгөөд энэ нь 1 хичээлийн агуулгатай уялдаж байна.</p>
-          <div class="badge-subjects">
-            <span class="badge-subject">Монгол нутаг</span>
-            <span class="badge-subject">Анхны тусламж</span>
-            <span class="badge-subject">Байгаль орчин</span>
-          </div>
-        </div>
-      </div>
-      <div class="badge-tier badge-tier--mongon">
-        <div class="badge-tier-header">
-          <div>
-            <div class="badge-tier-name"><span class="badge-dot badge-dot--mongon"></span>Мөнгөн сум</div>
-            <div class="badge-tier-sub">8-9-р ангийн сурагч</div>
-          </div>
-        </div>
-        <div class="badge-tier-body">
-          <p>Мөнгөн сум нь үндсэн 6 мэдлэг, дадал, чадварын тэмдэгийг хамгаалсан байх ёстой
-          бөгөөд энэ нь 4 хичээлийн агуулгатай уялдаж байна.</p>
-          <div class="badge-subjects">
-            <span class="badge-subject">Манлайлал</span>
-            <span class="badge-subject">Олон нийт</span>
-            <span class="badge-subject">Дэлхий иргэн</span>
-          </div>
-        </div>
-      </div>
-      <div class="badge-tier badge-tier--altan">
-        <div class="badge-tier-header">
-          <div>
-            <div class="badge-tier-name"><span class="badge-dot badge-dot--altan"></span>Алтан сум</div>
-            <div class="badge-tier-sub">10-12-р ангийн сурагч</div>
-          </div>
-        </div>
-        <div class="badge-tier-body">
-          <p>Алтан сум нь үндсэн 5 мэдлэг, дадал, чадварын тэмдэгийг хамгаалсан байх ёстой
-          бөгөөд энэ нь 3 хичээлийн агуулгатай уялдаж байна.</p>
-          <div class="badge-subjects">
-            <span class="badge-subject">Алтан шонхор</span>
-            <span class="badge-subject">Ахлах манлайлал</span>
-            <span class="badge-subject">Нийгмийн үйлчилгээ</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Алтан Шонхор -->
-    <div class="altan-shonhor-section reveal">
-      <div class="section-label section-label--center">Хамгийн дээд зэрэглэл</div>
-      <h3 class="section-title section-title--sm">Алтан Шонхор</h3>
-      <p class="altan-shonhor-intro">Алтан Шонхор нь Монголын Скаутын Холбооны хамгийн дээд
-      зэрэглэлийн тэмдэг бөгөөд скаутын бүхий л шатны хөтөлбөрийг амжилттай дуусгасан
-      гишүүнд олгодог.</p>
-      <div class="altan-shonhor-inner">
-        <img src="img/altan_shonhor_badge.png" alt="Алтан Шонхор тэмдэг" class="altan-shonhor-img" />
-      </div>
-    </div>
-
-  </div>
-</section>
-
-
-<!-- ═══════════════════════════════════════════
-     SECTION 4 — ХӨТӨЛБӨРИЙН УЯЛДАА
-     ═══════════════════════════════════════════ -->
-<section class="prog-section prog-section--alt" id="curriculum">
-  <div class="container">
-
-    <div class="reveal">
-      <div class="section-label">ЕБС-тэй хамтын ажиллагаа</div>
-      <h2 class="section-title">Хөтөлбөрийн уялдаа</h2>
-      <p class="section-intro">Монголын Скаутын Холбооны кабын хөтөлбөр нь ЕБС-ийн I–V ангийн
-      сургалтын хөтөлбөртэй, скаутын хөтөлбөр нь VI–XII ангийн хөтөлбөртэй уялдсан байдаг.
-      Скаутын хөтөлбөр нь хичээлийн хөтөлбөрт ороогүй 45 төрлийн мэдлэг, дадал, чадварыг
-      олгох боломжтой.</p>
-    </div>
-
-    <div class="curriculum-highlight reveal">
-      <p>Скаутын хөтөлбөр нь хүүхэд, залуучуудыг зөвхөн мэдлэгтэй байхаас гадна амьдралд бие даан оролцох чадвартай, хариуцлагатай иргэн болгон төлөвшүүлэхэд чиглэдэг. Тус хөтөлбөр нь Youth Programme Framework, Learning by Doing, Personal Progression зэрэг олон улсын скаутын үндсэн зарчимд тулгуурлан хувь хүний тасралтгүй хөгжил, манлайллыг дэмжин хэрэгждэг.</p>
-    </div>
-
-    <div class="reveal section-block">
-      <div class="section-label">Удирдагч багш нарт</div>
-      <h3 class="section-title section-title--sm">Кабын удирдагч багш - ач холбогдол</h3>
-    </div>
-    <div class="about-grid reveal">
-      <div>
-        <p class="curriculum-body">Кабын удирдагч багш нь хүүхдийн хөгжлийг зөвхөн академик боловсролын хүрээнд бус, амьдралын ур чадвар, үнэт зүйл, зан төлөвөөр нь төлөвшүүлэхэд чиглэсэн чухал үүрэгтэй. Багш сурагчийн харилцаа нь энгийн хичээлийн харилцаанаас давж, итгэлцэл, харилцан хүндлэл, дэмжлэгт суурилсан түншлэл болон гүнзгийрдэг. Ингэснээр сахилга бат нь гаднаас тулгасан шаардлага биш, харин хүүхдийн дотоод ухамсар, өөрийн хариуцлага дээр тулгуурлан төлөвшдөг.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<!-- ═══════════════════════════════════════════
-     SECTION 5 — СУРГАЛТ
-     ═══════════════════════════════════════════ -->
-<section class="prog-section" id="training">
-  <div class="container">
-
-    <div class="reveal">
-      <div class="section-label">Мэргэжлийн хөгжил</div>
-      <h2 class="section-title">Сургалтын шаталсан тогтолцоо</h2>
-      <p class="section-intro">General Information Training → Basic Unit Leader Training Course → Advanced Unit Leader Training Course (Woodbadge) гэсэн шаталсан сургалтын систем нь скаутын удирдагч, багш нарыг тасралтгүй хөгжүүлдэг. Энэхүү тогтолцоо нь оролцогчдыг анхан шатнаас эхлэн манлайлагч түвшинд хүрэх хүртэл системтэйгээр хөгжүүлэх онцлогтой.</p>
-    </div>
-
-    <!-- 01 GIT -->
-    <div class="training-card reveal">
-      <div class="training-card__header">
-        <div class="training-card__num">01</div>
-        <div>
-          <div class="training-card__title">General Information Training</div>
-          <div class="training-card__sub">Ерөнхий мэдээлэл олгох сургалт · 8 цаг · 1 өдөр</div>
-        </div>
-      </div>
-      <div class="training-card__body">
-        <div class="training-card__body-top">
-          <p>Хүүхэд, залуучууд, багш сурган хүмүүжүүлэгчид болон скаутын үйл ажиллагааг сонирхож буй хэн бүхэнд зориулсан анхан шатны танин мэдэхүйн сургалт юм.</p>
-          <img src="img/surgalt.jpg" alt="GIT" class="training-card__img--large" />
-        </div>
-        <div class="training-card__cols">
-          <div>
-            <div class="training-card__col-title">Мэдлэгийн түвшинд</div>
-            <ul class="training-card__list">
-              <li>Скаутын хөдөлгөөний үүсэл, хөгжил</li>
-              <li>Зорилго, үнэт зүйлс</li>
-              <li>Андгай, хууль, үндсэн зарчим</li>
-              <li>Нийгэмд чиглэсэн сайн дурын үйл ажиллагааны ач холбогдол</li>
-            </ul>
-          </div>
-          <div>
-            <div class="training-card__col-title">Арга зүйн түвшинд</div>
-            <ul class="training-card__list">
-              <li>"Learning by Doing" зарчим</li>
-              <li>Тоглоомд суурилсан сургалт</li>
-              <li>Багаар ажиллах арга зүй</li>
-              <li>Хамтын ажиллагаанд суурилсан оролцооны хэлбэр</li>
-            </ul>
-          </div>
-          <div>
-            <div class="training-card__col-title">Хандлага, хүмүүжлийн түвшинд</div>
-            <ul class="training-card__list">
-              <li>Хариуцлагатай, идэвхтэй иргэн байх</li>
-              <li>Өөртөө итгэх итгэл</li>
-              <li>Бусдад туслах, сайн үйлс хийх</li>
-              <li>Хамт олноо хүндлэх, ойлгох</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- 02 BULC -->
-    <div class="training-card reveal">
-      <div class="training-card__header">
-        <div class="training-card__num">02</div>
-        <div>
-          <div class="training-card__title">Basic Unit Leader Training Course</div>
-          <div class="training-card__sub">Үндсэн багшийн сургалт · 2–3 өдөр</div>
-        </div>
-      </div>
-      <div class="training-card__body">
-        <div class="training-card__body-top">
-          
-          <p>Анхан шатны ойлголтыг практикт нэвтрүүлж, баг удирдах ур чадвар хөгжүүлэх төвтэй. Зорилго: Скаутын бүлгийн үйл ажиллагааг удирдах чадвар эзэмшүүлэх. Оролцогчид: Кабын багш, залуу удирдагч.</p>
-            <img src="img/badge.png" alt="BULC badge" class="training-card__img--large" />
-        </div>
-        <div class="training-card__cols">
-          <div>
-            <div class="training-card__col-title">Мэдлэгийн түвшинд</div>
-            <ul class="training-card__list">
-              <li>Скаутын бүлэг удирдах бүтэц, үүрэг</li>
-              <li>Хүүхдийн хөгжлийн үе шат, зан төлөвийн онцлог</li>
-              <li>Аюулгүй, оролцоотой сургалтын орчин бүрдүүлэх</li>
-            </ul>
-          </div>
-          <div>
-            <div class="training-card__col-title">Арга зүйн түвшинд</div>
-            <ul class="training-card__list">
-              <li>Багаар ажиллах, хамтын ажиллагааг удирдах</li>
-              <li>Тоглоом, сорил, дадлага дээр суурилсан "Learning by Doing"</li>
-              <li>Хүүхдийн зан төлөв, хандлага ажиглах, зөв чиглүүлэх</li>
-            </ul>
-          </div>
-          <div>
-            <div class="training-card__col-title">Хандлага, хүмүүжлийн түвшинд</div>
-            <ul class="training-card__list">
-              <li>Манлайлагчийн хандлага төлөвшүүлэх</li>
-              <li>Өөртөө итгэлтэй, хүүхэд төвтэй багш болох</li>
-              <li>Багаар ажиллах, асуудлыг зөвшилцлөөр шийдэх чадвар</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- 03 Woodbadge -->
-    <div class="training-card reveal">
-      <div class="training-card__header">
-        <div class="training-card__num">03</div>
-        <div>
-          <div class="training-card__title">Advanced Unit Leader Training Course</div>
-          <div class="training-card__sub">Модон Тэмдэгт (Woodbadge) · 5–7 өдөр</div>
-        </div>
-      </div>
-      <div class="training-card__body">
-        <div class="training-card__body-top">
-           <p>Системтэй, стратегийн түвшинд манлайлах ур чадвар эзэмшүүлэхэд чиглэнэ. Зорилго: Багш, удирдагчийг жирийн удирдагчаас манлайлагч түвшинд хөгжүүлэх. Оролцогчид: Кабын удирдагч багш нар, туршлагатай скаутын удирдагчид.</p>
-            <div class="training-card__imgs--row">
-            <img src="img/modon_temdegt_1.png" alt="Woodbadge 1" class="training-card__img--row" />
-            <img src="img/modon_temdegt_2.jpg" alt="Woodbadge 2" class="training-card__img--row" />
-            <img src="img/modon_temdegt_3.png" alt="Woodbadge 3" class="training-card__img--row" />
-          </div>
-          </div>
-        <div class="training-card__cols">
-          <div>
-            <div class="training-card__col-title">Мэдлэгийн түвшинд</div>
-            <ul class="training-card__list">
-              <li>Скаутын дэлхийн түвшний хөгжлийн үзэл баримтлал</li>
-              <li>Хөтөлбөр, арга зүйг сургалтын стратегиар удирдах</li>
-              <li>Скаутын хөдөлгөөний манлайлагчийн үүрэг, хариуцлага</li>
-            </ul>
-          </div>
-          <div>
-            <div class="training-card__col-title">Арга зүйн түвшинд</div>
-            <ul class="training-card__list">
-              <li>Комплекс дасгал, кейс судалгаа дээр ажиллах</li>
-              <li>Багийн үйл ажиллагаа, сургалтын үр дүнг үнэлэх</li>
-              <li>Дэмжлэгт, оролцоонд суурилсан менежмент</li>
-            </ul>
-          </div>
-          <div>
-            <div class="training-card__col-title">Хандлага, хүмүүжлийн түвшинд</div>
-            <ul class="training-card__list">
-              <li>Лидерийн үнэт зүйл, үлгэрлэлийг төлөвшүүлэх</li>
-              <li>Багаас сургалт авч, бусдад манлайлах</li>
-              <li>Өөрийгөө хөгжүүлж, хүүхдийг зөв удирдах ур чадвар эзэмших</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Удирдагч -->
-    <div class="reveal section-block">
-      <div class="section-label">Насанд хүрэгчид</div>
-      <h3 class="section-title section-title--sm">Скаутын удирдагч гэж хэн бэ?</h3>
-    </div>
-    <div class="about-grid reveal">
-      <div>
-        <p class="curriculum-body">Скаутын удирдагч гэдэг нь хүүхэд, залуучуудыг хамтын, аюулгүй, идэвхтэй орчинд хөгжүүлэхэд чиглэсэн зөвхөн багш бус, манлайлагч юм. Хүүхдийн зан төлөв, чадвар, үнэт зүйлсийг төлөвшүүлэхэд чиглэж, сургалтын орчныг аюулгүй, оролцоотой, эерэг байлгах үүрэгтэй. Өөрийн үлгэрлэлээр нөлөөлж, хүүхдийг шүүх бус, зөв чиглүүлэх аргаар хөгжүүлдэг.</p>
-        <p class="curriculum-body">Скаутын удирдагч нь зөвхөн мэдлэг дамжуулагч бус, хүүхэд төвтэй, үнэт зүйлсэд суурилсан манлайлагч юм. Түүний үйл ажиллагаа нь хүүхдийн өөртөө итгэх итгэл, оролцоо, бие даасан байдлыг хөгжүүлж, багийн хамтын ажиллагаа, харилцан хүндлэлийг бэхжүүлдэг.</p>
-      </div>
-      <div>
-        
-      </div>
-    </div>
-
-    <!-- CTA -->
-    <div class="cta-block reveal">
-      <div class="section-label section-label--center">Нэгдэх</div>
-      <h3 class="cta-block__title">Скаутын гэр бүлд нэгдэх үү?</h3>
-      <p class="cta-block__subtitle">Нийслэлийн 9 дүүрэг, 21 аймагт байгаа скаутын бүлэгт элсэх боломжтой.</p>
-      <a href="index.html#join" class="btn-primary">Элсэх хүсэлт илгээх →</a>
-    </div>
-
-  </div>
-</section>
-
-
-<!-- ═══════════════ FOOTER ═══════════════ -->
-<footer>
-  <div class="footer-inner">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <div class="footer-logo">Монголын Скаутын Холбоо</div>
-        <p class="footer-tagline">Адал явдал, тал нутгийн мөнхийн өв соёлыг эрхэмлэн Монголын залуусыг нэгтгэж, төлөвшүүлэхийг зорьдог. Бид 1991 оноос хойш Дэлхийн Скаутын Хөдөлгөөний Байгууллагын гишүүнээр ажиллаж байна.</p>
-      </div>
-      <div>
-        <div class="footer-heading">Цэс</div>
-        <ul class="footer-links">
-          <li><a href="index.html#about">Бидний тухай</a></li>
-          <li><a href="history.html">Үнэт зүйлс</a></li>
-          <li><a href="program.html">Хөтөлбөр</a></li>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Хөтөлбөр — Монголын Скаутын Холбоо</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/theme.css" />
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/program.css" />
+  </head>
+  <body>
+    <!-- ═══════════════ NAV ═══════════════ -->
+    <nav id="main-nav">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-logo">
+          <img
+            class="logo-white"
+            src="img/tsagaan_logo_texttei.png"
+            alt="Монголын Скаутын Холбоо"
+          />
+          <img
+            class="logo-color"
+            src="img/huh_logo_texttei.png"
+            alt="Монголын Скаутын Холбоо"
+          />
+        </a>
+        <ul>
+          <li><a href="index.html#about">Нүүр</a></li>
+          <li><a href="history.html">Түүх</a></li>
+          <li><a href="program.html" class="nav-link--active">Хөтөлбөр</a></li>
           <li><a href="events.html">Арга хэмжээ</a></li>
           <li><a href="index.html#join">Нэгдэх</a></li>
         </ul>
       </div>
-      <div>
-        <div class="footer-heading">Хөтөлбөр</div>
-        <ul class="footer-links">
-          <li><a href="program.html#ages">Каб Скаут (6–12)</a></li>
-          <li><a href="program.html#ages">Скаут (12–15)</a></li>
-          <li><a href="program.html#ages">Венчир Скаут (16–17)</a></li>
-          <li><a href="program.html#ages">Ровер Скаут (18–25)</a></li>
-          <li><a href="program.html#training">Удирдагч</a></li>
-        </ul>
-      </div>
-      <div class="footer-contact">
-        <div class="footer-heading">Холбоо барих</div>
-        <p>Улаанбаатар, Монгол</p>
-        <p><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="bcd5d2dad3fccfdfd3c9c892d1d2">[email&#160;protected]</a></p>
-        <p>+976 011 32 4171</p>
+    </nav>
+
+    <!-- ═══════════════ HERO ═══════════════ -->
+    <div class="prog-hero">
+      <div class="prog-hero-content">
+        <h1>Скаутын <em>Хөтөлбөр</em></h1>
       </div>
     </div>
-    <div class="footer-bottom">
-      <p>© 2026 Монголын Скаутын Холбоо. Бүх эрх хуулиар хамгаалагдсан.</p>
-      <span class="footer-scout-law">Бэлэн бай</span>
-       </div>
-  </div>
-</footer>
 
-<script src="js/nav.js"></script>
-<script src="js/program.js"></script>
-</body>
+    <!-- ═══════════════ STICKY TABS ═══════════════ -->
+    <div class="prog-tabs-bar">
+      <div class="prog-tabs">
+        <a href="#intro" class="prog-tab active">Танилцуулга</a>
+        <a href="#ages" class="prog-tab">Насны ангилал</a>
+        <a href="#badges" class="prog-tab">Тэмдэгт</a>
+        <a href="#curriculum" class="prog-tab">Хөтөлбөрийн уялдаа</a>
+        <a href="#training" class="prog-tab">Сургалт</a>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════
+     SECTION 2 — НАСНЫ АНГИЛАЛ
+     ═══════════════════════════════════════════ -->
+    <section class="prog-section prog-section--alt" id="ages">
+      <div class="container">
+        <div class="reveal">
+          <div class="section-label">Хөгжлийн замнал</div>
+          <h2 class="section-title">Насны ангилал</h2>
+          <p class="section-intro">
+            Монголын Скаутын Холбоо нь Нийслэлийн 9 дүүрэг, 21 аймагт үйл
+            ажиллагаа явуулдаг бөгөөд хүүхэд бүрийн нас, хөгжилд тохирсон
+            хөтөлбөртэй.
+          </p>
+        </div>
+
+        <div class="age-stages reveal">
+          <div class="age-stage age-stage--cub">
+            <div class="age-stage-header">
+              <span class="age-stage-icon">🐺</span>
+              <div class="age-stage-range">6–11 нас</div>
+              <div class="age-stage-name">Каб Скаут</div>
+              <div class="age-stage-mn">Cub Scout</div>
+            </div>
+            <div class="age-stage-body">
+              <p>
+                Каб нас нь 6–11 насны хүүхдүүдэд зориулсан скаутын хөдөлгөөний
+                анхан шатны хөгжлийн үе. Хүүхдийг тоглоом, сонирхолтой үйл
+                ажиллагаагаар дамжуулан суралцах, хамт олны дунд зөв төлөвшихэд
+                чиглэдэг.
+              </p>
+              <p>
+                Кабууд нь бүлгээрээ буюу "кабын бүлэг"-ээр дамжин ажилладаг.
+                Хамтын ажиллагаа, нөхөрлөл, буусдыг хүндлэх, энгийн хариуцлагийг
+                эзэмшдэг.
+              </p>
+              <div class="age-stage-tags">
+                <span class="age-tag">Чоно каб</span>
+                <span class="age-tag">Буга каб</span>
+                <span class="age-tag">Баавгай каб</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="age-stage age-stage--scout">
+            <div class="age-stage-header">
+              <span class="age-stage-icon">⚜️</span>
+              <div class="age-stage-range">12–15 нас</div>
+              <div class="age-stage-name">Скаут</div>
+              <div class="age-stage-mn">Scout</div>
+            </div>
+            <div class="age-stage-body">
+              <p>
+                12–17 насны хүүхэд, өсвөр үеийнхний бие бялдар, оюун ухаан,
+                нийгмийн хөгжлийг дэмжих зорилготой хөгжлийн шат юм.
+              </p>
+              <p>
+                Монгол орны уур амьсгал, улирлын онцлогт тохируулан танхимын
+                болон байгальд түшиглэсэн хэлбэрээр зохион байгуулдаг.
+              </p>
+              <div class="age-stage-tags">
+                <span class="age-tag">Жилд 368 цаг</span>
+                <span class="age-tag">Байгальд сургалт</span>
+                <span class="age-tag">Зуны зуслан</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="age-stage age-stage--venture">
+            <div class="age-stage-header">
+              <span class="age-stage-icon">⚜️</span>
+              <div class="age-stage-range">16–17 нас</div>
+              <div class="age-stage-name">Венчир</div>
+              <div class="age-stage-mn">Venture</div>
+            </div>
+            <div class="age-stage-body">
+              <p>
+                Өсвөр насны скаутуудыг ирээдүйн удирдагч болгоход чиглэх үе шат.
+              </p>
+              <p>
+                Бүлгийн ажил зохион байгуулж, нийгмийн амьдралд скаутаар
+                дамжуулан оролцож эхэлдэг.
+              </p>
+              <div class="age-stage-tags">
+                <span class="age-tag">Жилд 368 цаг</span>
+                <span class="age-tag">Байгальд сургалт</span>
+                <span class="age-tag">Зуны зуслан</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="age-stage age-stage--rover">
+            <div class="age-stage-header">
+              <span class="age-stage-icon">🌐</span>
+              <div class="age-stage-range">18–25 нас</div>
+              <div class="age-stage-name">Ровер Скаут</div>
+              <div class="age-stage-mn">Rover Scout</div>
+            </div>
+            <div class="age-stage-body">
+              <p>
+                Ровер скаутын салбар нь 18–25 насны залуучуудыг хамарсан,
+                скаутын хөдөлгөөний хамгийн идэвхтэй, нийгэмд чиглэсэн салбар
+                юм.
+              </p>
+              <p>
+                Роверууд нь сайн дурын ажил, манлайлал, олон улсын харилцаагаар
+                дамжуулан туршлага хуримтлуулж, амьдралын бодит ур чадварыг
+                эзэмшдэг.
+              </p>
+              <div class="age-stage-tags">
+                <span class="age-tag">Алтан шонхор</span>
+                <span class="age-tag">ATAS Mongolia</span>
+                <span class="age-tag">Сайн дурын ажил</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Удирдагч full-width -->
+        <div class="age-stages age-stages--leader-row reveal">
+          <div class="age-stage age-stage--leader">
+            <div class="age-stage-header">
+              <span class="age-stage-icon">🦅</span>
+              <div class="age-stage-range">Насанд хүрэгчид</div>
+              <div class="age-stage-name">Скаутын удирдагч</div>
+              <div class="age-stage-mn">Scout Leader</div>
+            </div>
+            <div class="age-stage-body">
+              <p>
+                Скаутын удирдагч нь хүүхэд, залуучуудын хөгжилд туслах,
+                хөтөлбөрийн хэрэгжилтийг хангах насанд хүрсэн гишүүд юм. BTC
+                болон Wood Badge сургалтаар мэргэжлийн ур чадвараа дээшлүүлдэг.
+              </p>
+              <div class="age-stage-tags">
+                <span class="age-tag">БУБАШҮС</span>
+                <span class="age-tag">Модон Тэмдэгт</span>
+                <span class="age-tag">Кабын удирдагч</span>
+                <span class="age-tag">Скаутын удирдагч</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Сургалтын хэлбэр -->
+        <div class="reveal section-block">
+          <div class="section-label">Скаут нас — 12–15</div>
+          <h3 class="section-title section-title--sm">Сургалтын хэлбэр</h3>
+        </div>
+        <div class="compare-grid reveal">
+          <div class="compare-card">
+            <div class="compare-header compare-header--scout">
+              Танхимын сургалт
+            </div>
+            <div class="compare-body">
+              <li>10 дугаар сарын 1-нээс 5 дугаар сарын 1-ний өдөр хүртэл</li>
+              <li>7 хоногт 1 удаа, 32 долоо хоног</li>
+              <li>Нэг удаагийн сургалт 90 хүртэлх минут</li>
+              <li>Бүлгийн ажил болон онлайн мэдлэг, ур чадварын сургалтууд</li>
+            </div>
+          </div>
+          <div class="compare-card">
+            <div class="compare-header compare-header--school">
+              Байгальд түшиглэсэн сургалт
+            </div>
+            <div class="compare-body">
+              <li>5 дугаар сараас 9 дүгээр сар хүртэл</li>
+              <li>Байгальд түшиглэсэн зуны арга хэмжээ</li>
+              <li>Майхант зуслан, цугларалтууд зохион байгуулагдана</li>
+              <li>Хээрийн явган аялал — 80 цаг (сард 1 удаа)</li>
+              <li>Зуны зуслан, цугларалт — 240 цаг (2 удаа)</li>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+     SECTION 3 — ТЭМДЭГТ
+     ═══════════════════════════════════════════ -->
+    <section class="prog-section" id="badges">
+      <div class="container">
+        <div class="reveal">
+          <div class="section-label">Хувийн хөгжил</div>
+          <h2 class="section-title" style="margin-bottom: 16px">
+            Мэдлэг, Чадвар, Дадлын тэмдэг
+          </h2>
+          <div class="badge-intro-grid">
+            <div class="badge-intro-text">
+              <p class="section-intro">
+                Скаутын эгнээнд нэгдсэн хүн бүр өөрийн нас, хөгжлийн онцлогт
+                тохирсон сургалтын хөтөлбөр, сорилт, болзлыг үе шаттайгаар
+                биелүүлснээр мэдлэг, ур чадвар, дадлаа хөгжүүлж, ахиц дэвшлээ
+                илэрхийлэх тэмдэг, зэрэглэл хүртдэг. <br />
+                 <br />
+                Тэмдгийн тогтолцооны үндсэн зорилго, эрхэм үнэ цэнэ нь түүнийг зөв, зохистой хэрэгжүүлсэн тохиолдолд скаут бүрийн хөгжлийн явцад тулгарч болох бэрхшээл, хоцрогдлыг арилгаж, тэднийг идэвх санаачилгатай, өөртөө итгэлтэйгээр урагшлахад дэмжлэг үзүүлэхэд оршино. Энэхүү тогтолцоо нь скаутуудад мэдлэг, боловсрол, ур чадвараа тасралтгүй хөгжүүлэх боломжийг олгож, амжилтад хүрэхийн төлөө өөрийгөө хөгжүүлэх урам зоригийг төрүүлдэг.
+              </p>
+            </div>
+            <div class="badge-intro-img">
+              <img
+                src="img/merit_badge_land.jpg"
+                alt="Мэдлэг, Чадвар, Дадлын тэмдэг"
+              />
+            </div>
+          </div>
+        </div>
+
+        <!-- <div class="highlight-box reveal">
+          <p>
+            Тэмдгийн тогтолцооны үндсэн зорилго, эрхэм үнэ цэнэ нь түүнийг зөв,
+            зохистой хэрэгжүүлсэн тохиолдолд скаут бүрийн хөгжлийн явцад тулгарч
+            болох бэрхшээл, хоцрогдлыг арилгаж, тэднийг идэвх санаачилгатай,
+            өөртөө итгэлтэйгээр урагшлахад дэмжлэг үзүүлэхэд оршино. Энэхүү
+            тогтолцоо нь скаутуудад мэдлэг, боловсрол, ур чадвараа тасралтгүй
+            хөгжүүлэх боломжийг олгож, амжилтад хүрэхийн төлөө өөрийгөө
+            хөгжүүлэх урам зоригийг төрүүлдэг.
+          </p>
+          <p class="highlight-box__cite">— Баден Пауэл</p>
+        </div> -->
+
+        <!-- Каб насны тэмдгүүд -->
+        <div class="reveal section-block">
+          <div class="section-label">Каб нас (6–11)</div>
+          <h3 class="section-title section-title--sm">
+            Кабын зэрэглэлийн тэмдэг
+          </h3>
+        </div>
+        <div class="badge-system reveal">
+          <div class="badge-tier badge-tier--cub-wolf">
+            <div class="badge-tier-header">
+              <div>
+                <div class="badge-tier-name">🐺 Чоно каб</div>
+                <div class="badge-tier-sub">
+                  1-2-р ангийн сурагч · 12 шалгуур
+                </div>
+              </div>
+            </div>
+            <div class="badge-tier-body">
+              <p>
+                ЕБС-ийн 1-2-р ангийн сурагчдын батлагдсан хөтөлбөрийн дагуу
+                Биеийн тамир, Дүрслэх урлаг, технологи, Хүн ба орчин, Иргэний ёс
+                зүйн боловсрол хичээлийн агуулгатай уялдаж байна.
+              </p>
+              <div class="badge-subjects">
+                <span class="badge-subject">Бие, бялдар, ур чадвар</span>
+                <span class="badge-subject">Гэр ахуйн дархан</span>
+                <span class="badge-subject">Төрийн далбаа</span>
+                <span class="badge-subject">Монгол ардын мэндлэх ёс</span>
+                <span class="badge-subject">Манай гэр бүл</span>
+                <span class="badge-subject">Аюулгүй байдал</span>
+                <span class="badge-subject">Цуглуулга</span>
+                <span class="badge-subject">Эрүүл мэнд</span>
+              </div>
+            </div>
+          </div>
+          <div class="badge-tier badge-tier--cub-deer">
+            <div class="badge-tier-header">
+              <div>
+                <div class="badge-tier-name">🦌 Буга каб</div>
+                <div class="badge-tier-sub">
+                  3-4-р ангийн сурагч · 24 шалгуур
+                </div>
+              </div>
+            </div>
+            <div class="badge-tier-body">
+              <p>
+                ЕБС-ийн 3-4-р ангийн сурагчдын батлагдсан хөтөлбөрийн дагуу
+                Биеийн тамир, Монгол хэл, Хүн ба орчин, Дүрслэх урлаг,
+                технологи, Хүн ба нийгэм хичээлийн агуулгатай уялдаж байна.
+              </p>
+              <div class="badge-subjects">
+                <span class="badge-subject">Ардын аман зохиол</span>
+                <span class="badge-subject">Өнгөрсөн үеийн түүхийн мөчүүд</span>
+                <span class="badge-subject">Байгаль дэлхий</span>
+                <span class="badge-subject">Мэдээлэл</span>
+                <span class="badge-subject">Загвар зохиох</span>
+                <span class="badge-subject">Хоол хийх</span>
+                <span class="badge-subject">Спорт</span>
+                <span class="badge-subject">Аялал</span>
+              </div>
+            </div>
+          </div>
+          <div class="badge-tier badge-tier--cub-bear">
+            <div class="badge-tier-header">
+              <div>
+                <div class="badge-tier-name">🐻 Баавгай каб</div>
+                <div class="badge-tier-sub">5-р ангийн сурагч · 5 шалгуур</div>
+              </div>
+            </div>
+            <div class="badge-tier-body">
+              <p>
+                ЕБС-ийн 5-р ангийн сурагчдын батлагдсан хөтөлбөрийн дагуу Хүн ба
+                нийгэм хичээлийн агуулгатай уялдаж байна.
+              </p>
+              <div class="badge-subjects">
+                <span class="badge-subject">Миний амьдардаг газар</span>
+                <span class="badge-subject">Гэр бүлээ онцгой болгох</span>
+                <span class="badge-subject"
+                  >Өөрийгөө эрүүл ба аюулгүй байлгах</span
+                >
+                <span class="badge-subject">Үүнийг би яаж хэлэх вэ?</span>
+                <span class="badge-subject">Эрүүл агаарт гарцгааяа</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Скаут насны тэмдгүүд -->
+        <div class="reveal section-block">
+          <div class="section-label">Скаут нас (6–11-р анги)</div>
+          <h3 class="section-title section-title--sm">
+            Скаутын зэрэглэлийн тэмдэг
+          </h3>
+        </div>
+        <p class="badge-intro reveal">
+          65 төрлийн мэдлэг, дадал, чадварын тэмдэгтийг 6–11-р ангийн сурагчид
+          өөрийн хичээлийн агуулгатай уялдуулан бүрэн хамгаалах боломжтой. 65
+          төрлийн тэмдэгт нь ЕБ сургуулийн сурагчдын батлагдсан хөтөлбөрийн
+          <strong>20 төрлийн хичээлийн агуулгатай</strong> уялдаж байна.
+        </p>
+
+        <div class="badge-system reveal">
+          <div class="badge-tier badge-tier--hurel">
+            <div class="badge-tier-header">
+              <div>
+                <div class="badge-tier-name">
+                  <span class="badge-dot badge-dot--hurel"></span>Хүрэл сум
+                </div>
+                <div class="badge-tier-sub">6-7-р ангийн сурагч</div>
+              </div>
+            </div>
+            <div class="badge-tier-body">
+              <p>
+                Хүрэл сум нь үндсэн 5 мэдлэг, дадал, чадварын тэмдэгийг
+                хамгаалсан байх ёстой бөгөөд энэ нь 1 хичээлийн агуулгатай
+                уялдаж байна.
+              </p>
+              <div class="badge-subjects">
+                <span class="badge-subject">Монгол нутаг</span>
+                <span class="badge-subject">Анхны тусламж</span>
+                <span class="badge-subject">Байгаль орчин</span>
+              </div>
+            </div>
+          </div>
+          <div class="badge-tier badge-tier--mongon">
+            <div class="badge-tier-header">
+              <div>
+                <div class="badge-tier-name">
+                  <span class="badge-dot badge-dot--mongon"></span>Мөнгөн сум
+                </div>
+                <div class="badge-tier-sub">8-9-р ангийн сурагч</div>
+              </div>
+            </div>
+            <div class="badge-tier-body">
+              <p>
+                Мөнгөн сум нь үндсэн 6 мэдлэг, дадал, чадварын тэмдэгийг
+                хамгаалсан байх ёстой бөгөөд энэ нь 4 хичээлийн агуулгатай
+                уялдаж байна.
+              </p>
+              <div class="badge-subjects">
+                <span class="badge-subject">Манлайлал</span>
+                <span class="badge-subject">Олон нийт</span>
+                <span class="badge-subject">Дэлхий иргэн</span>
+              </div>
+            </div>
+          </div>
+          <div class="badge-tier badge-tier--altan">
+            <div class="badge-tier-header">
+              <div>
+                <div class="badge-tier-name">
+                  <span class="badge-dot badge-dot--altan"></span>Алтан сум
+                </div>
+                <div class="badge-tier-sub">10-12-р ангийн сурагч</div>
+              </div>
+            </div>
+            <div class="badge-tier-body">
+              <p>
+                Алтан сум нь үндсэн 5 мэдлэг, дадал, чадварын тэмдэгийг
+                хамгаалсан байх ёстой бөгөөд энэ нь 3 хичээлийн агуулгатай
+                уялдаж байна.
+              </p>
+              <div class="badge-subjects">
+                <span class="badge-subject">Алтан шонхор</span>
+                <span class="badge-subject">Ахлах манлайлал</span>
+                <span class="badge-subject">Нийгмийн үйлчилгээ</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Алтан Шонхор -->
+        <div class="altan-shonhor-section reveal">
+          <div class="section-label section-label--center">
+            Хамгийн дээд зэрэглэл
+          </div>
+          <h3 class="section-title section-title--sm">Алтан Шонхор</h3>
+          <p class="altan-shonhor-intro">
+            Алтан Шонхор нь Монголын Скаутын Холбооны хамгийн дээд зэрэглэлийн
+            тэмдэг бөгөөд скаутын бүхий л шатны хөтөлбөрийг амжилттай дуусгасан
+            гишүүнд олгодог.
+          </p>
+          <div class="altan-shonhor-inner">
+            <img
+              src="img/altan_shonhor_badge.png"
+              alt="Алтан Шонхор тэмдэг"
+              class="altan-shonhor-img"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+     SECTION 4 — ХӨТӨЛБӨРИЙН УЯЛДАА
+     ═══════════════════════════════════════════ -->
+    <section class="prog-section prog-section--alt" id="curriculum">
+      <div class="container">
+        <div class="reveal">
+          <div class="section-label">ЕБС-тэй хамтын ажиллагаа</div>
+          <h2 class="section-title">Хөтөлбөрийн уялдаа</h2>
+          <p class="section-intro">
+            Монголын Скаутын Холбооны кабын хөтөлбөр нь ЕБС-ийн I–V ангийн
+            сургалтын хөтөлбөртэй, скаутын хөтөлбөр нь VI–XII ангийн хөтөлбөртэй
+            уялдсан байдаг. Скаутын хөтөлбөр нь хичээлийн хөтөлбөрт ороогүй 45
+            төрлийн мэдлэг, дадал, чадварыг олгох боломжтой.
+          </p>
+        </div>
+
+        <div class="curriculum-highlight reveal">
+          <p>
+            Скаутын хөтөлбөр нь хүүхэд, залуучуудыг зөвхөн мэдлэгтэй байхаас
+            гадна амьдралд бие даан оролцох чадвартай, хариуцлагатай иргэн
+            болгон төлөвшүүлэхэд чиглэдэг. Тус хөтөлбөр нь Youth Programme
+            Framework, Learning by Doing, Personal Progression зэрэг олон улсын
+            скаутын үндсэн зарчимд тулгуурлан хувь хүний тасралтгүй хөгжил,
+            манлайллыг дэмжин хэрэгждэг.
+          </p>
+        </div>
+
+        <div class="reveal section-block">
+          <div class="section-label">Удирдагч багш нарт</div>
+          <h3 class="section-title section-title--sm">
+            Кабын удирдагч багш - ач холбогдол
+          </h3>
+        </div>
+        <div class="about-grid reveal">
+          <div>
+            <p class="curriculum-body">
+              Кабын удирдагч багш нь хүүхдийн хөгжлийг зөвхөн академик
+              боловсролын хүрээнд бус, амьдралын ур чадвар, үнэт зүйл, зан
+              төлөвөөр нь төлөвшүүлэхэд чиглэсэн чухал үүрэгтэй. Багш сурагчийн
+              харилцаа нь энгийн хичээлийн харилцаанаас давж, итгэлцэл, харилцан
+              хүндлэл, дэмжлэгт суурилсан түншлэл болон гүнзгийрдэг. Ингэснээр
+              сахилга бат нь гаднаас тулгасан шаардлага биш, харин хүүхдийн
+              дотоод ухамсар, өөрийн хариуцлага дээр тулгуурлан төлөвшдөг.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+     SECTION 5 — СУРГАЛТ
+     ═══════════════════════════════════════════ -->
+    <section class="prog-section" id="training">
+      <div class="container">
+        <div class="reveal">
+          <div class="section-label">Мэргэжлийн хөгжил</div>
+          <h2 class="section-title">Сургалтын шаталсан тогтолцоо</h2>
+          <p class="section-intro">
+            General Information Training → Basic Unit Leader Training Course →
+            Advanced Unit Leader Training Course (Woodbadge) гэсэн шаталсан
+            сургалтын систем нь скаутын удирдагч, багш нарыг тасралтгүй
+            хөгжүүлдэг. Энэхүү тогтолцоо нь оролцогчдыг анхан шатнаас эхлэн
+            манлайлагч түвшинд хүрэх хүртэл системтэйгээр хөгжүүлэх онцлогтой.
+          </p>
+        </div>
+
+        <!-- 01 GIT -->
+        <div class="training-card reveal">
+          <div class="training-card__header">
+            <div class="training-card__num">01</div>
+            <div>
+              <div class="training-card__title">
+                General Information Training
+              </div>
+              <div class="training-card__sub">
+                Ерөнхий мэдээлэл олгох сургалт · 8 цаг · 1 өдөр
+              </div>
+            </div>
+          </div>
+          <div class="training-card__body">
+            <div class="training-card__body-top">
+              <p>
+                Хүүхэд, залуучууд, багш сурган хүмүүжүүлэгчид болон скаутын үйл
+                ажиллагааг сонирхож буй хэн бүхэнд зориулсан анхан шатны танин
+                мэдэхүйн сургалт юм.
+              </p>
+              <img
+                src="img/surgalt.jpg"
+                alt="GIT"
+                class="training-card__img--large"
+              />
+            </div>
+            <div class="training-card__cols">
+              <div>
+                <div class="training-card__col-title">Мэдлэгийн түвшинд</div>
+                <ul class="training-card__list">
+                  <li>Скаутын хөдөлгөөний үүсэл, хөгжил</li>
+                  <li>Зорилго, үнэт зүйлс</li>
+                  <li>Андгай, хууль, үндсэн зарчим</li>
+                  <li>
+                    Нийгэмд чиглэсэн сайн дурын үйл ажиллагааны ач холбогдол
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <div class="training-card__col-title">Арга зүйн түвшинд</div>
+                <ul class="training-card__list">
+                  <li>"Learning by Doing" зарчим</li>
+                  <li>Тоглоомд суурилсан сургалт</li>
+                  <li>Багаар ажиллах арга зүй</li>
+                  <li>Хамтын ажиллагаанд суурилсан оролцооны хэлбэр</li>
+                </ul>
+              </div>
+              <div>
+                <div class="training-card__col-title">
+                  Хандлага, хүмүүжлийн түвшинд
+                </div>
+                <ul class="training-card__list">
+                  <li>Хариуцлагатай, идэвхтэй иргэн байх</li>
+                  <li>Өөртөө итгэх итгэл</li>
+                  <li>Бусдад туслах, сайн үйлс хийх</li>
+                  <li>Хамт олноо хүндлэх, ойлгох</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 02 BULC -->
+        <div class="training-card reveal">
+          <div class="training-card__header">
+            <div class="training-card__num">02</div>
+            <div>
+              <div class="training-card__title">
+                Basic Unit Leader Training Course
+              </div>
+              <div class="training-card__sub">
+                Үндсэн багшийн сургалт · 2–3 өдөр
+              </div>
+            </div>
+          </div>
+          <div class="training-card__body">
+            <div class="training-card__body-top">
+              <p>
+                Анхан шатны ойлголтыг практикт нэвтрүүлж, баг удирдах ур чадвар
+                хөгжүүлэх төвтэй. Зорилго: Скаутын бүлгийн үйл ажиллагааг
+                удирдах чадвар эзэмшүүлэх. Оролцогчид: Кабын багш, залуу
+                удирдагч.
+              </p>
+              <img
+                src="img/bulgiin_udirdagch_badge.png"
+                alt="BULC badge"
+                class="training-card__img--large"
+              />
+            </div>
+            <div class="training-card__cols">
+              <div>
+                <div class="training-card__col-title">Мэдлэгийн түвшинд</div>
+                <ul class="training-card__list">
+                  <li>Скаутын бүлэг удирдах бүтэц, үүрэг</li>
+                  <li>Хүүхдийн хөгжлийн үе шат, зан төлөвийн онцлог</li>
+                  <li>Аюулгүй, оролцоотой сургалтын орчин бүрдүүлэх</li>
+                </ul>
+              </div>
+              <div>
+                <div class="training-card__col-title">Арга зүйн түвшинд</div>
+                <ul class="training-card__list">
+                  <li>Багаар ажиллах, хамтын ажиллагааг удирдах</li>
+                  <li>
+                    Тоглоом, сорил, дадлага дээр суурилсан "Learning by Doing"
+                  </li>
+                  <li>Хүүхдийн зан төлөв, хандлага ажиглах, зөв чиглүүлэх</li>
+                </ul>
+              </div>
+              <div>
+                <div class="training-card__col-title">
+                  Хандлага, хүмүүжлийн түвшинд
+                </div>
+                <ul class="training-card__list">
+                  <li>Манлайлагчийн хандлага төлөвшүүлэх</li>
+                  <li>Өөртөө итгэлтэй, хүүхэд төвтэй багш болох</li>
+                  <li>Багаар ажиллах, асуудлыг зөвшилцлөөр шийдэх чадвар</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 03 Woodbadge -->
+        <div class="training-card reveal">
+          <div class="training-card__header">
+            <div class="training-card__num">03</div>
+            <div>
+              <div class="training-card__title">
+                Advanced Unit Leader Training Course
+              </div>
+              <div class="training-card__sub">
+                Модон Тэмдэгт (Woodbadge) · 5–7 өдөр
+              </div>
+            </div>
+          </div>
+          <div class="training-card__body">
+            <div class="training-card__body-top">
+              <p>
+                Системтэй, стратегийн түвшинд манлайлах ур чадвар эзэмшүүлэхэд
+                чиглэнэ. Зорилго: Багш, удирдагчийг жирийн удирдагчаас
+                манлайлагч түвшинд хөгжүүлэх. Оролцогчид: Кабын удирдагч багш
+                нар, туршлагатай скаутын удирдагчид.
+              </p>
+              <div class="training-card__imgs--row">
+                <img
+                  src="img/modon_temdegt_1.png"
+                  alt="Woodbadge 1"
+                  class="training-card__img--row"
+                />
+                <img
+                  src="img/modon_temdegt_2.jpg"
+                  alt="Woodbadge 2"
+                  class="training-card__img--row"
+                />
+                <img
+                  src="img/modon_temdegt_3.png"
+                  alt="Woodbadge 3"
+                  class="training-card__img--row"
+                />
+              </div>
+            </div>
+            <div class="training-card__cols">
+              <div>
+                <div class="training-card__col-title">Мэдлэгийн түвшинд</div>
+                <ul class="training-card__list">
+                  <li>Скаутын дэлхийн түвшний хөгжлийн үзэл баримтлал</li>
+                  <li>Хөтөлбөр, арга зүйг сургалтын стратегиар удирдах</li>
+                  <li>Скаутын хөдөлгөөний манлайлагчийн үүрэг, хариуцлага</li>
+                </ul>
+              </div>
+              <div>
+                <div class="training-card__col-title">Арга зүйн түвшинд</div>
+                <ul class="training-card__list">
+                  <li>Комплекс дасгал, кейс судалгаа дээр ажиллах</li>
+                  <li>Багийн үйл ажиллагаа, сургалтын үр дүнг үнэлэх</li>
+                  <li>Дэмжлэгт, оролцоонд суурилсан менежмент</li>
+                </ul>
+              </div>
+              <div>
+                <div class="training-card__col-title">
+                  Хандлага, хүмүүжлийн түвшинд
+                </div>
+                <ul class="training-card__list">
+                  <li>Лидерийн үнэт зүйл, үлгэрлэлийг төлөвшүүлэх</li>
+                  <li>Багаас сургалт авч, бусдад манлайлах</li>
+                  <li>
+                    Өөрийгөө хөгжүүлж, хүүхдийг зөв удирдах ур чадвар эзэмших
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Удирдагч -->
+        <div class="reveal section-block">
+          <div class="section-label">Насанд хүрэгчид</div>
+          <h3 class="section-title section-title--sm">
+            Скаутын удирдагч гэж хэн бэ?
+          </h3>
+        </div>
+        <div class="about-grid reveal">
+          <div>
+            <p class="curriculum-body">
+              Скаутын удирдагч гэдэг нь хүүхэд, залуучуудыг хамтын, аюулгүй,
+              идэвхтэй орчинд хөгжүүлэхэд чиглэсэн зөвхөн багш бус, манлайлагч
+              юм. Хүүхдийн зан төлөв, чадвар, үнэт зүйлсийг төлөвшүүлэхэд
+              чиглэж, сургалтын орчныг аюулгүй, оролцоотой, эерэг байлгах
+              үүрэгтэй. Өөрийн үлгэрлэлээр нөлөөлж, хүүхдийг шүүх бус, зөв
+              чиглүүлэх аргаар хөгжүүлдэг.
+            </p>
+            <p class="curriculum-body">
+              Скаутын удирдагч нь зөвхөн мэдлэг дамжуулагч бус, хүүхэд төвтэй,
+              үнэт зүйлсэд суурилсан манлайлагч юм. Түүний үйл ажиллагаа нь
+              хүүхдийн өөртөө итгэх итгэл, оролцоо, бие даасан байдлыг хөгжүүлж,
+              багийн хамтын ажиллагаа, харилцан хүндлэлийг бэхжүүлдэг.
+            </p>
+          </div>
+          <div></div>
+        </div>
+
+        <!-- CTA -->
+        <div class="cta-block reveal">
+          <div class="section-label section-label--center">Нэгдэх</div>
+          <h3 class="cta-block__title">Скаутын гэр бүлд нэгдэх үү?</h3>
+          <p class="cta-block__subtitle">
+            Нийслэлийн 9 дүүрэг, 21 аймагт байгаа скаутын бүлэгт элсэх
+            боломжтой.
+          </p>
+          <a href="index.html#join" class="btn-primary"
+            >Элсэх хүсэлт илгээх →</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════ FOOTER ═══════════════ -->
+    <footer>
+      <div class="footer-inner">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <div class="footer-logo">Монголын Скаутын Холбоо</div>
+            <p class="footer-tagline">
+              Адал явдал, тал нутгийн мөнхийн өв соёлыг эрхэмлэн Монголын
+              залуусыг нэгтгэж, төлөвшүүлэхийг зорьдог. Бид 1991 оноос хойш
+              Дэлхийн Скаутын Хөдөлгөөний Байгууллагын гишүүнээр ажиллаж байна.
+            </p>
+          </div>
+          <div>
+            <div class="footer-heading">Цэс</div>
+            <ul class="footer-links">
+              <li><a href="index.html#about">Бидний тухай</a></li>
+              <li><a href="history.html">Үнэт зүйлс</a></li>
+              <li><a href="program.html">Хөтөлбөр</a></li>
+              <li><a href="events.html">Арга хэмжээ</a></li>
+              <li><a href="index.html#join">Нэгдэх</a></li>
+            </ul>
+          </div>
+          <div>
+            <div class="footer-heading">Хөтөлбөр</div>
+            <ul class="footer-links">
+              <li><a href="program.html#ages">Каб Скаут (6–11)</a></li>
+              <li><a href="program.html#ages">Скаут (12–15)</a></li>
+              <li><a href="program.html#ages">Венчир Скаут (16–17)</a></li>
+              <li><a href="program.html#ages">Ровер Скаут (18–25)</a></li>
+              <li><a href="program.html#training">Удирдагч</a></li>
+            </ul>
+          </div>
+          <div class="footer-contact">
+            <div class="footer-heading">Холбоо барих</div>
+            <p>Улаанбаатар, Монгол</p>
+            <p>info@scout.mn</p>
+            <p>+976 011 32 4171</p>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>© 2026 Монголын Скаутын Холбоо. Бүх эрх хуулиар хамгаалагдсан.</p>
+          <span class="footer-scout-law">Бэлэн бай</span>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/nav.js"></script>
+    <script src="js/program.js"></script>
+  </body>
 </html>

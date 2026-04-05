@@ -21,8 +21,8 @@ fetch('./json/events.json')
   .then(data => {
     console.log('JSON амжилттай уншигдлаа:', data);
 
-    upcomingAll = data.filter(e => e.status === 'upcoming');
-    pastAll     = data.filter(e => e.status === 'past');
+    upcomingAll = data.filter(e => e.status === 'upcoming' && !e.hidden);
+    pastAll     = data.filter(e => e.status === 'past' && !e.hidden);
 
     renderUpcoming();
     renderPast();
@@ -199,10 +199,10 @@ fetch('./json/events.json')
 
   function buildActions(ev) {
     const btns = [];
-    if (ev.registerUrl) {
-      const cls = ev.status === 'upcoming' ? 'ev-btn--accent' : 'ev-btn--primary';
-      btns.push(`<a href="${ev.registerUrl}" target="_blank" class="ev-btn ${cls}">Бүртгүүлэх →</a>`);
-    }
+    // if (ev.registerUrl) {
+    //   const cls = ev.status === 'upcoming' ? 'ev-btn--accent' : 'ev-btn--primary';
+    //   btns.push(`<a href="${ev.registerUrl}" target="_blank" class="ev-btn ${cls}">Бүртгүүлэх →</a>`);
+    // }
     if (ev.facebookUrl) {
       btns.push(`<a href="${ev.facebookUrl}" target="_blank" class="ev-btn ev-btn--outline">Facebook →</a>`);
     }
