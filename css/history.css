@@ -3,7 +3,7 @@
    ============================================================ */
 
 body {
-  background-image: url('../img/pattern_grey_color.png');
+  background-image: url('/img/pattern_grey_color.png');
   background-size: 320px auto;
   background-repeat: repeat;
   background-attachment: fixed;

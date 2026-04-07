@@ -49,7 +49,7 @@
 }
 
 /* Carousel card background images */
-.act-card:nth-child(1) .act-img { background-image: url('../img/heer.jpg'); background-position: center top; }
+.act-card:nth-child(1) .act-img { background-image: url('/img/heer.jpg'); background-position: center top; }
 .act-card:nth-child(2) .act-img { background-image: url('../img/oluulaa_alhaj_bna.jpg'); }
 .act-card:nth-child(3) .act-img { background-image: url('../img/olon_uls.jpg'); }
 .act-card:nth-child(4) .act-img { background-image: url('../img/temdeg_zurag.jpg'); }

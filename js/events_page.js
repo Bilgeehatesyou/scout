@@ -11,7 +11,7 @@
   let pastShown     = 0;
 
   /* ── Fetch JSON ── */
-fetch('./json/events.json')
+fetch('/json/events.json')
   .then(r => {
     if (!r.ok) {
       throw new Error('JSON олдсонгүй: ' + r.status);

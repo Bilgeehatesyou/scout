@@ -1,422 +1,672 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="mn">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Нүүр — Монголын Скаутын Холбоо</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="icon" type="image/png" href="img/tab_icon.png">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/theme.css" />
-  <link rel="stylesheet" href="css/base.css" />
-  <link rel="stylesheet" href="css/layout.css" />
-  <link rel="stylesheet" href="css/components.css" />
-</head>
-<body>
-
-<!-- ═══════════════ NAV ═══════════════ -->
-<nav>
-  <div class="nav-inner">
-    <a href="#" class="nav-logo">
-      <img class="logo-white" src="img/tsagaan_logo_texttei.png" alt="Монголын Скаутын Холбоо" />
-      <img class="logo-color"  src="img/huh_logo_texttei.png"    alt="Монголын Скаутын Холбоо" />
-    </a>
-    <ul>
-      <li><a href="#about">Нүүр</a></li>
-      <li><a href="history.html">Түүх</a></li>
-      <li><a href="program.html">Хөтөлбөр</a></li>
-      <li><a href="events.html">Арга хэмжээ</a></li>
-      <li><a href="#join">Нэгдэх</a></li>
-    </ul>
-     <button class="nav-hamburger" id="navHamburger" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-</nav>
-
-<!-- ═══════════════ HERO ═══════════════ -->
-<section id="hero">
-  <div class="hero-content">
-    <div class="hero-eyebrow">Est. 1991 &nbsp;·&nbsp; THE SCOUT ASSOCIATION OF MONGOLIA</div>
-    <h1 class="hero-title">
-      МОНГОЛЫН<br /><em>СКАУТЫН</em><br />ХОЛБОО
-    </h1>
-    <div class="hero-cta">
-      <a href="#join"  class="btn-primary">Бидэнтэй Нэгдэх</a>
-      <a href="#about" class="btn-outline">Бидний түүх</a>
-    </div>
-  </div>
-  <div class="hero-scroll">Scroll</div>
-</section>
-
-<!-- ═══════════════ ABOUT ═══════════════ -->
-<section id="about">
-  <div class="container">
-    <div class="about-grid">
-      <div class="about-visual reveal">
-        <!-- Зургийн slider -->
-        <div class="about-slider" id="aboutSlider">
-          <div class="about-slide active" style="background-image:url('img/gadaa_mash_olon.jpg')"></div>
-          <div class="about-slide" style="background-image:url('img/buunuuruu_alhah.jpg')"></div>
-          <div class="about-slide" style="background-image:url('img/oluulaa_alhaj_bna.jpg')"></div>
-          <div class="about-slide" style="background-image:url('img/heer.jpg')"></div>
-          <div class="about-slide" style="background-image:url('img/olon_uls.jpg')"></div>
-          <div class="about-slide" style="background-image:url('img/cub_hovguun.jpg')"></div>
-          <div class="about-slide" style="background-image:url('img/scout_tug.jpg')"></div>
-          <div class="about-slide" style="background-image:url('img/ulamjlal.jpg')"></div>
-          <div class="about-slide" style="background-image:url('img/hutulbur.jpg')"></div>
-          <div class="about-slide" style="background-image:url('img/scout_chuluut_zurag.jpg')"></div>
-          <div class="about-slider-dots" id="aboutSliderDots"></div>
-        </div>
-        <div class="about-stat-strip">
-          <div class="stat"><span class="stat-num">15K+</span><span class="stat-label">Скаут</span></div>
-          <div class="stat"><span class="stat-num">21</span><span class="stat-label">Аймаг</span></div>
-          <div class="stat"><span class="stat-num">33</span><span class="stat-label">Жил</span></div>
-          <div class="stat"><span class="stat-num">170+</span><span class="stat-label">Улс</span></div>
-        </div>
-      </div>
-      <div class="about-text reveal">
-        <div class="section-label">БИДНИЙ ӨВ</div>
-        <h2 class="section-title">Mонголд Скаутын <br />Хөдөлгөөн</h2>
-        <p>Монголын Скаутын Холбоо нь хүүхэд, залуучуудыг бие даасан, хариуцлагатай, эх оронч иргэн болгон төлөвшүүлэх зорилготой сайн дурын, ашгийн бус байгууллага юм. Бид дэлхий даяар үйл ажиллагаа явуулдаг скаутын хөдөлгөөний нэг хэсэг бөгөөд залуучуудыг амьдралын ур чадварт суралцах, байгаль орчноо хайрлан хамгаалах, нийгэмдээ эерэг хувь нэмэр оруулахад чиглэсэн хөтөлбөрүүдийг хэрэгжүүлдэг.</p>
-        <p>Скаутын хөдөлгөөн нь 1991 оноос Монголд хөгжиж, өнөөдөр улс орон даяар олон мянган хүүхэд, залуучуудыг нэгтгээд байна. Манай хөтөлбөрүүд нь адал явдал, байгальд түшиглэсэн сургалт, багаар ажиллах, манлайлал, нийгмийн хариуцлагыг төлөвшүүлэх үйл ажиллагааг багтаадаг.</p>
-        <blockquote class="about-quote">"Амьдралд бэлэн" — Монголын Скаутын Холбооны уриа</blockquote>
-        <a href="history.html" class="btn-primary">СКАУТЫН ТҮҮХ →</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════ VALUES ═══════════════ -->
-<section id="values">
-  <div class="container">
-    <div class="reveal">
-      <div class="section-label">Скаутын тухай</div>
-      <h2 class="section-title">Скаут гэж юу вэ?</h2>
-      <p class="section-intro">Скаутын хөдөлгөөн нь 1907 онд үүсч, өнөөдөр дэлхийн 170 гаруй улсад
-      60 сая гишүүнтэй дэлхийн хамгийн том залуучуудын байгууллага юм. Монголын Скаутын Холбоо
-      1991 онд байгуулагдаж, уламжлалт нүүдэлчдийн ухаан болон орчин үеийн манлайллыг хослуулан
-      залуу монголчуудыг хүмүүжүүлж байна.</p>
-    </div>
-
-    <!-- Насны ангилал -->
-    <div class="scout-age-section reveal">
-      <h3 class="subsection-title">Насны ангилал</h3>
-      <div class="age-grid">
-        <div class="age-card">
-          <div class="age-badge">
-            <svg viewBox="0 0 24 24"><path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"/><line x1="16" y1="8" x2="2" y2="22"/><line x1="17.5" y1="15" x2="9" y2="15"/></svg>
-          </div>
-          <div class="age-range">6 – 11 нас</div>
-          <div class="age-name">Каб</div>
-          <p class="age-desc">Тоглоомын аргаар суралцана. Бие бялдраа хөгжүүлнэ. Сахилга батад суралцана. Бусдад тусалж үүрэг хариуцлагаа нэмэгдүүлнэ.</p>
-        </div>
-        <div class="age-card age-card--featured">
-          <div class="age-badge">
-            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          </div>
-          <div class="age-range">12 – 15 нас</div>
-          <div class="age-name">Скаут</div>
-          <p class="age-desc">Үйл ажиллагааны явцад суралцана. Хариуцлага хүлээж эхэлнэ. Хээрийн үйл ажиллагаанд оролцож эхэлнэ.</p>
-        </div>
-        <div class="age-card">
-          <div class="age-badge">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
-          </div>
-          <div class="age-range">16 – 17 нас</div>
-          <div class="age-name">Венчир</div>
-          <p class="age-desc">Даван туулах зарчмаар суралцана. Скаутын туслах удирдагч болно. Шинийг санаачлана.</p>
-        </div>
-        <div class="age-card">
-          <div class="age-badge">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-          </div>
-          <div class="age-range">18 – 25 нас</div>
-          <div class="age-name">Ровер</div>
-          <p class="age-desc">Каб, скаутуудад тусална. Олон нийт болон нийгмийн сайн сайхны төлөө үйл ажиллагаа санаачлан зохион байгуулна.</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Гол үйл ажиллагаа -->
-    <div class="scout-activities reveal">
-      <h3 class="subsection-title">Гол үйл ажиллагаа</h3>
-      <div class="act-carousel-wrapper">
-        <div class="act-carousel" id="actCarousel">
-
-          <div class="act-card">
-            <div class="act-img">
-              <div class="act-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 21l9-18 9 18H3z"/></svg></div>
-            </div>
-            <div class="act-body">
-              <div class="act-name">Хээрийн кемп</div>
-              <p class="act-desc">Монголын тал нутагт тэнгэрийн дор хонож, байгаль дэлхийтэй нэгдэх.</p>
-            </div>
-          </div>
-
-          <div class="act-card">
-            <div class="act-img">
-              <div class="act-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M8 3l4 8 5-5 5 13H2L8 3z"/></svg></div>
-            </div>
-            <div class="act-body">
-              <div class="act-name">Аялал экспедиц</div>
-              <p class="act-desc">Хангайн нуруунаас Говийн элст цөл хүртэл — Монголын өнцөг булан бүрийг судлах дайчин аялалууд.</p>
-            </div>
-          </div>
-
-          <div class="act-card act-card--active">
-            <div class="act-img">
-              <div class="act-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
-            </div>
-            <div class="act-body">
-              <div class="act-name">Олон нийтийн үйлчилгээ</div>
-              <p class="act-desc">Орон нутгийн иргэдэд туслах, байгаль орчноо хамгаалах, нийгмийн асуудлыг шийдвэрлэхэд оролцох.</p>
-            </div>
-          </div>
-
-          <div class="act-card">
-            <div class="act-img">
-              <div class="act-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
-            </div>
-            <div class="act-body">
-              <div class="act-name">Ур чадварын тэмдэг</div>
-              <p class="act-desc">Анагаах ухаан, гэрэл зураг, хөгжим, кодчилол зэрэг 100 гаруй чиглэлээр мэдлэг эзэмшиж тэмдэг хүртэх.</p>
-            </div>
-          </div>
-
-          <div class="act-card">
-            <div class="act-img">
-              <div class="act-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg></div>
-            </div>
-            <div class="act-body">
-              <div class="act-name">Монгол уламжлал</div>
-              <p class="act-desc">Наадам, морь унах, сур харваа, гэр барих — монгол нүүдэлчдийн мэргэжлийг өвлүүлэн залгамжлах.</p>
-            </div>
-          </div>
-
-          <div class="act-card">
-            <div class="act-img">
-              <div class="act-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10z"/></svg></div>
-            </div>
-            <div class="act-body">
-              <div class="act-name">Олон улсын арга хэмжээ</div>
-              <p class="act-desc">Дэлхийн Жамбори болон бусад олон улсын арга хэмжээнд оролцож 170 улсын скаутуудтай уулзах.</p>
-            </div>
-          </div>
-
-        </div>
-        <div class="act-dots" id="actDots">
-          <span class="act-dot"></span>
-          <span class="act-dot act-dot--active"></span>
-          <span class="act-dot"></span>
-          <span class="act-dot"></span>
-          <span class="act-dot"></span>
-          <span class="act-dot"></span>
-        </div>
-      </div>
-    </div>
-
-    <!-- Андгай + Статистик -->
-    <div class="scout-promise-stats reveal">
-      <div class="promise-box">
-        <h3 class="subsection-title">Скаутын андгай</h3>
-        <blockquote class="promise-text">
-          "Итгэл үнэмшил болон эх орондоо үнэнч байж ямар ч үед бусдад туслан,
-          Скаутын хуулинд захирагдахад өөрөө хамаарах бүхнийг хийхээ нэр төрөөрөө
-          андгайлж байна."
-        </blockquote>
-      </div>
-      <div class="stats-box">
-        <h3 class="subsection-title">Тоо баримт</h3>
-        <div class="facts-grid">
-          <div class="fact-item"><span class="fact-num">170+</span><span class="fact-label">Гишүүн улс</span></div>
-          <div class="fact-item"><span class="fact-num">57M</span><span class="fact-label">Дэлхийн скаут</span></div>
-          <div class="fact-item"><span class="fact-num">1907</span><span class="fact-label">Үүсгэн байгуулагдсан</span></div>
-          <div class="fact-item"><span class="fact-num">12K+</span><span class="fact-label">Монгол скаут</span></div>
-          <div class="fact-item"><span class="fact-num">21</span><span class="fact-label">Аймаг хамрагдсан</span></div>
-          <div class="fact-item"><span class="fact-num">1991</span><span class="fact-label">МСХ байгуулагдсан</span></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════ PROGRAMS ═══════════════ -->
-<section id="programs">
-  <div class="container">
-    <div class="reveal">
-      <div class="section-label">Хөтөлбөрүүд</div>
-      <h2 class="section-title">Скаутын Хөтөлбөрүүд</h2>
-    </div>
-    <div class="prog-cards-grid reveal">
-
-      <div class="prog-card">
-        <div class="prog-card-img">
-          <img src="img/oluulaa_alhaj_bna.jpg" alt="Насны ангилал" />
-        </div>
-        <div class="prog-card-body">
-          <h3>Насны ангилал</h3>
-          <p>Каб скаут, Скаут, Ровер, Удирдагч нас бүрт тохирсон хөтөлбөртэй.</p>
-          <div class="prog-card-actions">
-            <a href="program.html" class="prog-btn prog-btn--primary">Дэлгэрэнгүй →</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="prog-card">
-        <div class="prog-card-img">
-          <img src="img/temdegt1.jpg" alt="Тэмдэгт" />
-        </div>
-        <div class="prog-card-body">
-          <h3>Ур чадварын тэмдэгт</h3>
-          <p>Хүрэл, Мөнгөн, Алтан сум зэрэглэлээр дамжин Алтан Шонхор хүртэлх хувийн хөгжлийн зам.</p>
-          <div class="prog-card-actions">
-            <a href="program.html#badges" class="prog-btn prog-btn--primary">Дэлгэрэнгүй →</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="prog-card">
-        <div class="prog-card-img">
-          <img src="img/hutulbur.jpg" alt="Хөтөлбөрийн уялдаа" />
-        </div>
-        <div class="prog-card-body">
-          <h3>Хөтөлбөрийн уялдаа</h3>
-          <p>ЕБС-ийн I–XII ангийн сургалтын хөтөлбөртэй уялдсан, сургуулийн хичээлийг гүнзгийрүүлэх боломж.</p>
-          <div class="prog-card-actions">
-            <a href="program.html#curriculum" class="prog-btn prog-btn--primary">Дэлгэрэнгүй →</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="prog-card">
-        <div class="prog-card-img">
-          <img src="img/hutulburiin_uyaldaa.jpg" alt="Удирдагч сургалт" />
-        </div>
-        <div class="prog-card-body">
-          <h3>Удирдагч сургалт</h3>
-          <p>GIT - Basic Leader Training - Wood Badge гэсэн тасралтгүй хөгжлийн шаталсан сургалтын систем.</p>
-          <div class="prog-card-actions">
-            <a href="program.html#training" class="prog-btn prog-btn--primary">Дэлгэрэнгүй →</a>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════ LANDSCAPE BREAK ═══════════════ -->
-<div class="landscape-break">
-  <div class="landscape-quote">
-    
-  </div>
-</div>
-
-<!-- ═══════════════ GALLERY ═══════════════ -->
-<section id="gallery">
-  <div class="container">
-    <div class="reveal">
-      <div class="section-label">Хээрийн амьдрал</div>
-      <h2 class="section-title">Гэрэл зургийн цомог</h2>
-    </div>
-  </div>
-  <!-- Зургийн background-image CSS-д тодорхойлогдсон (layout.css) -->
-  <div class="gallery-grid reveal">
-    <div class="gallery-item"></div>
-    <div class="gallery-item"></div>
-    <div class="gallery-item"></div>
-    <div class="gallery-item"></div>
-    <div class="gallery-item"></div>
-  </div>
-</section>
-
-<!-- ═══════════════ JOIN ═══════════════ -->
-<section id="join">
-  <div class="container">
-    <div class="join-inner">
-      <div class="join-text reveal">
-        <div class="section-label">Скаутад элсэх</div>
-        <h2 class="section-title">Бидэнтэй<br /><em>Нэгдэх үү?</em></h2>
-        <ul class="join-steps">
-          <li><span class="step-num">01</span>Нэвтрэх хэсгийг бүтэн бөглөнө үү</li>
-          <li><span class="step-num">02</span>Боломжит бүлгэмд холбож өгнө</li>
-          <li><span class="step-num">03</span>Сургалтад хамрагдана</li>
-          <li><span class="step-num">04</span>Андгай өргөнө</li>
-        </ul>
-      </div>
-      <div class="join-form reveal">
-        <h3 class="form-title">Шинэ элсэлтийн мэдээлэл</h3>
-        <div class="form-row">
-          <div class="form-group"><label>Овог</label><input type="text" placeholder="Батболд" /></div>
-          <div class="form-group"><label>Нэр</label><input type="text" placeholder="Дорж" /></div>
-        </div>
-        <div class="form-group"><label>Имэйл</label><input type="email" placeholder="your@email.com" /></div>
-        <div class="form-group">
-          <label>Нас</label>
-          <select>
-            <option value="">Насны ангилал сонгох</option>
-            <option>5-7</option><option>8-11</option><option>11-17</option>
-            <option>18-25</option><option>Насанд хүрэгч</option>
-          </select>
-        </div>
-        <div class="form-group"><label>Байршил</label><input type="text" placeholder="Улаанбаатар, Дархан..." /></div>
-        <a href="https://forms.gle/jm86LgSDFAtrEqSG7" target="_blank" class="btn-primary btn-primary--full">
-          Илгээх →
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Нүүр — Монголын Скаутын Холбоо</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="icon" type="image/png" href="/img/tab_icon.png" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/theme.css" />
+    <link rel="stylesheet" href="/css/base.css" />
+    <link rel="stylesheet" href="/css/layout.css" />
+    <link rel="stylesheet" href="/css/components.css" />
+  </head>
+  <body>
+    <!-- ═══════════════ NAV ═══════════════ -->
+    <nav>
+      <div class="nav-inner">
+        <a href="#" class="nav-logo">
+          <img
+            class="logo-white"
+            src="/img/tsagaan_logo_texttei.png"
+            alt="Монголын Скаутын Холбоо"
+          />
+          <img
+            class="logo-color"
+            src="/img/huh_logo_texttei.png"
+            alt="Монголын Скаутын Холбоо"
+          />
         </a>
-      </div>
-    </div>
-  </div>
-</section>
 
-<!-- ═══════════════ FOOTER ═══════════════ -->
-<footer>
-  <div class="footer-inner">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <div class="footer-logo">Монголын Скаутын Холбоо</div>
-        <p class="footer-tagline">Адал явдал, тал нутгийн мөнхийн өв соёлыг эрхэмлэн Монголын залуусыг
-        нэгтгэж, төлөвшүүлэхийг зорьдог. Бид 1991 оноос хойш Дэлхийн Скаутын Хөдөлгөөний
-        Байгууллагын гишүүнээр ажиллаж байна.</p>
-      </div>
-      <div>
-        <div class="footer-heading">Цэс</div>
-        <ul class="footer-links">
-          <li><a href="#about">Бидний тухай</a></li>
-          <li><a href="history.html">Үнэт зүйлс</a></li>
-          <li><a href="#programs">Хөтөлбөр</a></li>
-          <li><a href="events.html">Арга хэмжээ</a></li>
-          <li><a href="#join">Нэгдэх</a></li>
+        <ul>
+          <li><a href="/" class="nav-link--active">Нүүр</a></li>
+          <li><a href="/history">Түүх</a></li>
+          <li><a href="/program">Хөтөлбөр</a></li>
+          <li><a href="/events">Арга хэмжээ</a></li>
+          <li><a href="/#join">Нэгдэх</a></li>
         </ul>
-      </div>
-      <div>
-        <div class="footer-heading">Хөтөлбөр</div>
-        <ul class="footer-links">
-          <li><a href="program.html#ages">Каб Скаут (6–11)</a></li>
-          <li><a href="program.html#ages">Скаут (12–15)</a></li>
-          <li><a href="program.html#ages">Венчир Скаут (16–17)</a></li>
-          <li><a href="program.html#ages">Ровер Скаут (18–25)</a></li>
-          <li><a href="program.html#training">Удирдагч</a></li>
-        </ul>
-      </div>
-      <div class="footer-contact">
-        <div class="footer-heading">Холбоо барих</div>
-        <p>Ulaanbaatar, Mongolia</p>
-        <p>info@scout.mn</p>
-        <p>+976 011 32 4171</p>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>© 2026 Монголын Скаутын Холбоо. Бүх эрх хуулиар хамгаалагдсан.</p>
-      <span class="footer-scout-law">Be Prepared</span>
-    </div>
-  </div>
-</footer>
 
-<!-- JS — тус бүр тусдаа файлд байна -->
-<script src="js/nav.js"></script>
-<script src="js/carousel.js"></script>
-<script src="js/form.js"></script>
-<script src="js/about-slider.js"></script>
-</body>
+        <button class="nav-hamburger" id="navHamburger">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- ═══════════════ HERO ═══════════════ -->
+    <section id="hero">
+      <div class="hero-content">
+        <div class="hero-eyebrow">
+          Est. 1991 &nbsp;·&nbsp; THE SCOUT ASSOCIATION OF MONGOLIA
+        </div>
+        <h1 class="hero-title">МОНГОЛЫН<br /><em>СКАУТЫН</em><br />ХОЛБОО</h1>
+        <div class="hero-cta">
+          <a href="#join" class="btn-primary">Бидэнтэй Нэгдэх</a>
+          <a href="#about" class="btn-outline">Бидний түүх</a>
+        </div>
+      </div>
+      <div class="hero-scroll">Scroll</div>
+    </section>
+
+    <!-- ═══════════════ ABOUT ═══════════════ -->
+    <section id="about">
+      <div class="container">
+        <div class="about-grid">
+          <div class="about-visual reveal">
+            <!-- Зургийн slider -->
+            <div class="about-slider" id="aboutSlider">
+              <div
+                class="about-slide active"
+                style="
+                  background-image: url(&quot;/img/gadaa_mash_olon.jpg&quot;);
+                "
+              ></div>
+              <div
+                class="about-slide"
+                style="
+                  background-image: url(&quot;/img/buunuuruu_alhah.jpg&quot;);
+                "
+              ></div>
+              <div
+                class="about-slide"
+                style="
+                  background-image: url(&quot;/img/oluulaa_alhaj_bna.jpg&quot;);
+                "
+              ></div>
+              <div
+                class="about-slide"
+                style="background-image: url(&quot;/img/heer.jpg&quot;)"
+              ></div>
+              <div
+                class="about-slide"
+                style="background-image: url(&quot;/img/olon_uls.jpg&quot;)"
+              ></div>
+              <div
+                class="about-slide"
+                style="background-image: url(&quot;/img/cub_hovguun.jpg&quot;)"
+              ></div>
+              <div
+                class="about-slide"
+                style="background-image: url(&quot;/img/scout_tug.jpg&quot;)"
+              ></div>
+              <div
+                class="about-slide"
+                style="background-image: url(&quot;/img/ulamjlal.jpg&quot;)"
+              ></div>
+              <div
+                class="about-slide"
+                style="background-image: url(&quot;/img/hutulbur.jpg&quot;)"
+              ></div>
+              <div
+                class="about-slide"
+                style="
+                  background-image: url(&quot;/img/scout_chuluut_zurag.jpg&quot;);
+                "
+              ></div>
+              <div class="about-slider-dots" id="aboutSliderDots"></div>
+            </div>
+            <div class="about-stat-strip">
+              <div class="stat">
+                <span class="stat-num">15K+</span
+                ><span class="stat-label">Скаут</span>
+              </div>
+              <div class="stat">
+                <span class="stat-num">21</span
+                ><span class="stat-label">Аймаг</span>
+              </div>
+              <div class="stat">
+                <span class="stat-num">33</span
+                ><span class="stat-label">Жил</span>
+              </div>
+              <div class="stat">
+                <span class="stat-num">170+</span
+                ><span class="stat-label">Улс</span>
+              </div>
+            </div>
+          </div>
+          <div class="about-text reveal">
+            <div class="section-label">БИДНИЙ ӨВ</div>
+            <h2 class="section-title">Mонголд Скаутын <br />Хөдөлгөөн</h2>
+            <p>
+              Монголын Скаутын Холбоо нь хүүхэд, залуучуудыг бие даасан,
+              хариуцлагатай, эх оронч иргэн болгон төлөвшүүлэх зорилготой сайн
+              дурын, ашгийн бус байгууллага юм. Бид дэлхий даяар үйл ажиллагаа
+              явуулдаг скаутын хөдөлгөөний нэг хэсэг бөгөөд залуучуудыг
+              амьдралын ур чадварт суралцах, байгаль орчноо хайрлан хамгаалах,
+              нийгэмдээ эерэг хувь нэмэр оруулахад чиглэсэн хөтөлбөрүүдийг
+              хэрэгжүүлдэг.
+            </p>
+            <p>
+              Скаутын хөдөлгөөн нь 1991 оноос Монголд хөгжиж, өнөөдөр улс орон
+              даяар олон мянган хүүхэд, залуучуудыг нэгтгээд байна. Манай
+              хөтөлбөрүүд нь адал явдал, байгальд түшиглэсэн сургалт, багаар
+              ажиллах, манлайлал, нийгмийн хариуцлагыг төлөвшүүлэх үйл
+              ажиллагааг багтаадаг.
+            </p>
+            <blockquote class="about-quote">
+              "Амьдралд бэлэн" — Монголын Скаутын Холбооны уриа
+            </blockquote>
+            <a href="/history" class="btn-primary">СКАУТЫН ТҮҮХ →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════ VALUES ═══════════════ -->
+    <section id="values">
+      <div class="container">
+        <div class="reveal">
+          <div class="section-label">Скаутын тухай</div>
+          <h2 class="section-title">Скаут гэж юу вэ?</h2>
+          <p class="section-intro">
+            Скаутын хөдөлгөөн нь 1907 онд үүсч, өнөөдөр дэлхийн 170 гаруй улсад
+            60 сая гишүүнтэй дэлхийн хамгийн том залуучуудын байгууллага юм.
+            Монголын Скаутын Холбоо 1991 онд байгуулагдаж, уламжлалт нүүдэлчдийн
+            ухаан болон орчин үеийн манлайллыг хослуулан залуу монголчуудыг
+            хүмүүжүүлж байна.
+          </p>
+        </div>
+
+        <!-- Насны ангилал -->
+        <div class="scout-age-section reveal">
+          <h3 class="subsection-title">Насны ангилал</h3>
+          <div class="age-grid">
+            <div class="age-card">
+              <div class="age-badge">
+                <svg viewBox="0 0 24 24">
+                  <path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z" />
+                  <line x1="16" y1="8" x2="2" y2="22" />
+                  <line x1="17.5" y1="15" x2="9" y2="15" />
+                </svg>
+              </div>
+              <div class="age-range">6 – 11 нас</div>
+              <div class="age-name">Каб</div>
+              <p class="age-desc">
+                Тоглоомын аргаар суралцана. Бие бялдраа хөгжүүлнэ. Сахилга батад
+                суралцана. Бусдад тусалж үүрэг хариуцлагаа нэмэгдүүлнэ.
+              </p>
+            </div>
+            <div class="age-card age-card--featured">
+              <div class="age-badge">
+                <svg viewBox="0 0 24 24">
+                  <polygon
+                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                  />
+                </svg>
+              </div>
+              <div class="age-range">12 – 15 нас</div>
+              <div class="age-name">Скаут</div>
+              <p class="age-desc">
+                Үйл ажиллагааны явцад суралцана. Хариуцлага хүлээж эхэлнэ.
+                Хээрийн үйл ажиллагаанд оролцож эхэлнэ.
+              </p>
+            </div>
+            <div class="age-card">
+              <div class="age-badge">
+                <svg viewBox="0 0 24 24">
+                  <circle cx="12" cy="12" r="10" />
+                  <polygon
+                    points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"
+                  />
+                </svg>
+              </div>
+              <div class="age-range">16 – 17 нас</div>
+              <div class="age-name">Венчир</div>
+              <p class="age-desc">
+                Даван туулах зарчмаар суралцана. Скаутын туслах удирдагч болно.
+                Шинийг санаачлана.
+              </p>
+            </div>
+            <div class="age-card">
+              <div class="age-badge">
+                <svg viewBox="0 0 24 24">
+                  <circle cx="12" cy="12" r="10" />
+                  <line x1="2" y1="12" x2="22" y2="12" />
+                  <path
+                    d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"
+                  />
+                </svg>
+              </div>
+              <div class="age-range">18 – 25 нас</div>
+              <div class="age-name">Ровер</div>
+              <p class="age-desc">
+                Каб, скаутуудад тусална. Олон нийт болон нийгмийн сайн сайхны
+                төлөө үйл ажиллагаа санаачлан зохион байгуулна.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Гол үйл ажиллагаа -->
+        <div class="scout-activities reveal">
+          <h3 class="subsection-title">Гол үйл ажиллагаа</h3>
+          <div class="act-carousel-wrapper">
+            <div class="act-carousel" id="actCarousel">
+              <div class="act-card">
+                <div class="act-img">
+                  <div class="act-icon">
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.8"
+                    >
+                      <path d="M3 21l9-18 9 18H3z" />
+                    </svg>
+                  </div>
+                </div>
+                <div class="act-body">
+                  <div class="act-name">Хээрийн кемп</div>
+                  <p class="act-desc">
+                    Монголын тал нутагт тэнгэрийн дор хонож, байгаль дэлхийтэй
+                    нэгдэх.
+                  </p>
+                </div>
+              </div>
+
+              <div class="act-card">
+                <div class="act-img">
+                  <div class="act-icon">
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.8"
+                    >
+                      <path d="M8 3l4 8 5-5 5 13H2L8 3z" />
+                    </svg>
+                  </div>
+                </div>
+                <div class="act-body">
+                  <div class="act-name">Аялал экспедиц</div>
+                  <p class="act-desc">
+                    Хангайн нуруунаас Говийн элст цөл хүртэл — Монголын өнцөг
+                    булан бүрийг судлах дайчин аялалууд.
+                  </p>
+                </div>
+              </div>
+
+              <div class="act-card act-card--active">
+                <div class="act-img">
+                  <div class="act-icon">
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.8"
+                    >
+                      <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                      <circle cx="9" cy="7" r="4" />
+                    </svg>
+                  </div>
+                </div>
+                <div class="act-body">
+                  <div class="act-name">Олон нийтийн үйлчилгээ</div>
+                  <p class="act-desc">
+                    Орон нутгийн иргэдэд туслах, байгаль орчноо хамгаалах,
+                    нийгмийн асуудлыг шийдвэрлэхэд оролцох.
+                  </p>
+                </div>
+              </div>
+
+              <div class="act-card">
+                <div class="act-img">
+                  <div class="act-icon">
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.8"
+                    >
+                      <circle cx="12" cy="12" r="10" />
+                      <circle cx="12" cy="12" r="6" />
+                      <circle cx="12" cy="12" r="2" />
+                    </svg>
+                  </div>
+                </div>
+                <div class="act-body">
+                  <div class="act-name">Ур чадварын тэмдэг</div>
+                  <p class="act-desc">
+                    Анагаах ухаан, гэрэл зураг, хөгжим, кодчилол зэрэг 100 гаруй
+                    чиглэлээр мэдлэг эзэмшиж тэмдэг хүртэх.
+                  </p>
+                </div>
+              </div>
+
+              <div class="act-card">
+                <div class="act-img">
+                  <div class="act-icon">
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.8"
+                    >
+                      <path d="M5 12h14" />
+                      <path d="M12 5l7 7-7 7" />
+                    </svg>
+                  </div>
+                </div>
+                <div class="act-body">
+                  <div class="act-name">Монгол уламжлал</div>
+                  <p class="act-desc">
+                    Наадам, морь унах, сур харваа, гэр барих — монгол
+                    нүүдэлчдийн мэргэжлийг өвлүүлэн залгамжлах.
+                  </p>
+                </div>
+              </div>
+
+              <div class="act-card">
+                <div class="act-img">
+                  <div class="act-icon">
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.8"
+                    >
+                      <circle cx="12" cy="12" r="10" />
+                      <line x1="2" y1="12" x2="22" y2="12" />
+                      <path
+                        d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10z"
+                      />
+                    </svg>
+                  </div>
+                </div>
+                <div class="act-body">
+                  <div class="act-name">Олон улсын арга хэмжээ</div>
+                  <p class="act-desc">
+                    Дэлхийн Жамбори болон бусад олон улсын арга хэмжээнд оролцож
+                    170 улсын скаутуудтай уулзах.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="act-dots" id="actDots">
+              <span class="act-dot"></span>
+              <span class="act-dot act-dot--active"></span>
+              <span class="act-dot"></span>
+              <span class="act-dot"></span>
+              <span class="act-dot"></span>
+              <span class="act-dot"></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Андгай + Статистик -->
+        <div class="scout-promise-stats reveal">
+          <div class="promise-box">
+            <h3 class="subsection-title">Скаутын андгай</h3>
+            <blockquote class="promise-text">
+              "Итгэл үнэмшил болон эх орондоо үнэнч байж ямар ч үед бусдад
+              туслан, Скаутын хуулинд захирагдахад өөрөө хамаарах бүхнийг хийхээ
+              нэр төрөөрөө андгайлж байна."
+            </blockquote>
+          </div>
+          <div class="stats-box">
+            <h3 class="subsection-title">Тоо баримт</h3>
+            <div class="facts-grid">
+              <div class="fact-item">
+                <span class="fact-num">170+</span
+                ><span class="fact-label">Гишүүн улс</span>
+              </div>
+              <div class="fact-item">
+                <span class="fact-num">57M</span
+                ><span class="fact-label">Дэлхийн скаут</span>
+              </div>
+              <div class="fact-item">
+                <span class="fact-num">1907</span
+                ><span class="fact-label">Үүсгэн байгуулагдсан</span>
+              </div>
+              <div class="fact-item">
+                <span class="fact-num">12K+</span
+                ><span class="fact-label">Монгол скаут</span>
+              </div>
+              <div class="fact-item">
+                <span class="fact-num">21</span
+                ><span class="fact-label">Аймаг хамрагдсан</span>
+              </div>
+              <div class="fact-item">
+                <span class="fact-num">1991</span
+                ><span class="fact-label">МСХ байгуулагдсан</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════ PROGRAMS ═══════════════ -->
+    <section id="programs">
+      <div class="container">
+        <div class="reveal">
+          <div class="section-label">Хөтөлбөрүүд</div>
+          <h2 class="section-title">Скаутын Хөтөлбөрүүд</h2>
+        </div>
+        <div class="prog-cards-grid reveal">
+          <div class="prog-card">
+            <div class="prog-card-img">
+              <img src="img/oluulaa_alhaj_bna.jpg" alt="Насны ангилал" />
+            </div>
+            <div class="prog-card-body">
+              <h3>Насны ангилал</h3>
+              <p>
+                Каб скаут, Скаут, Ровер, Удирдагч нас бүрт тохирсон хөтөлбөртэй.
+              </p>
+              <div class="prog-card-actions">
+                <a href="program.html" class="prog-btn prog-btn--primary"
+                  >Дэлгэрэнгүй →</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <div class="prog-card">
+            <div class="prog-card-img">
+              <img src="img/temdegt1.jpg" alt="Тэмдэгт" />
+            </div>
+            <div class="prog-card-body">
+              <h3>Ур чадварын тэмдэгт</h3>
+              <p>
+                Хүрэл, Мөнгөн, Алтан сум зэрэглэлээр дамжин Алтан Шонхор хүртэлх
+                хувийн хөгжлийн зам.
+              </p>
+              <div class="prog-card-actions">
+                <a href="program.html#badges" class="prog-btn prog-btn--primary"
+                  >Дэлгэрэнгүй →</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <div class="prog-card">
+            <div class="prog-card-img">
+              <img src="img/hutulbur.jpg" alt="Хөтөлбөрийн уялдаа" />
+            </div>
+            <div class="prog-card-body">
+              <h3>Хөтөлбөрийн уялдаа</h3>
+              <p>
+                ЕБС-ийн I–XII ангийн сургалтын хөтөлбөртэй уялдсан, сургуулийн
+                хичээлийг гүнзгийрүүлэх боломж.
+              </p>
+              <div class="prog-card-actions">
+                <a
+                  href="program.html#curriculum"
+                  class="prog-btn prog-btn--primary"
+                  >Дэлгэрэнгүй →</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <div class="prog-card">
+            <div class="prog-card-img">
+              <img src="img/hutulburiin_uyaldaa.jpg" alt="Удирдагч сургалт" />
+            </div>
+            <div class="prog-card-body">
+              <h3>Удирдагч сургалт</h3>
+              <p>
+                GIT - Basic Leader Training - Wood Badge гэсэн тасралтгүй
+                хөгжлийн шаталсан сургалтын систем.
+              </p>
+              <div class="prog-card-actions">
+                <a
+                  href="program.html#training"
+                  class="prog-btn prog-btn--primary"
+                  >Дэлгэрэнгүй →</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════ LANDSCAPE BREAK ═══════════════ -->
+    <div class="landscape-break">
+      <div class="landscape-quote"></div>
+    </div>
+
+    <!-- ═══════════════ GALLERY ═══════════════ -->
+    <section id="gallery">
+      <div class="container">
+        <div class="reveal">
+          <div class="section-label">Хээрийн амьдрал</div>
+          <h2 class="section-title">Гэрэл зургийн цомог</h2>
+        </div>
+      </div>
+      <!-- Зургийн background-image CSS-д тодорхойлогдсон (layout.css) -->
+      <div class="gallery-grid reveal">
+        <div class="gallery-item"></div>
+        <div class="gallery-item"></div>
+        <div class="gallery-item"></div>
+        <div class="gallery-item"></div>
+        <div class="gallery-item"></div>
+      </div>
+    </section>
+
+    <!-- ═══════════════ JOIN ═══════════════ -->
+    <section id="join">
+      <div class="container">
+        <div class="join-inner">
+          <div class="join-text reveal">
+            <div class="section-label">Скаутад элсэх</div>
+            <h2 class="section-title">Бидэнтэй<br /><em>Нэгдэх үү?</em></h2>
+            <ul class="join-steps">
+              <li>
+                <span class="step-num">01</span>Нэвтрэх хэсгийг бүтэн бөглөнө үү
+              </li>
+              <li>
+                <span class="step-num">02</span>Боломжит бүлгэмд холбож өгнө
+              </li>
+              <li><span class="step-num">03</span>Сургалтад хамрагдана</li>
+              <li><span class="step-num">04</span>Андгай өргөнө</li>
+            </ul>
+          </div>
+          <div class="join-form reveal">
+            <h3 class="form-title">Шинэ элсэлтийн мэдээлэл</h3>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Овог</label><input type="text" placeholder="Батболд" />
+              </div>
+              <div class="form-group">
+                <label>Нэр</label><input type="text" placeholder="Дорж" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Имэйл</label
+              ><input type="email" placeholder="your@email.com" />
+            </div>
+            <div class="form-group">
+              <label>Нас</label>
+              <select>
+                <option value="">Насны ангилал сонгох</option>
+                <option>5-7</option>
+                <option>8-11</option>
+                <option>11-17</option>
+                <option>18-25</option>
+                <option>Насанд хүрэгч</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Байршил</label
+              ><input type="text" placeholder="Улаанбаатар, Дархан..." />
+            </div>
+            <a
+              href="https://forms.gle/jm86LgSDFAtrEqSG7"
+              target="_blank"
+              class="btn-primary btn-primary--full"
+            >
+              Илгээх →
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════ FOOTER ═══════════════ -->
+    <footer>
+      <div class="footer-inner">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <div class="footer-logo">Монголын Скаутын Холбоо</div>
+            <p class="footer-tagline">
+              Адал явдал, тал нутгийн мөнхийн өв соёлыг эрхэмлэн Монголын
+              залуусыг нэгтгэж, төлөвшүүлэхийг зорьдог. Бид 1991 оноос хойш
+              Дэлхийн Скаутын Хөдөлгөөний Байгууллагын гишүүнээр ажиллаж байна.
+            </p>
+          </div>
+          <div>
+            <div class="footer-heading">Цэс</div>
+            <ul class="footer-links">
+              <li><a href="/#about">Бидний тухай</a></li>
+              <li><a href="/history">Түүх</a></li>
+              <li><a href="/#program">Хөтөлбөр</a></li>
+              <li><a href="/events">Арга хэмжээ</a></li>
+              <li><a href="/#join">Нэгдэх</a></li>
+            </ul>
+          </div>
+          <div>
+            <div class="footer-heading">Хөтөлбөр</div>
+            <ul class="footer-links">
+              <li><a href="/program#ages">Каб Скаут (6–11)</a></li>
+              <li><a href="/program#ages">Скаут (12–15)</a></li>
+              <li><a href="/program#ages">Венчир Скаут (16–17)</a></li>
+              <li><a href="/program#ages">Ровер Скаут (18–25)</a></li>
+              <li><a href="/program#training">Удирдагч</a></li>
+            </ul>
+          </div>
+          <div class="footer-contact">
+            <div class="footer-heading">Холбоо барих</div>
+            <p>Ulaanbaatar, Mongolia</p>
+            <p>info@scout.mn</p>
+            <p>+976 011 32 4171</p>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>© 2026 Монголын Скаутын Холбоо. Бүх эрх хуулиар хамгаалагдсан.</p>
+          <span class="footer-scout-law">Be Prepared</span>
+        </div>
+      </div>
+    </footer>
+
+    <!-- JS — тус бүр тусдаа файлд байна -->
+    <script src="/js/nav.js"></script>
+    <script src="/js/carousel.js"></script>
+    <script src="/js/form.js"></script>
+    <script src="/js/about-slider.js"></script>
+  </body>
 </html>
