@@ -2,6 +2,12 @@
    layout.css — index.html-ийн section layout стилүүд
    Hero, About, Values, Programs, Events, Gallery, Join
    ============================================================ */
+body {
+  background-image: url("/img/logo/pattern_grey_color.png");
+  background-size: 320px auto;
+  background-repeat: repeat;
+  background-attachment: fixed;
+}
 
 /* ============================================================
    HERO
@@ -10,7 +16,7 @@
   min-height: 100vh;
   background:
     linear-gradient(to bottom, rgba(17,46,80,0.65) 0%, rgba(17,46,80,0.25) 50%, rgba(17,46,80,0.8) 100%),
-    url('/img/homescreen.jpg') center / cover no-repeat;
+    url('/img/home/homescreen.jpg') center / cover no-repeat;
   display: flex; align-items: center; justify-content: center;
   text-align: center; position: relative; overflow: hidden;
 }
@@ -48,6 +54,7 @@
 }
 .hero-scroll::before { content: '↓'; font-size: 20px; color: var(--color-accent); }
 
+
 /* ============================================================
    ABOUT
    ============================================================ */
@@ -57,7 +64,7 @@
 }
 #about::after {
   content: ''; position: absolute; inset: 0; pointer-events: none;
-  background-image: url('../img/pattern_blue_color.png');
+  background-image: url('../img.logo/pattern_blue_color.png');
   background-size: 280px auto; opacity: 0.03;
 }
 .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
@@ -129,7 +136,7 @@
 }
 .promise-box::before {
   content: ''; position: absolute; inset: 0; pointer-events: none;
-  background-image: url('../img/pattern_blue_color.png');
+  background-image: url('../img/logo/pattern_blue_color.png');
   background-size: 200px auto; opacity: 0.07;
 }
 .promise-box .subsection-title       { color: rgba(255,255,255,0.6); position: relative; z-index: 1; }
@@ -193,7 +200,7 @@
   height: 380px;
   background:
     linear-gradient(to bottom, rgba(17,46,80,0.5) 0%, rgba(17,46,80,0.2) 40%, rgba(17,46,80,0.6) 100%),
-    url('../img/landscape_break.jpg') center / cover no-repeat fixed;
+    url('../img/home/landscape_break.jpg') center / cover no-repeat fixed;
   display: flex; align-items: center; justify-content: center;
   position: relative;
 }
@@ -225,11 +232,11 @@
 .gallery-item:hover::after { background: rgba(29,67,130,0.4); }
 
 /* Gallery image backgrounds — CSS-д зургийн path */
-.gallery-item:nth-child(1) { background-image: url('../img/gadaa_mash_olon.jpg'); }
-.gallery-item:nth-child(2) { background-image: url('../img/23.jpg'); }
-.gallery-item:nth-child(3) { background-image: url('../img/cub_hovguun.jpg'); }
-.gallery-item:nth-child(4) { background-image: url('../img/scout_tug.jpg'); }
-.gallery-item:nth-child(5) { background-image: url('../img/scout_chuluut_zurag.jpg'); }
+.gallery-item:nth-child(1) { background-image: url('/img/home/30jil_jamboree.jpg'); }
+.gallery-item:nth-child(2) { background-image: url('/img/home/gallery/gallery1.jpg'); }
+.gallery-item:nth-child(3) { background-image: url('/img/home/gallery/cub_hovguun.jpg'); }
+.gallery-item:nth-child(4) { background-image: url('/img/home/gallery/scout_tug.jpg'); }
+.gallery-item:nth-child(5) { background-image: url('/img/home/gallery/mazaalai.jpg'); }
 
 /* ============================================================
    JOIN
@@ -237,7 +244,7 @@
 #join { background: var(--color-primary); position: relative; overflow: hidden; }
 #join::before {
   content: ''; position: absolute; inset: 0;
-  background-image: url('../img/pattern_blue_color.png');
+  background-image: url('../img/logo/pattern_blue_color.png');
   background-size: 260px auto; opacity: 0.08;
 }
 .join-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; position: relative; z-index: 1; }

@@ -4,7 +4,7 @@
 
 /* ── Site-wide background pattern ── */
 body {
-  background-image: url("../img/pattern_grey_color.png");
+  background-image: url("/img/logo/pattern_grey_color.png");
   background-size: 320px auto;
   background-repeat: repeat;
   background-attachment: fixed;
@@ -21,7 +21,7 @@ body {
       rgba(17, 46, 80, 0.45) 60%,
       rgba(17, 46, 80, 0.85) 100%
     ),
-    url("/img/buunuuruu_alhah.jpg") center / cover no-repeat;
+    url("/img/program/buunuuruu_alhah.jpg") center / cover no-repeat;
   min-height: 52vh;
   display: flex;
   align-items: center;
@@ -181,7 +181,7 @@ body {
   content: "";
   position: absolute;
   inset: 0;
-  background-image: url("../img/pattern_blue_color.png");
+  background-image: url("../img/logo/pattern_blue_color.png");
   background-size: 200px;
   opacity: 0.07;
 }
@@ -209,7 +209,7 @@ body {
   content: "";
   position: absolute;
   inset: 0;
-  background-image: url("../img/pattern_blue_color.png");
+  background-image: url("../img/logo/pattern_blue_color.png");
   background-size: 200px;
   opacity: 0.07;
 }
@@ -765,7 +765,7 @@ body {
   content: "";
   position: absolute;
   inset: 0;
-  background-image: url("../img/pattern_blue_color.png");
+  background-image: url("../img/logo/pattern_blue_color.png");
   background-size: 200px;
   opacity: 0.07;
 }
