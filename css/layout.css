@@ -2,13 +2,6 @@
    layout.css — index.html-ийн section layout стилүүд
    Hero, About, Values, Programs, Events, Gallery, Join
    ============================================================ */
-body {
-  background-image: url("/img/logo/pattern_grey_color.png");
-  background-size: 320px auto;
-  background-repeat: repeat;
-  background-attachment: fixed;
-}
-
 /* ============================================================
    HERO
    ============================================================ */
