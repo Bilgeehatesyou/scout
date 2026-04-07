@@ -1,130 +1,156 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="mn">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Арга хэмжээ — Монголын Скаутын Холбоо</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/theme.css" />
-  <link rel="stylesheet" href="css/base.css" />
-  <link rel="stylesheet" href="css/events.css" />
-</head>
-<body>
-
-<!-- ═══════════════ NAV ═══════════════ -->
-<nav id="main-nav">
-  <div class="nav-inner">
-    <a href="index.html" class="nav-logo">
-      <img class="logo-white" src="img/tsagaan_logo_texttei.png" alt="Монголын Скаутын Холбоо" />
-      <img class="logo-color"  src="img/huh_logo_texttei.png"    alt="Монголын Скаутын Холбоо" />
-    </a>
-    <ul>
-      <li><a href="index.html#about">Нүүр</a></li>
-      <li><a href="history.html">Түүх</a></li>
-      <li><a href="program.html">Хөтөлбөр</a></li>
-      <li><a href="events.html" class="nav-link--active">Арга хэмжээ</a></li>
-      <li><a href="index.html#join">Нэгдэх</a></li>
-    </ul>
-  </div>
-</nav>
-
-<!-- ═══════════════ HERO ═══════════════ -->
-<div class="events-hero">
-  <div class="events-hero-content">
-    <div class="events-hero-eyebrow">Монголын Скаутын Холбоо</div>
-    <h1>Арга <em>хэмжээ</em></h1>
-  </div>
-</div>
-
-<!-- ═══════════════ UPCOMING ═══════════════ -->
-<section class="events-section">
-  <div class="container">
-
-    <div class="reveal">
-      <div class="section-label">Тов гарсан</div>
-      <h2 class="section-title">Удахгүй болох арга хэмжээ</h2>
-    </div>
-
-    <!-- Featured карт (featured:true) -->
-    <div id="ev-featured" class="events-grid events-grid--featured reveal"></div>
-
-    <!-- Regular upcoming картууд -->
-    <div id="ev-regular" class="events-grid reveal"></div>
-
-    <div class="events-more">
-      <button id="ev-more-upcoming" class="events-more-btn" onclick="evLoadMoreUpcoming()">
-        Цааш үзэх
-      </button>
-    </div>
-
-  </div>
-</section>
-
-<!-- ═══════════════ PAST ═══════════════ -->
-<section class="events-section events-section--alt">
-  <div class="container">
-
-    <div class="reveal">
-      <div class="section-label">Архив</div>
-      <h2 class="section-title">Өнгөрсөн арга хэмжээ</h2>
-    </div>
-
-    <div id="ev-past" class="events-grid reveal"></div>
-
-    <div class="events-more">
-      <button id="ev-more-past" class="events-more-btn" onclick="evLoadMorePast()">
-        Цааш үзэх
-      </button>
-    </div>
-
-  </div>
-</section>
-
-<!-- ═══════════════ FOOTER ═══════════════ -->
-<footer>
-  <div class="footer-inner">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <div class="footer-logo">Монголын Скаутын Холбоо</div>
-        <p class="footer-tagline">Адал явдал, тал нутгийн мөнхийн өв соёлыг эрхэмлэн Монголын залуусыг нэгтгэж, төлөвшүүлэхийг зорьдог. Бид 1991 оноос хойш Дэлхийн Скаутын Хөдөлгөөний Байгууллагын гишүүнээр ажиллаж байна.</p>
-      </div>
-      <div>
-        <div class="footer-heading">Цэс</div>
-        <ul class="footer-links">
-          <li><a href="index.html#about">Бидний тухай</a></li>
-          <li><a href="history.html">Үнэт зүйлс</a></li>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Арга хэмжээ — Монголын Скаутын Холбоо</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/theme.css" />
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/events.css" />
+  </head>
+  <body>
+    <!-- ═══════════════ NAV ═══════════════ -->
+    <nav id="main-nav">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-logo">
+          <img
+            class="logo-white"
+            src="img/tsagaan_logo_texttei.png"
+            alt="Монголын Скаутын Холбоо"
+          />
+          <img
+            class="logo-color"
+            src="img/huh_logo_texttei.png"
+            alt="Монголын Скаутын Холбоо"
+          />
+        </a>
+        <ul>
+          <li><a href="index.html#about">Нүүр</a></li>
+          <li><a href="history.html">Түүх</a></li>
           <li><a href="program.html">Хөтөлбөр</a></li>
-          <li><a href="events.html">Арга хэмжээ</a></li>
+          <li>
+            <a href="events.html" class="nav-link--active">Арга хэмжээ</a>
+          </li>
           <li><a href="index.html#join">Нэгдэх</a></li>
         </ul>
+        <button class="nav-hamburger" id="navHamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
       </div>
-      <div>
-        <div class="footer-heading">Хөтөлбөр</div>
-        <ul class="footer-links">
-          <li><a href="program.html#ages">Каб Скаут (6–11)</a></li>
-          <li><a href="program.html#ages">Скаут (12–15)</a></li>
-          <li><a href="program.html#ages">Венчир Скаут (16–17)</a></li>
-          <li><a href="program.html#ages">Ровер Скаут (18–25)</a></li>3
-          <li><a href="program.html#training">Удирдагч</a></li>
-        </ul>
-      </div>
-      <div class="footer-contact">
-        <div class="footer-heading">Холбоо барих</div>
-        <p>Улаанбаатар, Монгол</p>
-        <p>info@scout.mn</p>
-        <p>+976 011 32 4171</p>
+    </nav>
+
+    <!-- ═══════════════ HERO ═══════════════ -->
+    <div class="events-hero">
+      <div class="events-hero-content">
+        <div class="events-hero-eyebrow">Монголын Скаутын Холбоо</div>
+        <h1>Арга <em>хэмжээ</em></h1>
       </div>
     </div>
-    <div class="footer-bottom">
-      <p>© 2026 Монголын Скаутын Холбоо. Бүх эрх хуулиар хамгаалагдсан.</p>
-      <span class="footer-scout-law">Be Prepared</span>
-    </div>
-  </div>
-</footer>
 
-<script src="js/nav.js"></script>
-<script src="js/events_page.js"></script>
+    <!-- ═══════════════ UPCOMING ═══════════════ -->
+    <section class="events-section">
+      <div class="container">
+        <div class="reveal">
+          <div class="section-label">Тов гарсан</div>
+          <h2 class="section-title">Удахгүй болох арга хэмжээ</h2>
+        </div>
 
-</body>
+        <!-- Featured карт (featured:true) -->
+        <div
+          id="ev-featured"
+          class="events-grid events-grid--featured reveal"
+        ></div>
+
+        <!-- Regular upcoming картууд -->
+        <div id="ev-regular" class="events-grid reveal"></div>
+
+        <div class="events-more">
+          <button
+            id="ev-more-upcoming"
+            class="events-more-btn"
+            onclick="evLoadMoreUpcoming()"
+          >
+            Цааш үзэх
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════ PAST ═══════════════ -->
+    <section class="events-section events-section--alt">
+      <div class="container">
+        <div class="reveal">
+          <div class="section-label">Архив</div>
+          <h2 class="section-title">Өнгөрсөн арга хэмжээ</h2>
+        </div>
+
+        <div id="ev-past" class="events-grid reveal"></div>
+
+        <div class="events-more">
+          <button
+            id="ev-more-past"
+            class="events-more-btn"
+            onclick="evLoadMorePast()"
+          >
+            Цааш үзэх
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════ FOOTER ═══════════════ -->
+    <footer>
+      <div class="footer-inner">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <div class="footer-logo">Монголын Скаутын Холбоо</div>
+            <p class="footer-tagline">
+              Адал явдал, тал нутгийн мөнхийн өв соёлыг эрхэмлэн Монголын
+              залуусыг нэгтгэж, төлөвшүүлэхийг зорьдог. Бид 1991 оноос хойш
+              Дэлхийн Скаутын Хөдөлгөөний Байгууллагын гишүүнээр ажиллаж байна.
+            </p>
+          </div>
+          <div>
+            <div class="footer-heading">Цэс</div>
+            <ul class="footer-links">
+              <li><a href="index.html#about">Бидний тухай</a></li>
+              <li><a href="history.html">Үнэт зүйлс</a></li>
+              <li><a href="program.html">Хөтөлбөр</a></li>
+              <li><a href="events.html">Арга хэмжээ</a></li>
+              <li><a href="index.html#join">Нэгдэх</a></li>
+            </ul>
+          </div>
+          <div>
+            <div class="footer-heading">Хөтөлбөр</div>
+            <ul class="footer-links">
+              <li><a href="program.html#ages">Каб Скаут (6–11)</a></li>
+              <li><a href="program.html#ages">Скаут (12–15)</a></li>
+              <li><a href="program.html#ages">Венчир Скаут (16–17)</a></li>
+              <li><a href="program.html#ages">Ровер Скаут (18–25)</a></li>
+              3
+              <li><a href="program.html#training">Удирдагч</a></li>
+            </ul>
+          </div>
+          <div class="footer-contact">
+            <div class="footer-heading">Холбоо барих</div>
+            <p>Улаанбаатар, Монгол</p>
+            <p>info@scout.mn</p>
+            <p>+976 011 32 4171</p>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>© 2026 Монголын Скаутын Холбоо. Бүх эрх хуулиар хамгаалагдсан.</p>
+          <span class="footer-scout-law">Be Prepared</span>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/nav.js"></script>
+    <script src="js/events_page.js"></script>
+  </body>
 </html>

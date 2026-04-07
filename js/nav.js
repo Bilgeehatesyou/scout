@@ -15,6 +15,25 @@
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 })();
+/* ── Hamburger menu ── */
+(function () {
+  const hamburger = document.getElementById('navHamburger');
+  const navUl     = document.querySelector('nav ul');
+  if (!hamburger || !navUl) return;
+
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    navUl.classList.toggle('open');
+  });
+
+  // Цэс дээр дарахад хаагдана
+  navUl.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger.classList.remove('open');
+      navUl.classList.remove('open');
+    });
+  });
+})();
 
 /* ── Reveal on scroll ── */
 (function () {

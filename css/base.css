@@ -214,9 +214,52 @@ footer {
 /* ============================================================
    RESPONSIVE
    ============================================================ */
+/* ── Hamburger button ── */
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+}
+.nav-hamburger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: #fff;
+  transition: all 0.3s ease;
+}
+nav.nav-scrolled .nav-hamburger span { background: var(--color-primary); }
+.nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-hamburger.open span:nth-child(2) { opacity: 0; }
+.nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
 @media (max-width: 900px) {
-  nav ul { display: none; }
+  .nav-hamburger { display: flex; }
+  nav ul {
+    display: none;
+    position: fixed;
+    top: var(--nav-height);
+    left: 0; right: 0;
+    background: var(--color-primary);
+    flex-direction: column;
+    padding: var(--space-6) var(--space-8);
+    gap: 0;
+    border-top: 1px solid rgba(255,255,255,0.1);
+  }
+  nav ul.open { display: flex; }
+  nav ul li a {
+    display: block;
+    padding: var(--space-4) 0;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    font-size: var(--text-sm);
+  }
   .footer-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 600px) {
+  .footer-grid { grid-template-columns: 1fr; }
 }
 @media (max-width: 600px) {
   .footer-grid { grid-template-columns: 1fr; }
