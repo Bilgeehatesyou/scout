@@ -730,6 +730,16 @@ body {
   .intro-grid {
     grid-template-columns: 1fr;
   }
+  .badge-intro-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+    align-items: start;
+  }
+  .badge-intro-img {
+    max-width: 560px;
+    width: 100%;
+    justify-self: center;
+  }
   .principle-grid,
   .badge-system {
     grid-template-columns: 1fr 1fr;
