@@ -308,10 +308,31 @@ app.delete('/api/news/:id', async (req, res) => {
   }
 });
 
+// ─── Admin Auth Middleware ──────────────────────────────────────
+
+function adminAuth(req, res, next) {
+  const password = req.query.password || req.headers['x-admin-password'];
+  if (password === process.env.ADMIN_PASSWORD) {
+    next();
+  } else {
+    res.status(401).send('Unauthorized');
+  }
+}
+
 // ─── Admin Panel ──────────────────────────────────────────────
 
 app.get('/admin', (req, res) => {
-  res.sendFile(path.join(__dirname, 'admin', 'index.html'));
+  const html = fs.readFileSync(path.join(__dirname, 'admin', 'index.html'), 'utf8');
+  const safePassword = JSON.stringify(process.env.ADMIN_PASSWORD || '');
+  const injected = html.replace(
+    "const ADMIN_PASSWORD = 'scoutadmin123';",
+    `const ADMIN_PASSWORD = ${safePassword};`
+  );
+  res.send(injected);
+});
+
+app.get('/api/admin/verify', adminAuth, (req, res) => {
+  res.json({ ok: true });
 });
 
 // ─── Serve static files (catch-all) ───────────────────────────
