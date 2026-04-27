@@ -2,10 +2,11 @@ const express = require('express');
 const path = require('path');
 const multer = require('multer');
 const { MongoClient, ObjectId } = require('mongodb');
+require('dotenv').config();
 
 const app = express();
 const PORT = process.env.PORT || 3001;
-const MONGO_URI = 'mongodb+srv://scoutadmin:ScoutPass123@cluster0.vvtaa5o.mongodb.net/?appName=Cluster0';
+const MONGO_URI = process.env.MONGO_URI;
 const DB_NAME = 'scout_mongolia';
 
 const UPLOAD_DIR = path.join(__dirname, 'img', 'data');
