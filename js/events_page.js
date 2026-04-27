@@ -73,9 +73,17 @@
     // Дараа сарын эхний өдрүүд (бүдгэр)
     const totalCells = startPad + daysInMonth;
     const remaining  = totalCells % 7 === 0 ? 0 : 7 - (totalCells % 7);
+    const nextMonth  = currentMonth === 11 ? 0 : currentMonth + 1;
+    const nextYear   = currentMonth === 11 ? currentYear + 1 : currentYear;
     for (let d = 1; d <= remaining; d++) {
+      const dateStr2   = `${nextYear}-${String(nextMonth + 1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
+      const dayEvents2 = getEventsForDate(dateStr2);
+      const eventHtml2 = dayEvents2.map(ev => {
+        const badgeClass = ev.status === 'past' ? 'cal-event--past' : `cal-event--${ev.badgeType || 'camp'}`;
+        return `<div class="cal-event ${badgeClass} cal-event--overflow" onclick="openModal('${ev.id}')">${esc(ev.title)}</div>`;
+      }).join('');
       grid.insertAdjacentHTML('beforeend',
-        `<div class="cal-day cal-day--other"><div class="cal-day-number">${d}</div></div>`);
+        `<div class="cal-day cal-day--other"><div class="cal-day-number">${d}</div><div class="cal-day-events">${eventHtml2}</div></div>`);
     }
   }
 

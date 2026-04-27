@@ -278,6 +278,8 @@ body > * {
 }
 .cal-day {
   min-height: 90px;
+  height: 110px;
+  overflow: hidden;
   background: var(--color-surface);
   border: var(--border-thin);
   border-radius: 10px;
@@ -752,7 +754,7 @@ body > * {
   .events-filters { justify-content: center; }
   .ev-list-item { flex-direction: column; }
   .ev-list-img { width: 100%; height: 180px; }
-  .cal-day { min-height: 70px; padding: var(--space-2); }
+  .cal-day { min-height: 70px; height: 85px; overflow: hidden; padding: var(--space-2); }
   .cal-event { font-size: 10px; padding: 2px 4px; }
   .modal-info-grid { grid-template-columns: 1fr; }
   .modal-actions { flex-direction: column; }
@@ -764,3 +766,5 @@ body > * {
   .ev-list-footer { flex-direction: column; align-items: flex-start; gap: var(--space-3); }
   .ev-list-actions { width: 100%; }
 }
+/* Overflow events shown in next-month cells */
+.cal-event--overflow { opacity: 0.5; }
