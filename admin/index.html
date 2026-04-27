@@ -432,6 +432,7 @@
     const pw = document.getElementById('passwordInput').value;
     if (pw === ADMIN_PASSWORD) {
       sessionStorage.setItem('adminLoggedIn', 'true');
+      sessionStorage.setItem('adminPassword', pw);
       document.getElementById('loginScreen').style.display = 'none';
       document.getElementById('adminWrap').classList.add('active');
       loadEvents();
@@ -442,7 +443,16 @@
 
   function logout() {
     sessionStorage.removeItem('adminLoggedIn');
+    sessionStorage.removeItem('adminPassword');
     location.reload();
+  }
+
+  function apiFetch(url, options = {}) {
+    const pw = sessionStorage.getItem('adminPassword');
+    if (pw) {
+      url += (url.includes('?') ? '&' : '?') + 'password=' + encodeURIComponent(pw);
+    }
+    return fetch(url, options);
   }
 
   if (sessionStorage.getItem('adminLoggedIn') === 'true') {
@@ -456,8 +466,8 @@
   async function loadEvents() {
     try {
       const [eventsRes, newsRes] = await Promise.all([
-        fetch('/api/events'),
-        fetch('/api/news')
+        apiFetch('/api/events'),
+        apiFetch('/api/news')
       ]);
       events = await eventsRes.json();
       const newsData = await newsRes.json();
@@ -663,7 +673,7 @@
       const formData = new FormData();
       formData.append('image', fileInput.files[0]);
       try {
-        const uploadRes = await fetch('/api/upload', { method: 'POST', body: formData });
+        const uploadRes = await apiFetch('/api/upload', { method: 'POST', body: formData });
         const uploadData = await uploadRes.json();
         imageUrl = uploadData.url;
       } catch (err) {
@@ -730,7 +740,7 @@
       let res;
       const url = editingEventId ? `/api/events/${editingEventId}` : '/api/events';
       const method = editingEventId ? 'PUT' : 'POST';
-      res = await fetch(url, { method, headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
+      res = await apiFetch(url, { method, headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
       if (!res.ok) throw new Error('Save failed');
       showToast('Амжилттай хадгаллаа!', 'success');
       closeModal();
@@ -744,7 +754,7 @@
     if (!editingEventId) return;
     if (!confirm('Энэ арга хэмжээг устгах уу?')) return;
     try {
-      const res = await fetch(`/api/events/${editingEventId}`, { method: 'DELETE' });
+      const res = await apiFetch(`/api/events/${editingEventId}`, { method: 'DELETE' });
       if (!res.ok) throw new Error('Delete failed');
       showToast('Устгагдлаа', 'success');
       closeModal();
@@ -856,7 +866,7 @@
     try {
       const url = editingNewsId ? `/api/news/${editingNewsId}` : '/api/news';
       const method = editingNewsId ? 'PUT' : 'POST';
-      const res = await fetch(url, { method, headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
+      const res = await apiFetch(url, { method, headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
       if (!res.ok) throw new Error('Save failed');
       showToast('Амжилттай хадгаллаа!', 'success');
       closeNewsModal();
@@ -870,7 +880,7 @@
     if (!editingNewsId) return;
     if (!confirm('Энэ мэдэгдэлг устгах уу?')) return;
     try {
-      const res = await fetch(`/api/news/${editingNewsId}`, { method: 'DELETE' });
+      const res = await apiFetch(`/api/news/${editingNewsId}`, { method: 'DELETE' });
       if (!res.ok) throw new Error('Delete failed');
       showToast('Устгагдлаа', 'success');
       closeNewsModal();
@@ -883,7 +893,7 @@
   async function deleteNewsById(id) {
     if (!confirm('Энэ мэдэгдэлг устгах уу?')) return;
     try {
-      const res = await fetch(`/api/news/${id}`, { method: 'DELETE' });
+      const res = await apiFetch(`/api/news/${id}`, { method: 'DELETE' });
       if (!res.ok) throw new Error('Delete failed');
       showToast('Устгагдлаа', 'success');
       loadEvents();

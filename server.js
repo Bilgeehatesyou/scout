@@ -208,7 +208,7 @@ app.get('/api/events/:id', async (req, res) => {
 });
 
 // POST create event
-app.post('/api/events', async (req, res) => {
+app.post('/api/events', adminAuth, async (req, res) => {
   try {
     if (!db) return res.status(500).json({ error: 'Database not connected' });
     const newEvent = {
@@ -223,7 +223,7 @@ app.post('/api/events', async (req, res) => {
 });
 
 // PUT update event
-app.put('/api/events/:id', async (req, res) => {
+app.put('/api/events/:id', adminAuth, async (req, res) => {
   try {
     if (!db) return res.status(500).json({ error: 'Database not connected' });
     const result = await db.collection('events').findOneAndUpdate(
@@ -239,7 +239,7 @@ app.put('/api/events/:id', async (req, res) => {
 });
 
 // DELETE event
-app.delete('/api/events/:id', async (req, res) => {
+app.delete('/api/events/:id', adminAuth, async (req, res) => {
   try {
     if (!db) return res.status(500).json({ error: 'Database not connected' });
     const result = await db.collection('events').deleteOne({ id: req.params.id });
@@ -251,7 +251,7 @@ app.delete('/api/events/:id', async (req, res) => {
 });
 
 // POST upload image
-app.post('/api/upload', upload.single('image'), (req, res) => {
+app.post('/api/upload', adminAuth, upload.single('image'), (req, res) => {
   if (!req.file) return res.status(400).json({ error: 'No file uploaded' });
   const url = `/img/data/${req.file.filename}`;
   res.json({ url });
@@ -269,7 +269,7 @@ app.get('/api/news', async (req, res) => {
 });
 
 // POST news
-app.post('/api/news', async (req, res) => {
+app.post('/api/news', adminAuth, async (req, res) => {
   try {
     if (!db) return res.status(500).json({ error: 'Database not connected' });
     const item = { id: Date.now().toString(36), ...req.body };
@@ -281,7 +281,7 @@ app.post('/api/news', async (req, res) => {
 });
 
 // PUT news
-app.put('/api/news/:id', async (req, res) => {
+app.put('/api/news/:id', adminAuth, async (req, res) => {
   try {
     if (!db) return res.status(500).json({ error: 'Database not connected' });
     const result = await db.collection('news').findOneAndUpdate(
@@ -297,7 +297,7 @@ app.put('/api/news/:id', async (req, res) => {
 });
 
 // DELETE news
-app.delete('/api/news/:id', async (req, res) => {
+app.delete('/api/news/:id', adminAuth, async (req, res) => {
   try {
     if (!db) return res.status(500).json({ error: 'Database not connected' });
     const result = await db.collection('news').deleteOne({ id: req.params.id });
