@@ -77,7 +77,9 @@ async function seedData() {
       contacts: ['11-324171', '89390516', '88927079'],
       registerUrl: 'https://forms.gle/jm86LgSDFAtrEqSG7',
       facebookUrl: 'https://www.facebook.com/ScoutMongolia/posts/pfbid0WrBJ45Efm6gipqv1ktwujo9tqJYsyaNnuNzGKjTyPwvxNdF9VYedYVuuVTa4xdFpl',
-      hidden: false
+      hidden: false,
+      startDate: '2026-04-14',
+      endDate: '2026-04-19'
     },
     {
       id: 'warrior-challenge',
@@ -211,9 +213,10 @@ app.get('/api/events/:id', async (req, res) => {
 app.post('/api/events', adminAuth, async (req, res) => {
   try {
     if (!db) return res.status(500).json({ error: 'Database not connected' });
+    const { id: rawId, ...rest } = req.body;
     const newEvent = {
-      id: req.body.id || generateId(req.body.title || 'event'),
-      ...req.body
+      id: rawId || generateId(rest.title || 'event'),
+      ...rest
     };
     await db.collection('events').insertOne(newEvent);
     res.json(newEvent);
