@@ -64,8 +64,8 @@
     .calendar-container { background: var(--color-surface); border-radius: 16px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); overflow: hidden; }
     .cal-weekdays { display: grid; grid-template-columns: repeat(7, 1fr); background: var(--color-bg); padding: 12px 0; border-bottom: 1px solid #eee; }
     .cal-weekdays span { text-align: center; font-size: 12px; font-weight: 700; text-transform: uppercase; color: var(--color-text-muted); padding: 8px 0; }
-    .cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); }
-    .cal-cell { min-height: 72px; border-right: 1px solid #eee; border-bottom: 1px solid #eee; padding: 6px; cursor: pointer; transition: background 0.15s; position: relative; }
+    .cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); align-content: start; }
+    .cal-cell { min-height: 72px; max-height: 120px; border-right: 1px solid #eee; border-bottom: 1px solid #eee; padding: 6px; cursor: pointer; transition: background 0.15s; position: relative; overflow: hidden; }
     .cal-cell:nth-child(7n) { border-right: none; }
     .cal-cell:hover { background: rgba(29,67,130,0.04); }
     .cal-cell.other-month { background: #fafafa; }
@@ -517,14 +517,19 @@
       const isSelected = dateStr === selectedDate;
 
       const dayEvents = getEventsForDate(dateStr);
-      const eventsHtml = dayEvents.map(ev => {
+      const maxVisible = 2;
+      const visibleEvents = dayEvents.slice(0, maxVisible);
+      const extraCount = dayEvents.length - maxVisible;
+      const eventsHtml = visibleEvents.map(ev => {
         const badgeClass = ev.badgeType || (ev.status === 'past' ? 'past' : 'upcoming');
-        return `<div class="cal-event-chip ${badgeClass}" onclick="editEvent('${ev.id}')" title="${ev.title}">${ev.title}</div>`;
+        const shortTitle = ev.title && ev.title.length > 12 ? ev.title.substring(0, 12) + '…' : ev.title;
+        return `<div class="cal-event-chip ${badgeClass}" onclick="editEvent('${ev.id}')" title="${ev.title}">${shortTitle}</div>`;
       }).join('');
+      const extraHtml = extraCount > 0 ? `<div class="cal-event-chip upcoming">+${extraCount}</div>` : '';
 
       html += `<div class="cal-cell${isToday ? ' today' : ''}${isSelected ? ' selected' : ''}" onclick="selectDay('${dateStr}')">
         <div class="cal-day-num">${d}</div>
-        <div class="cal-events">${eventsHtml}</div>
+        <div class="cal-events">${eventsHtml}${extraHtml}</div>
       </div>`;
     }
 
