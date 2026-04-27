@@ -136,7 +136,7 @@
 
     if (!slice.length) {
       el.innerHTML = `<div class="empty-state">
-        <div class="empty-state-icon">📅</div>
+     
         <h3>Арга хэмжээ олдсонгүй</h3>
         <p>Одоогоор энэ ангилалд арга хэмжээ байхгүй байна.</p>
       </div>`;
