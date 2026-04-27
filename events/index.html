@@ -29,7 +29,6 @@
             alt="Монголын Скаутын Холбоо"
           />
         </a>
-
         <ul>
           <li><a href="/">Нүүр</a></li>
           <li><a href="/history">Түүх</a></li>
@@ -37,7 +36,6 @@
           <li><a href="/events" class="nav-link--active">Арга хэмжээ</a></li>
           <li><a href="/#join">Нэгдэх</a></li>
         </ul>
-
         <button class="nav-hamburger" id="navHamburger">
           <span></span><span></span><span></span>
         </button>
@@ -47,61 +45,79 @@
     <!-- ═══════════════ HERO ═══════════════ -->
     <div class="events-hero">
       <div class="events-hero-content">
-        <div class="events-hero-eyebrow">Монголын Скаутын Холбоо</div>
+    
         <h1>Арга <em>хэмжээ</em></h1>
       </div>
     </div>
 
-    <!-- ═══════════════ UPCOMING ═══════════════ -->
-    <section class="events-section">
+    <!-- ═══════════════ MAIN CONTENT ═══════════════ -->
+    <div id="events-layout" class="events-layout">
       <div class="container">
-        <div class="reveal">
-          <div class="section-label">Тов гарсан</div>
-          <h2 class="section-title">Удахгүй болох арга хэмжээ</h2>
+        <div class="events-main">
+
+          <!-- View Toggle & Filters -->
+          <div class="events-toolbar">
+            <div class="events-view-toggle">
+              <button class="view-btn view-btn--active" data-view="calendar" onclick="switchView('calendar')">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                Хуанли
+              </button>
+              <button class="view-btn" data-view="list" onclick="switchView('list')">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+                Жагсаалт
+              </button>
+            </div>
+            <div class="events-filters">
+              <button class="filter-chip filter-chip--active" data-filter="all" onclick="filterEvents('all')">Бүх арга хэмжээ</button>
+              <button class="filter-chip" data-filter="camp" onclick="filterEvents('camp')">Кемп</button>
+              <button class="filter-chip" data-filter="intl" onclick="filterEvents('intl')">Олон улс</button>
+              <button class="filter-chip" data-filter="training" onclick="filterEvents('training')">Сургалт</button>
+            </div>
+          </div>
+
+          <!-- Calendar View -->
+          <div id="view-calendar" class="events-calendar-view">
+            <div class="cal-header">
+              <button class="cal-nav" onclick="changeMonth(-1)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15,18 9,12 15,6"/></svg>
+              </button>
+              <h2 id="cal-month-year">2026 оны 4-р сар</h2>
+              <button class="cal-nav" onclick="changeMonth(1)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9,18 15,12 9,6"/></svg>
+              </button>
+            </div>
+            <div class="cal-weekdays">
+              <span>Ням</span><span>Мягмар</span><span>Лхагва</span><span>Пүрэв</span><span>Баасан</span><span>Бямба</span><span>Ням</span>
+            </div>
+            <div id="cal-grid" class="cal-grid"></div>
+          </div>
+
+          <!-- List View -->
+          <div id="view-list" class="events-list-view" style="display:none;">
+            <div id="ev-list" class="ev-list"></div>
+            <div class="events-more">
+              <button id="ev-more-list" class="events-more-btn" onclick="loadMoreList()">Цааш үзэх</button>
+            </div>
+          </div>
+
         </div>
 
-        <!-- Featured карт (featured:true) -->
-        <div
-          id="ev-featured"
-          class="events-grid events-grid--featured reveal"
-        ></div>
+        <!-- Sidebar -->
+        <aside class="events-sidebar">
+          <!-- Upcoming Mini List -->
+          <div class="sidebar-card">
+            <h3 class="sidebar-title">Удахгүй</h3>
+            <div id="sidebar-upcoming" class="sidebar-list"></div>
+          </div>
 
-        <!-- Regular upcoming картууд -->
-        <div id="ev-regular" class="events-grid reveal"></div>
-
-        <div class="events-more">
-          <button
-            id="ev-more-upcoming"
-            class="events-more-btn"
-            onclick="evLoadMoreUpcoming()"
-          >
-            Цааш үзэх
-          </button>
-        </div>
+          <!-- News -->
+          <div class="sidebar-card">
+            <h3 class="sidebar-title">Мэдэгдэл</h3>
+            <div id="sidebar-news" class="sidebar-news"></div>
+          </div>
+        </aside>
       </div>
-    </section>
-
-    <!-- ═══════════════ PAST ═══════════════ -->
-    <section class="events-section events-section--alt">
-      <div class="container">
-        <div class="reveal">
-          <div class="section-label">Архив</div>
-          <h2 class="section-title">Өнгөрсөн арга хэмжээ</h2>
-        </div>
-
-        <div id="ev-past" class="events-grid reveal"></div>
-
-        <div class="events-more">
-          <button
-            id="ev-more-past"
-            class="events-more-btn"
-            onclick="evLoadMorePast()"
-          >
-            Цааш үзэх
-          </button>
-        </div>
-      </div>
-    </section>
+    </div>
 
     <!-- ═══════════════ FOOTER ═══════════════ -->
     <footer>
@@ -110,9 +126,7 @@
           <div class="footer-brand">
             <div class="footer-logo">Монголын Скаутын Холбоо</div>
             <p class="footer-tagline">
-              Адал явдал, тал нутгийн мөнхийн өв соёлыг эрхэмлэн Монголын
-              залуусыг нэгтгэж, төлөвшүүлэхийг зорьдог. Бид 1991 оноос хойш
-              Дэлхийн Скаутын Хөдөлгөөний Байгууллагын гишүүнээр ажиллаж байна.
+              Адал явдал, тал нутгийн мөнхийн өв соёлыг эрхэмлэн Монголын залуусыг нэгтгэж, төлөвшүүлэхийг зорьдог. Бид 1991 оноос хойш Дэлхийн Скаутын Хөдөлгөөний Байгууллагын гишүүнээр ажиллаж байна.
             </p>
           </div>
           <div>
@@ -125,7 +139,6 @@
               <li><a href="/#join">Нэгдэх</a></li>
             </ul>
           </div>
-
           <div>
             <div class="footer-heading">Хөтөлбөр</div>
             <ul class="footer-links">

@@ -26,7 +26,8 @@
     "deadline": "2026 оны 4-р сарын 10",
     "contacts": ["11-324171", "89390516", "88927079"],
     "registerUrl": "https://forms.gle/jm86LgSDFAtrEqSG7",
-    "facebookUrl": "https://www.facebook.com/ScoutMongolia/posts/pfbid0WrBJ45Efm6gipqv1ktwujo9tqJYsyaNnuNzGKjTyPwvxNdF9VYedYVuuVTa4xdFpl"
+    "facebookUrl": "https://www.facebook.com/ScoutMongolia/posts/pfbid0WrBJ45Efm6gipqv1ktwujo9tqJYsyaNnuNzGKjTyPwvxNdF9VYedYVuuVTa4xdFpl",
+    "hidden": false
   },
   {
     "id": "warrior-challenge",

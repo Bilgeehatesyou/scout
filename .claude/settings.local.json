@@ -1,7 +1,14 @@
 {
   "permissions": {
     "allow": [
-      "Bash(ollama launch:*)"
+      "Bash(ollama launch:*)",
+      "Bash(npm install:*)",
+      "Bash(timeout 5 node server.js)",
+      "Bash(node -e ':*)",
+      "Bash(timeout 3 node server.js)",
+      "Bash(node server.js)",
+      "Bash(curl -s http://localhost:3001/api/events)",
+      "Bash(curl *)"
     ]
   }
 }

@@ -38,7 +38,7 @@ nav {
   position: fixed; top: 0; width: 100%; z-index: var(--z-nav);
   height: var(--nav-height);
   background: var(--color-primary);
-  border-bottom: 3px solid var(--color-accent);
+  border-bottom: 3px solid rgba(254,216,0,0.5);
   transition:
     background var(--transition-base),
     border-color var(--transition-base),
@@ -265,76 +265,47 @@ nav.nav-scrolled .nav-hamburger span { background: var(--color-primary); }
   .footer-grid { grid-template-columns: 1fr; }
 }
 
-/* ============================================================
-   PATTERN TOGGLE — body.no-pattern үед бүх pattern арилна
-   ============================================================ */
-body.no-pattern {
-  background-image: none !important;
-}
-body.no-pattern .promise-box::before,
-body.no-pattern #about::after,
-body.no-pattern .highlight-box::before,
-body.no-pattern .curriculum-highlight::before,
-body.no-pattern .intro-highlight::before,
-body.no-pattern #join::before,
-body.no-pattern .landscape-break::before,
-body.no-pattern .hist-mission::before {
-  display: none !important;
-}
-
 /* ── Pattern switch товч ── */
 .pattern-switch {
   position: fixed;
   bottom: 28px;
   right: 28px;
   z-index: 999;
+  width: 44px;
+  height: 44px;
   display: flex;
   align-items: center;
-  gap: 8px;
+  justify-content: center;
   background: var(--color-surface-dark);
   border: 1px solid rgba(255,255,255,0.15);
-  padding: 8px 14px 8px 10px;
+  border-radius: 50%;
   cursor: pointer;
   box-shadow: 0 4px 20px rgba(0,0,0,0.25);
-  transition: background 0.2s;
-  user-select: none;
+  transition: all 0.2s;
 }
-.pattern-switch:hover { background: var(--color-primary); }
-.pattern-switch__icon {
-  font-size: 1rem;
-  line-height: 1;
+.pattern-switch:hover { background: var(--color-primary); transform: scale(1.1); }
+.pattern-switch svg { width: 20px; height: 20px; color: rgba(255,255,255,0.8); transition: transform 0.3s; }
+.pattern-switch--on { background: var(--color-accent); border-color: var(--color-accent); }
+.pattern-switch--on svg { color: var(--color-surface-dark); transform: rotate(180deg); }
+
+/* ============================================================
+   PATTERN TOGGLE — body:not(.show-pattern) үед бүх section-ийн pattern-ийг нуух
+   Pattern ON байх үед button дархад pattern-ийг OFF болгоно
+   ============================================================ */
+body:not(.show-pattern) .promise-box::before,
+body:not(.show-pattern) #about::after,
+body:not(.show-pattern) .highlight-box::before,
+body:not(.show-pattern) .curriculum-highlight::before,
+body:not(.show-pattern) .intro-highlight::before,
+body:not(.show-pattern) #join::before,
+body:not(.show-pattern) .landscape-break::before,
+body:not(.show-pattern) .hist-mission::before,
+body:not(.show-pattern) [data-pattern]::before {
+  display: none !important;
 }
-.pattern-switch__label {
-  font-family: var(--font-display);
-  font-size: 0.65rem;
-  font-weight: var(--weight-semibold);
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.75);
-  line-height: 1;
-}
-.pattern-switch__toggle {
-  width: 32px;
-  height: 18px;
-  background: rgba(255,255,255,0.15);
-  border-radius: 9px;
-  position: relative;
-  transition: background 0.2s;
-  margin-left: 4px;
-}
-.pattern-switch__toggle::after {
-  content: '';
-  position: absolute;
-  top: 3px; left: 3px;
-  width: 12px; height: 12px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.6);
-  transition: transform 0.2s, background 0.2s;
-}
-.pattern-switch--on .pattern-switch__toggle {
-  background: var(--color-accent);
-}
-.pattern-switch--on .pattern-switch__toggle::after {
-  transform: translateX(14px);
-  background: var(--color-surface-dark);
+
+/* body background pattern — history.css болон program.css-ийн body background-ийг OFF болгох */
+body:not(.show-pattern) .hist-page-body,
+body:not(.show-pattern) .prog-page-body {
+  background-image: none !important;
 }
