@@ -64,8 +64,8 @@
     .calendar-container { background: var(--color-surface); border-radius: 16px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); overflow: hidden; }
     .cal-weekdays { display: grid; grid-template-columns: repeat(7, 1fr); background: var(--color-bg); padding: 12px 0; border-bottom: 1px solid #eee; }
     .cal-weekdays span { text-align: center; font-size: 12px; font-weight: 700; text-transform: uppercase; color: var(--color-text-muted); padding: 8px 0; }
-    .cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); align-content: start; }
-    .cal-cell { min-height: 72px; max-height: 120px; border-right: 1px solid #eee; border-bottom: 1px solid #eee; padding: 6px; cursor: pointer; transition: background 0.15s; position: relative; overflow: hidden; }
+    .cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); align-content: start; align-items: start; }
+    .cal-cell { height: 80px; max-height: 80px; border-right: 1px solid #eee; border-bottom: 1px solid #eee; padding: 6px; cursor: pointer; transition: background 0.15s; position: relative; overflow: hidden; display: flex; flex-direction: column; }
     .cal-cell:nth-child(7n) { border-right: none; }
     .cal-cell:hover { background: rgba(29,67,130,0.04); }
     .cal-cell.other-month { background: #fafafa; }
