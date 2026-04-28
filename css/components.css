@@ -49,12 +49,12 @@
 }
 
 /* Carousel card background images */
-.act-card:nth-child(1) .act-img { background-image: url('/img/home/carousel/heer.jpg'); background-position: center top; }
-.act-card:nth-child(2) .act-img { background-image: url('/img/home/carousel/oluulaa_alhaj_bna.jpg'); }
-.act-card:nth-child(3) .act-img { background-image: url('/img/home/carousel/shagnal.jpg'); }
-.act-card:nth-child(4) .act-img { background-image: url('/img/home/carousel/temdegt.jpg'); }
-.act-card:nth-child(5) .act-img { background-image: url('/img/home/carousel/buh.jpg'); }
-.act-card:nth-child(6) .act-img { background-image: url('/img/home/carousel/gadaad_scout.jpg'); }
+.act-card:nth-child(1) .act-img { background-image: url('/img/home/carousel/heer.webp'); background-position: center top; }
+.act-card:nth-child(2) .act-img { background-image: url('/img/home/carousel/oluulaa_alhaj_bna.webp'); }
+.act-card:nth-child(3) .act-img { background-image: url('/img/home/carousel/shagnal.webp'); }
+.act-card:nth-child(4) .act-img { background-image: url('/img/home/carousel/temdegt.webp'); }
+.act-card:nth-child(5) .act-img { background-image: url('/img/home/carousel/buh.webp'); }
+.act-card:nth-child(6) .act-img { background-image: url('/img/home/carousel/gadaad_scout.webp'); }
 
 .act-icon {
   position: absolute; bottom: 12px; left: 12px;

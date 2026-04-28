@@ -437,8 +437,6 @@
 </div>
 
 <script>
-  const ADMIN_PASSWORD = 'scoutadmin123';
-
   let events = [];
   let news = [];
   let currentMonth = new Date();
@@ -450,15 +448,22 @@
 
   function attemptLogin() {
     const pw = document.getElementById('passwordInput').value;
-    if (pw === ADMIN_PASSWORD) {
-      sessionStorage.setItem('adminLoggedIn', 'true');
-      sessionStorage.setItem('adminPassword', pw);
-      document.getElementById('loginScreen').style.display = 'none';
-      document.getElementById('adminWrap').classList.add('active');
-      loadEvents();
-    } else {
+    fetch('/api/admin/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'x-admin-password': pw }
+    }).then(r => r.json()).then(data => {
+      if (data.ok) {
+        sessionStorage.setItem('adminLoggedIn', 'true');
+        sessionStorage.setItem('adminPassword', pw);
+        document.getElementById('loginScreen').style.display = 'none';
+        document.getElementById('adminWrap').classList.add('active');
+        loadEvents();
+      } else {
+        document.getElementById('loginError').style.display = 'block';
+      }
+    }).catch(() => {
       document.getElementById('loginError').style.display = 'block';
-    }
+    });
   }
 
   function logout() {

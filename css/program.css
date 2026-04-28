@@ -21,7 +21,7 @@ body {
       rgba(17, 46, 80, 0.45) 60%,
       rgba(17, 46, 80, 0.85) 100%
     ),
-    url("/img/program/buunuuruu_alhah.jpg") center / cover no-repeat;
+    url("/img/program/buunuuruu_alhah.webp") center / cover no-repeat;
   min-height: 52vh;
   display: flex;
   align-items: center;

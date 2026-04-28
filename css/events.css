@@ -69,7 +69,7 @@ body > * {
 /* ── Hero — z-index below nav ── */
 .events-hero {
   min-height: 55vh;
-  background: url('/img/events/oluulaa_gadaa_2.jpg') center / cover no-repeat;
+  background: url('/img/events/oluulaa_gadaa_2.webp') center / cover no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;

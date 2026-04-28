@@ -326,12 +326,19 @@ function adminAuth(req, res, next) {
 
 app.get('/admin', (req, res) => {
   const html = fs.readFileSync(path.join(__dirname, 'admin', 'index.html'), 'utf8');
-  const safePassword = JSON.stringify(process.env.ADMIN_PASSWORD || '');
   const injected = html.replace(
-    "const ADMIN_PASSWORD = 'scoutadmin123';",
-    `const ADMIN_PASSWORD = ${safePassword};`
+    "let events = [];",
+    "let events = [];"
   );
   res.send(injected);
+});
+
+app.post('/api/admin/login', (req, res) => {
+  const pw = req.headers['x-admin-password'];
+  if (pw && pw === process.env.ADMIN_PASSWORD) {
+    return res.json({ ok: true });
+  }
+  res.status(401).json({ ok: false });
 });
 
 app.get('/api/admin/verify', adminAuth, (req, res) => {
