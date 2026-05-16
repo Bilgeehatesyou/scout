@@ -9,7 +9,9 @@
       "Bash(node server.js)",
       "Bash(curl -s http://localhost:3001/api/events)",
       "Bash(curl *)",
-      "Bash(node -e *)"
+      "Bash(node -e *)",
+      "Bash(git config *)",
+      "Bash(git ls-remote *)"
     ]
   }
 }
