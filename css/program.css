@@ -2,13 +2,7 @@
    program.css — program.html-д л хамаарах стиль
    ============================================================ */
 
-/* ── Site-wide background pattern ── */
-body {
-  background-image: url("/img/logo/pattern_grey_color.png");
-  background-size: 320px auto;
-  background-repeat: repeat;
-  background-attachment: fixed;
-}
+/* Site-wide background pattern is defined in base.css */
 
 /* ============================================================
    HERO

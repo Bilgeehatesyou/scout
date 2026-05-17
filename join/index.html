@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="mn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Нэгдэх — Монголын Скаутын Холбоо</title>
+    <meta name="description" content="Монголын Скаутын Холбоонд элсэх — өөрийн ойролцоох бүлгэмийг сонгож, бүртгэлийн маягт бөглөн өргөдөл илгээх." />
+    <link rel="canonical" href="https://scout.mn/join/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://scout.mn/join/" />
+    <meta property="og:title" content="Нэгдэх — Монголын Скаутын Холбоо" />
+    <meta property="og:description" content="Скаут бүлгэмд нэгдэх өргөдөл — ойролцоох бүлгэмийг сонгож, бүртгэлийн мэдээллээ илгээгээрэй." />
+    <meta property="og:image" content="https://scout.mn/img/home/homescreen.webp" />
+    <meta property="og:locale" content="mn_MN" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Нэгдэх — Монголын Скаутын Холбоо" />
+    <meta name="twitter:description" content="Скаут бүлгэмд нэгдэх өргөдөл." />
+    <meta name="twitter:image" content="https://scout.mn/img/home/homescreen.webp" />
+    <link rel="icon" type="image/png" href="/img/logo/tab_icon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/theme.css" />
+    <link rel="stylesheet" href="/css/base.css" />
+    <link rel="stylesheet" href="/join/join.css" />
+  </head>
+  <body>
+    <!-- NAV -->
+    <nav id="main-nav">
+      <div class="nav-inner">
+        <a href="/" class="nav-logo">
+          <img class="logo-white" src="/img/logo/tsagaan_logo_texttei.png" alt="Монголын Скаутын Холбоо" />
+          <img class="logo-color" src="/img/logo/huh_logo_texttei.png" alt="Монголын Скаутын Холбоо" />
+        </a>
+        <ul>
+          <li><a href="/">Нүүр</a></li>
+          <li><a href="/history">Түүх</a></li>
+          <li><a href="/program">Хөтөлбөр</a></li>
+          <li><a href="/events">Арга хэмжээ</a></li>
+          <li><a href="/bulgem">Бүлгэм</a></li>
+          <li><a href="/join" class="nav-link--active">Нэгдэх</a></li>
+        </ul>
+        <button class="nav-hamburger" id="navHamburger">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="join-hero">
+      <div class="join-hero-content">
+        <div class="join-hero-eyebrow">ЭЛСЭЛТИЙН БҮРТГЭЛ</div>
+        <h1>Бидэнтэй <em>Нэгдээрэй</em></h1>
+        <p class="join-hero-sub">
+          Доорх маягтыг бөглөж илгээгээрэй. Хүлээн авмагц бид
+          хамгийн ойрын бүлгэмтэй холбож өгөх болно.
+        </p>
+      </div>
+    </section>
+
+    <!-- FORM -->
+    <section class="join-page">
+      <div class="join-container">
+
+        <div class="join-steps-card">
+          <h3 class="join-steps-title">Хэрхэн нэгдэх вэ?</h3>
+          <ul class="join-steps-list">
+            <li>
+              <span class="step-num">01</span>
+              <div>
+                <strong>Маягтаа бөглөнө</strong>
+                <p>Овог нэр, холбоо барих мэдээллээ бичнэ.</p>
+              </div>
+            </li>
+            <li>
+              <span class="step-num">02</span>
+              <div>
+                <strong>Бүлгэмээ сонгоно</strong>
+                <p>Хүсвэл аль бүлгэмд нэгдэхээ сонгоно. Эсвэл бид танд хамгийн ойрхон бүлгэмийг санал болгоно.</p>
+              </div>
+            </li>
+            <li>
+              <span class="step-num">03</span>
+              <div>
+                <strong>Бид холбогдоно</strong>
+                <p>Имэйл эсвэл утсаар тантай холбогдож, удирдагчтай уулзах гарын товчоор тохиролцоно.</p>
+              </div>
+            </li>
+            <li>
+              <span class="step-num">04</span>
+              <div>
+                <strong>Андгай өргөнө</strong>
+                <p>Эхний цуглааны төгсгөлд Скаутын андгайг өргөж, бүлгэмийнхээ гишүүн болно.</p>
+              </div>
+            </li>
+          </ul>
+          <a href="/bulgem" class="join-steps-link">Бүлгэмүүдийг газрын зургаар үзэх →</a>
+        </div>
+
+        <form class="join-form-full" id="joinPageForm" novalidate>
+          <h2 class="join-form-title">Бүртгэлийн маягт</h2>
+          <p class="join-form-lead">Бүх талбарыг бөглөх шаардлагагүй — заавал * тэмдэгтэй талбарууд хангалттай.</p>
+
+          <div class="form-section-block">
+            <h4>Хувийн мэдээлэл</h4>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Овог *</label>
+                <input type="text" name="lastName" placeholder="Батболд" required />
+              </div>
+              <div class="form-group">
+                <label>Нэр *</label>
+                <input type="text" name="firstName" placeholder="Дорж" required />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Имэйл *</label>
+                <input type="email" name="email" placeholder="your@email.com" required />
+              </div>
+              <div class="form-group">
+                <label>Утас</label>
+                <input type="tel" name="phone" placeholder="99001122" />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Нас</label>
+                <select name="age">
+                  <option value="">Сонгох</option>
+                  <option>5-7</option>
+                  <option>8-11</option>
+                  <option>12-15</option>
+                  <option>16-17</option>
+                  <option>18-25</option>
+                  <option>Насанд хүрэгч</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Хаяг / Байршил</label>
+                <input type="text" name="location" placeholder="Улаанбаатар, Дархан..." />
+              </div>
+            </div>
+          </div>
+
+          <div class="form-section-block">
+            <h4>Бүлгэмийн сонголт <span class="optional-tag">(сонголттой)</span></h4>
+            <p class="section-hint">Хэрэв та аль нэг бүлгэмд нэгдэхийг хүсэж байвал доороос сонгоно уу. Хоосон үлдээж болно — бид танд хамгийн ойр бүлгэмийг санал болгоно.</p>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Аймаг / Нийслэл</label>
+                <select name="aimag" id="aimagSelect">
+                  <option value="">Сонгох</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Бүлгэм</label>
+                <select name="groupId" id="groupSelect" disabled>
+                  <option value="">Эхлээд аймгаа сонгоно уу</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-section-block">
+            <h4>Нэмэлт мэдээлэл</h4>
+            <div class="form-group">
+              <label>Зурвас</label>
+              <textarea name="message" rows="4" placeholder="Сонирхож буй хөтөлбөр, нэмэлт асуулт, эсвэл өөрийн тухай товчхон..."></textarea>
+            </div>
+          </div>
+
+          <button type="submit" class="join-submit" id="joinPageSubmit">
+            Бүртгэлээ илгээх →
+          </button>
+
+          <p class="form-success" id="joinPageSuccess" hidden>
+            ✓ Таны хүсэлт амжилттай илгээгдлээ. Бид удахгүй холбогдох болно.
+          </p>
+          <p class="form-error" id="joinPageError" hidden>
+            Илгээх үед алдаа гарлаа. Дахин оролдоно уу.
+          </p>
+        </form>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="footer-inner">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <div class="footer-logo">Монголын Скаутын Холбоо</div>
+            <p class="footer-tagline">
+              Адал явдал, тал нутгийн мөнхийн өв соёлыг эрхэмлэн Монголын
+              залуусыг нэгтгэж, төлөвшүүлэхийг зорьдог. Бид 1991 оноос хойш
+              Дэлхийн Скаутын Хөдөлгөөний Байгууллагын гишүүнээр ажиллаж байна.
+            </p>
+          </div>
+          <div>
+            <div class="footer-heading">Цэс</div>
+            <ul class="footer-links">
+              <li><a href="/#about">Бидний тухай</a></li>
+              <li><a href="/history">Түүх</a></li>
+              <li><a href="/program">Хөтөлбөр</a></li>
+              <li><a href="/events">Арга хэмжээ</a></li>
+              <li><a href="/bulgem">Бүлгэм</a></li>
+              <li><a href="/join">Нэгдэх</a></li>
+            </ul>
+          </div>
+          <div>
+            <div class="footer-heading">Хөтөлбөр</div>
+            <ul class="footer-links">
+              <li><a href="/program#ages">Каб Скаут (6–11)</a></li>
+              <li><a href="/program#ages">Скаут (12–15)</a></li>
+              <li><a href="/program#ages">Венчир Скаут (16–17)</a></li>
+              <li><a href="/program#ages">Ровер Скаут (18–25)</a></li>
+              <li><a href="/program#training">Удирдагч</a></li>
+            </ul>
+          </div>
+          <div class="footer-contact">
+            <div class="footer-heading">Холбоо барих</div>
+            <p>Улаанбаатар, Монгол</p>
+            <p>info@scout.mn</p>
+            <p>+976 011 32 4171</p>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>© <span id="copyright-year">2026</span> Монголын Скаутын Холбоо. Бүх эрх хуулиар хамгаалагдсан.</p>
+          <span class="footer-scout-law">Be Prepared</span>
+        </div>
+      </div>
+    </footer>
+
+    <script src="/js/nav.js"></script>
+    <script src="/js/dynamic-year.js"></script>
+    <script src="/join/join.js"></script>
+  </body>
+</html>

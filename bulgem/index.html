@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="mn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Бүлгэм — Монголын Скаутын Холбоо</title>
+  <meta name="description" content="Монгол даяарх скаутын бүлгэмүүд — газрын зургаар аймгаа сонгож ойролцоох бүлгэмийг олно уу." />
+  <link rel="canonical" href="https://scout.mn/bulgem/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://scout.mn/bulgem/" />
+  <meta property="og:title" content="Бүлгэм — Монголын Скаутын Холбоо" />
+  <meta property="og:description" content="Монгол даяарх скаутын бүлгэмүүд — газрын зургаар ойролцоох бүлгэмийг олно уу." />
+  <meta property="og:image" content="https://scout.mn/img/home/homescreen.webp" />
+  <meta property="og:locale" content="mn_MN" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Бүлгэм — Монголын Скаутын Холбоо" />
+  <meta name="twitter:description" content="Монгол даяарх скаутын бүлгэмүүд — газрын зургаар ойролцоох бүлгэмийг олно уу." />
+  <meta name="twitter:image" content="https://scout.mn/img/home/homescreen.webp" />
+  <link rel="icon" type="image/png" href="/img/logo/tab_icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/theme.css" />
+  <link rel="stylesheet" href="/css/base.css" />
+  <link rel="stylesheet" href="/bulgem/bulgem.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="main-nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">
+        <img class="logo-white" src="/img/logo/tsagaan_logo_texttei.png" alt="Монголын Скаутын Холбоо" />
+        <img class="logo-color" src="/img/logo/huh_logo_texttei.png" alt="Монголын Скаутын Холбоо" />
+      </a>
+      <ul>
+        <li><a href="/">Нүүр</a></li>
+        <li><a href="/history">Түүх</a></li>
+        <li><a href="/program">Хөтөлбөр</a></li>
+        <li><a href="/events">Арга хэмжээ</a></li>
+        <li><a href="/bulgem" class="nav-link--active">Бүлгэм</a></li>
+        <li><a href="/join">Нэгдэх</a></li>
+      </ul>
+      <button class="nav-hamburger" id="navHamburger"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="mt-hero">
+    <div class="mt-hero-content">
+      <div class="mt-eyebrow">Манай бүлгэмүүд</div>
+      <h1>Монгол даяар <em>скаутын хөдөлгөөн</em></h1>
+      <p class="mt-hero-sub">Аймагт дарж бүлгэмийн мэдээллийг үзнэ үү.</p>
+    </div>
+  </section>
+
+  <!-- MAP + PANEL -->
+  <section class="mt-map-section">
+    <div class="mt-container">
+
+      <div class="mt-legend">
+        <span class="mt-legend-title">Скаутын идэвх:</span>
+        <span class="mt-legend-item"><i class="sw" data-density="0"></i> Бүлгэмгүй</span>
+        <span class="mt-legend-item"><i class="sw" data-density="1"></i> 1–2 бүлгэм</span>
+        <span class="mt-legend-item"><i class="sw" data-density="2"></i> 3–5 бүлгэм</span>
+        <span class="mt-legend-item"><i class="sw" data-density="3"></i> 6+ бүлгэм</span>
+      </div>
+
+      <div class="mt-grid">
+        <!-- Map column -->
+        <div class="mt-map-wrap">
+          <div id="mt-map"></div>
+          <div id="mt-tooltip" class="mt-tooltip" aria-hidden="true"></div>
+          <div id="mt-loading" class="mt-loading">Газрын зураг ачаалж байна…</div>
+        </div>
+
+        <!-- Info panel -->
+        <aside class="mt-panel" id="mt-panel">
+          <div class="mt-panel-empty">
+            <div class="mt-panel-empty-icon">📍</div>
+            <h3>Аймаг сонгоно уу</h3>
+            <p>Газрын зураг дээр дарж тухайн аймгийн скаутын бүлгэмийн мэдээллийг үзнэ үү.</p>
+          </div>
+        </aside>
+      </div>
+
+      <p class="mt-attribution">
+        Газрын зургийн эх сурвалж: Wikimedia Commons (CC BY-SA 4.0).
+      </p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">Монголын Скаутын Холбоо</div>
+          <p class="footer-tagline">
+            Адал явдал, тал нутгийн мөнхийн өв соёлыг эрхэмлэн Монголын
+            залуусыг нэгтгэж, төлөвшүүлэхийг зорьдог. Бид 1991 оноос хойш
+            Дэлхийн Скаутын Хөдөлгөөний Байгууллагын гишүүнээр ажиллаж байна.
+          </p>
+        </div>
+        <div>
+          <div class="footer-heading">Цэс</div>
+          <ul class="footer-links">
+            <li><a href="/#about">Бидний тухай</a></li>
+            <li><a href="/history">Түүх</a></li>
+            <li><a href="/program">Хөтөлбөр</a></li>
+            <li><a href="/events">Арга хэмжээ</a></li>
+            <li><a href="/bulgem">Бүлгэм</a></li>
+            <li><a href="/join">Нэгдэх</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-heading">Хөтөлбөр</div>
+          <ul class="footer-links">
+            <li><a href="/program#ages">Каб Скаут (6–11)</a></li>
+            <li><a href="/program#ages">Скаут (12–15)</a></li>
+            <li><a href="/program#ages">Венчир Скаут (16–17)</a></li>
+            <li><a href="/program#ages">Ровер Скаут (18–25)</a></li>
+            <li><a href="/program#training">Удирдагч</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact">
+          <div class="footer-heading">Холбоо барих</div>
+          <p>Улаанбаатар, Монгол</p>
+          <p>info@scout.mn</p>
+          <p>+976 011 32 4171</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© <span id="copyright-year">2026</span> Монголын Скаутын Холбоо. Бүх эрх хуулиар хамгаалагдсан.</p>
+        <span class="footer-scout-law">Be Prepared</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/nav.js"></script>
+  <script src="/js/dynamic-year.js"></script>
+  <script src="/bulgem/bulgem.js"></script>
+</body>
+</html>

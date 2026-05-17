@@ -4,6 +4,18 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Монголын Скаутын Холбоо</title>
+    <meta name="description" content="Монголын Скаутын Холбоо — 1991 оноос хойш Монголын хүүхэд залуусыг бие даасан, хариуцлагатай иргэн болгон төлөвшүүлэх дэлхийн скаутын хөдөлгөөний гишүүн." />
+    <link rel="canonical" href="https://scout.mn/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://scout.mn/" />
+    <meta property="og:title" content="Монголын Скаутын Холбоо" />
+    <meta property="og:description" content="1991 оноос хойш Монголын залуусыг нэгтгэж, төлөвшүүлж буй дэлхийн скаутын хөдөлгөөний гишүүн." />
+    <meta property="og:image" content="https://scout.mn/img/home/homescreen.webp" />
+    <meta property="og:locale" content="mn_MN" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Монголын Скаутын Холбоо" />
+    <meta name="twitter:description" content="1991 оноос хойш Монголын залуусыг нэгтгэж, төлөвшүүлж буй дэлхийн скаутын хөдөлгөөний гишүүн." />
+    <meta name="twitter:image" content="https://scout.mn/img/home/homescreen.webp" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="icon" type="image/png" href="/img/logo/tab_icon.png" />
     <link
@@ -37,7 +49,8 @@
           <li><a href="/history">Түүх</a></li>
           <li><a href="/program">Хөтөлбөр</a></li>
           <li><a href="/events">Арга хэмжээ</a></li>
-          <li><a href="/#join">Нэгдэх</a></li>
+          <li><a href="/bulgem">Бүлгэм</a></li>
+          <li><a href="/join">Нэгдэх</a></li>
         </ul>
 
         <button class="nav-hamburger" id="navHamburger">
@@ -104,7 +117,7 @@
                 ><span class="stat-label">Аймаг</span>
               </div>
               <div class="stat">
-                <span class="stat-num">33</span
+                <span class="stat-num" data-years-since="1991">33</span
                 ><span class="stat-label">Жил</span>
               </div>
               <div class="stat">
@@ -435,7 +448,10 @@
         <div class="prog-cards-grid reveal">
           <div class="prog-card">
             <div class="prog-card-img">
-              <img src="/img/home/oluulaa_alhaj_bna.jpg" alt="Насны ангилал" width="400" height="267" loading="lazy" />
+              <picture>
+                <source srcset="/img/home/oluulaa_alhaj_bna.webp" type="image/webp" />
+                <img src="/img/home/oluulaa_alhaj_bna.jpg" alt="Насны ангилал" width="400" height="267" loading="lazy" />
+              </picture>
             </div>
             <div class="prog-card-body">
               <h3>Насны ангилал</h3>
@@ -443,7 +459,7 @@
                 Каб скаут, Скаут, Ровер, Удирдагч нас бүрт тохирсон хөтөлбөртэй.
               </p>
               <div class="prog-card-actions">
-                <a href="program.html" class="prog-btn prog-btn--primary"
+                <a href="/program" class="prog-btn prog-btn--primary"
                   >Дэлгэрэнгүй →</a
                 >
               </div>
@@ -452,7 +468,10 @@
 
           <div class="prog-card">
             <div class="prog-card-img">
-              <img src="/img/home/temdegt.jpg" alt="Тэмдэгт" width="400" height="251" loading="lazy" />
+              <picture>
+                <source srcset="/img/home/temdegt.webp" type="image/webp" />
+                <img src="/img/home/temdegt.jpg" alt="Тэмдэгт" width="400" height="251" loading="lazy" />
+              </picture>
             </div>
             <div class="prog-card-body">
               <h3>Ур чадварын тэмдэгт</h3>
@@ -461,7 +480,7 @@
                 хувийн хөгжлийн зам.
               </p>
               <div class="prog-card-actions">
-                <a href="program.html#badges" class="prog-btn prog-btn--primary"
+                <a href="/program#badges" class="prog-btn prog-btn--primary"
                   >Дэлгэрэнгүй →</a
                 >
               </div>
@@ -470,7 +489,10 @@
 
           <div class="prog-card">
             <div class="prog-card-img">
-              <img src="/img/home/gadaa_jagssan.jpg" alt="Хөтөлбөрийн уялдаа" width="400" height="326" loading="lazy" />
+              <picture>
+                <source srcset="/img/home/gadaa_jagssan.webp" type="image/webp" />
+                <img src="/img/home/gadaa_jagssan.jpg" alt="Хөтөлбөрийн уялдаа" width="400" height="326" loading="lazy" />
+              </picture>
             </div>
             <div class="prog-card-body">
               <h3>Хөтөлбөрийн уялдаа</h3>
@@ -480,7 +502,7 @@
               </p>
               <div class="prog-card-actions">
                 <a
-                  href="program.html#curriculum"
+                  href="/program#curriculum"
                   class="prog-btn prog-btn--primary"
                   >Дэлгэрэнгүй →</a
                 >
@@ -490,7 +512,10 @@
 
           <div class="prog-card">
             <div class="prog-card-img">
-              <img src="/img/home/udirdagch_surgalt.jpg" alt="Удирдагч сургалт" width="400" height="300" loading="lazy" />
+              <picture>
+                <source srcset="/img/home/udirdagch_surgalt.webp" type="image/webp" />
+                <img src="/img/home/udirdagch_surgalt.jpg" alt="Удирдагч сургалт" width="400" height="300" loading="lazy" />
+              </picture>
             </div>
             <div class="prog-card-body">
               <h3>Удирдагчдад зориулсан сургалт</h3>
@@ -500,7 +525,7 @@
               </p>
               <div class="prog-card-actions">
                 <a
-                  href="program.html#training"
+                  href="/program#training"
                   class="prog-btn prog-btn--primary"
                   >Дэлгэрэнгүй →</a
                 >
@@ -552,43 +577,60 @@
               <li><span class="step-num">04</span>Андгай өргөнө</li>
             </ul>
           </div>
-          <div class="join-form reveal">
-            <h3 class="form-title">Шинэ элсэлтийн мэдээлэл</h3>
+          <form class="join-form reveal" id="joinForm" novalidate>
+            <h3 class="form-title">Шинэ элсэлтийн бүртгэл</h3>
+            <p class="form-lead">
+              Доорх мэдээллийг бөглөж илгээгээрэй. Хүлээн авмагц бид
+              хамгийн ойрын бүлгэмтэй холбож өгөх болно.
+            </p>
             <div class="form-row">
               <div class="form-group">
-                <label>Овог</label><input type="text" placeholder="Батболд" />
+                <label>Овог *</label>
+                <input type="text" name="lastName" placeholder="Батболд" required />
               </div>
               <div class="form-group">
-                <label>Нэр</label><input type="text" placeholder="Дорж" />
+                <label>Нэр *</label>
+                <input type="text" name="firstName" placeholder="Дорж" required />
               </div>
             </div>
             <div class="form-group">
-              <label>Имэйл</label
-              ><input type="email" placeholder="your@email.com" />
+              <label>Имэйл *</label>
+              <input type="email" name="email" placeholder="your@email.com" required />
+            </div>
+            <div class="form-group">
+              <label>Утас</label>
+              <input type="tel" name="phone" placeholder="99001122" />
             </div>
             <div class="form-group">
               <label>Нас</label>
-              <select>
-                <option value="">Насны ангилал сонгох</option>
+              <select name="age">
+                <option value="">Сонгох</option>
                 <option>5-7</option>
                 <option>8-11</option>
-                <option>11-17</option>
+                <option>12-15</option>
+                <option>16-17</option>
                 <option>18-25</option>
                 <option>Насанд хүрэгч</option>
               </select>
             </div>
             <div class="form-group">
-              <label>Байршил</label
-              ><input type="text" placeholder="Улаанбаатар, Дархан..." />
+              <label>Байршил</label>
+              <input type="text" name="location" placeholder="Улаанбаатар, Дархан..." />
             </div>
-            <a
-              href="https://forms.gle/jm86LgSDFAtrEqSG7"
-              target="_blank"
-              class="btn-primary btn-primary--full"
-            >
+            <div class="form-group">
+              <label>Зурвас</label>
+              <textarea name="message" rows="3" placeholder="Сонирхож буй хөтөлбөр, нэмэлт мэдээлэл..."></textarea>
+            </div>
+            <button type="submit" class="btn-primary btn-primary--full" id="joinSubmitBtn">
               Илгээх →
-            </a>
-          </div>
+            </button>
+            <p class="form-success" id="joinSuccess" hidden>
+              ✓ Таны хүсэлт амжилттай илгээгдлээ. Бид удахгүй холбогдох болно.
+            </p>
+            <p class="form-error" id="joinError" hidden>
+              Илгээх үед алдаа гарлаа. Дахин оролдоно уу.
+            </p>
+          </form>
         </div>
       </div>
     </section>
@@ -612,7 +654,8 @@
               <li><a href="/history">Түүх</a></li>
               <li><a href="/#program">Хөтөлбөр</a></li>
               <li><a href="/events">Арга хэмжээ</a></li>
-              <li><a href="/#join">Нэгдэх</a></li>
+              <li><a href="/bulgem">Бүлгэм</a></li>
+              <li><a href="/join">Нэгдэх</a></li>
             </ul>
           </div>
           <div>
@@ -633,7 +676,7 @@
           </div>
         </div>
         <div class="footer-bottom">
-          <p>© 2026 Монголын Скаутын Холбоо. Бүх эрх хуулиар хамгаалагдсан.</p>
+          <p>© <span id="copyright-year">2026</span> Монголын Скаутын Холбоо. Бүх эрх хуулиар хамгаалагдсан.</p>
           <span class="footer-scout-law">Be Prepared</span>
         </div>
       </div>
@@ -644,5 +687,6 @@
     <script src="/js/carousel.js"></script>
     <script src="/js/form.js"></script>
     <script src="/js/about-slider.js"></script>
+    <script src="/js/dynamic-year.js"></script>
   </body>
 </html>

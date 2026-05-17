@@ -1,127 +1,57 @@
 /* ============================================================
-   events_page.js — Redesigned with Calendar + List View
+   events_page.js — Past / Upcoming tabs (calendar archived in
+   _archive/calendar/)
    ============================================================ */
 (function () {
-  const UPCOMING_PER_PAGE = 6;
+  const PER_PAGE = 6;
 
   let allEvents = [];
   let currentFilter = 'all';
-  let currentView = 'calendar';
-  let currentMonth = new Date().getMonth();
-  let currentYear = new Date().getFullYear();
+  let currentView = 'upcoming';
   let listShown = 0;
-
-  /* ── Page load дээр шууд calendar skeleton харуулна ──
-     fetch дуусахыг хүлэх шаардлагагүй                  */
-  buildCalendar();
 
   /* ── Fetch & Init ── */
   fetch('/api/events')
     .then(r => r.ok ? r.json() : Promise.reject('Failed to load events'))
     .then(data => {
       allEvents = data;
-      buildCalendar();          // events-тай дахин render
+      buildList();
       buildSidebarUpcoming();
     })
-    .catch(err => console.error('Events load error:', err));
+    .catch(err => {
+      console.error('Events load error:', err);
+      renderEventsError();
+    });
 
   fetch('/api/news')
-    .then(r => r.json())
+    .then(r => r.ok ? r.json() : Promise.reject('Failed to load news'))
     .then(news => renderSidebarNews(news))
-    .catch(err => console.error('News load error:', err));
-
-  /* ── Calendar ── */
-  function buildCalendar() {
-    const grid = document.getElementById('cal-grid');
-    if (!grid) return;
-    grid.innerHTML = '';
-
-    const monthNames = [
-      '1-р сар','2-р сар','3-р сар','4-р сар','5-р сар','6-р сар',
-      '7-р сар','8-р сар','9-р сар','10-р сар','11-р сар','12-р сар'
-    ];
-    const header = document.getElementById('cal-month-year');
-    if (header) header.textContent = `${currentYear} оны ${monthNames[currentMonth]}`;
-
-    /* firstDayOfWeek: 0=Ням, 1=Даваа ... 6=Бямба
-       Монгол: 7 хоногийн эхлэл Даваа (1)
-       getDay() нь: 0=Ням, 1=Даваа, ...
-       Даваа-аас эхлэхийн тулд: pad = (getDay() + 6) % 7            */
-    const firstDayJS   = new Date(currentYear, currentMonth, 1).getDay(); // 0–6
-    const startPad     = (firstDayJS + 6) % 7;  // Даваа=0, Мягмар=1, ... Ням=6
-    const daysInMonth  = new Date(currentYear, currentMonth + 1, 0).getDate();
-    const daysInPrev   = new Date(currentYear, currentMonth, 0).getDate();
-
-    const today        = new Date();
-    const isThisMonth  = today.getMonth() === currentMonth && today.getFullYear() === currentYear;
-
-    // Өмнөх сарын сүүл өдрүүд (бүдгэр)
-    for (let i = startPad; i > 0; i--) {
-      const d = daysInPrev - i + 1;
-      grid.insertAdjacentHTML('beforeend',
-        `<div class="cal-day cal-day--other"><div class="cal-day-number">${d}</div></div>`);
-    }
-
-    // Тухайн сарын өдрүүд
-    for (let d = 1; d <= daysInMonth; d++) {
-      const dateStr   = `${currentYear}-${String(currentMonth + 1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
-      const dayEvents = getEventsForDate(dateStr);
-      const isToday   = isThisMonth && d === today.getDate();
-      grid.insertAdjacentHTML('beforeend', buildCalDay(d, dayEvents, isToday));
-    }
-
-    // Дараа сарын эхний өдрүүд (бүдгэр)
-    const totalCells = startPad + daysInMonth;
-    const remaining  = totalCells % 7 === 0 ? 0 : 7 - (totalCells % 7);
-    const nextMonth  = currentMonth === 11 ? 0 : currentMonth + 1;
-    const nextYear   = currentMonth === 11 ? currentYear + 1 : currentYear;
-    for (let d = 1; d <= remaining; d++) {
-      const dateStr2   = `${nextYear}-${String(nextMonth + 1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
-      const dayEvents2 = getEventsForDate(dateStr2);
-      const eventHtml2 = dayEvents2.map(ev => {
-        const badgeClass = ev.status === 'past' ? 'cal-event--past' : `cal-event--${ev.badgeType || 'camp'}`;
-        return `<div class="cal-event ${badgeClass} cal-event--overflow" onclick="openModal('${ev.id}')">${esc(ev.title)}</div>`;
-      }).join('');
-      grid.insertAdjacentHTML('beforeend',
-        `<div class="cal-day cal-day--other"><div class="cal-day-number">${d}</div><div class="cal-day-events">${eventHtml2}</div></div>`);
-    }
-  }
-
-  function buildCalDay(day, events, isToday) {
-    let dayClass = 'cal-day';
-    if (isToday) dayClass += ' cal-day--today';
-
-    if (!events.length) {
-      return `<div class="${dayClass}"><div class="cal-day-number">${day}</div><div class="cal-day-events"></div></div>`;
-    }
-
-    const eventHtml = events.map(ev => {
-      const badgeClass = ev.status === 'past' ? 'cal-event--past' : `cal-event--${ev.badgeType || 'camp'}`;
-      return `<div class="cal-event ${badgeClass}" onclick="openModal('${ev.id}')">${esc(ev.title)}</div>`;
-    }).join('');
-
-    return `<div class="${dayClass}">
-      <div class="cal-day-number">${day}</div>
-      <div class="cal-day-events">${eventHtml}</div>
-    </div>`;
-  }
-
-  function getEventsForDate(dateStr) {
-    return allEvents.filter(ev => {
-      if (ev.status === 'upcoming' && ev.hidden) return false;
-      if (!ev.startDate) return false;
-      const start = ev.startDate;
-      const end = ev.endDate || start;
-      return dateStr >= start && dateStr <= end;
+    .catch(err => {
+      console.error('News load error:', err);
+      renderNewsError();
     });
+
+  function renderEventsError() {
+    const list = document.getElementById('ev-list');
+    if (list) {
+      list.innerHTML = `<div class="empty-state">
+        <h3>Арга хэмжээний мэдээлэл ачаалагдсангүй</h3>
+        <p>Холболтод алдаа гарлаа. Хуудсыг дахин ачаалж үзнэ үү эсвэл хэсэг хүлээгээд дахин оролдоно уу.</p>
+      </div>`;
+    }
+    const moreBtn = document.getElementById('ev-more-list');
+    if (moreBtn) moreBtn.style.display = 'none';
+    const sidebar = document.getElementById('sidebar-upcoming');
+    if (sidebar) {
+      sidebar.innerHTML = `<p style="font-size:var(--text-sm);color:var(--color-text-faint);">Мэдээлэл ачаалагдсангүй.</p>`;
+    }
   }
 
-  window.changeMonth = function (dir) {
-    currentMonth += dir;
-    if (currentMonth > 11) { currentMonth = 0; currentYear++; }
-    if (currentMonth < 0)  { currentMonth = 11; currentYear--; }
-    buildCalendar();
-  };
+  function renderNewsError() {
+    const el = document.getElementById('sidebar-news');
+    if (!el) return;
+    el.innerHTML = `<p style="font-size:var(--text-sm);color:var(--color-text-faint);">Мэдэгдэл ачаалагдсангүй.</p>`;
+  }
 
   /* ── List View ── */
   function buildList() {
@@ -131,14 +61,16 @@
     listShown = 0;
 
     const items = getFilteredList();
-    const slice = items.slice(0, UPCOMING_PER_PAGE);
+    const slice = items.slice(0, PER_PAGE);
     listShown = slice.length;
 
     if (!slice.length) {
+      const emptyMsg = currentView === 'past'
+        ? 'Өнгөрсөн арга хэмжээ байхгүй байна.'
+        : 'Удахгүй болох арга хэмжээ байхгүй байна.';
       el.innerHTML = `<div class="empty-state">
-     
         <h3>Арга хэмжээ олдсонгүй</h3>
-        <p>Одоогоор энэ ангилалд арга хэмжээ байхгүй байна.</p>
+        <p>${emptyMsg}</p>
       </div>`;
     } else {
       slice.forEach(ev => el.insertAdjacentHTML('beforeend', buildListItem(ev)));
@@ -149,7 +81,7 @@
   window.loadMoreList = function () {
     const items = getFilteredList();
     const el    = document.getElementById('ev-list');
-    const slice = items.slice(listShown, listShown + UPCOMING_PER_PAGE);
+    const slice = items.slice(listShown, listShown + PER_PAGE);
     slice.forEach(ev => el.insertAdjacentHTML('beforeend', buildListItem(ev)));
     listShown += slice.length;
     updateMoreBtn(items.length);
@@ -168,10 +100,13 @@
   }
 
   function getFilteredList() {
-    const base     = currentFilter === 'all' ? allEvents : allEvents.filter(e => e.badgeType === currentFilter);
-    const upcoming = base.filter(e => e.status === 'upcoming' && !e.hidden);
-    const past     = base.filter(e => e.status === 'past');
-    return [...upcoming, ...past];
+    const base = currentFilter === 'all'
+      ? allEvents
+      : allEvents.filter(e => e.badgeType === currentFilter);
+    if (currentView === 'past') {
+      return base.filter(e => e.status === 'past');
+    }
+    return base.filter(e => e.status === 'upcoming' && !e.hidden);
   }
 
   function buildListItem(ev) {
@@ -223,9 +158,6 @@
             ${ev.registerUrl && ev.status === 'upcoming'
               ? `<a href="${ev.registerUrl}" target="_blank" class="ev-btn ev-btn--accent" onclick="event.stopPropagation()">Бүртгүүлэх →</a>`
               : ''}
-            ${ev.facebookUrl
-              ? `<a href="${ev.facebookUrl}" target="_blank" class="ev-btn ev-btn--outline" onclick="event.stopPropagation()">Facebook →</a>`
-              : ''}
           </div>
         </div>
       </div>
@@ -237,29 +169,16 @@
     currentFilter = filter;
     document.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('filter-chip--active'));
     document.querySelector(`.filter-chip[data-filter="${filter}"]`)?.classList.add('filter-chip--active');
-    if (currentView === 'list') buildList();
-    buildCalendar();
+    buildList();
     buildSidebarUpcoming();
   };
 
-  /* ── View Toggle ── */
+  /* ── View Toggle (Удахгүй / Өнгөрсөн) ── */
   window.switchView = function (view) {
     currentView = view;
     document.querySelectorAll('.view-btn').forEach(b => b.classList.remove('view-btn--active'));
     document.querySelector(`.view-btn[data-view="${view}"]`)?.classList.add('view-btn--active');
-
-    const calEl  = document.getElementById('view-calendar');
-    const listEl = document.getElementById('view-list');
-
-    if (view === 'calendar') {
-      calEl.style.display  = 'block';
-      listEl.style.display = 'none';
-      buildCalendar();
-    } else {
-      calEl.style.display  = 'none';
-      listEl.style.display = 'block';
-      buildList();
-    }
+    buildList();
   };
 
   /* ── Sidebar ── */
@@ -304,7 +223,6 @@
     const ev = allEvents.find(e => e.id === id);
     if (!ev) return;
 
-    // Modal байхгүй бол үүсгэнэ
     if (!document.getElementById('event-modal-overlay')) {
       document.body.insertAdjacentHTML('beforeend', `
       <div class="modal-overlay" id="event-modal-overlay" onclick="if(event.target===this)closeModal()">
@@ -328,7 +246,6 @@
     const badge   = document.getElementById('modal-badge');
     const body    = document.getElementById('modal-body');
 
-    // Header
     header.style.backgroundImage    = ev.image ? `url('${ev.image}')` : '';
     header.style.backgroundSize     = 'cover';
     header.style.backgroundPosition = 'center';
@@ -336,7 +253,6 @@
     badge.className   = `ev-card__badge${ev.badgeType ? ' ev-card__badge--' + ev.badgeType : ''}`;
     badge.textContent = ev.badge || '';
 
-    // Info grid
     const infoItems = [
       ev.info?.location && { label: 'Байршил', value: ev.info.location },
       ev.info?.date     && { label: 'Огноо',   value: ev.info.date },
@@ -362,10 +278,10 @@
     </div>` : '';
 
     const bonus    = ev.bonus    ? `<div class="modal-bonus">${esc(ev.bonus)}</div>` : '';
-    const bank     = ev.bank     ? `
+    const bank     = ev.bank && (ev.bank.account || ev.bank.bank || ev.bank.note) ? `
     <div class="modal-bank">
-      <strong>Данс:</strong> ${esc(ev.bank.account)} · ${esc(ev.bank.bank)}<br/>
-      <strong>Гүйлгээний утга:</strong> ${esc(ev.bank.note)}
+      <strong>Данс:</strong> ${esc(ev.bank.account || '')}${ev.bank.bank ? ' · ' + esc(ev.bank.bank) : ''}<br/>
+      <strong>Гүйлгээний утга:</strong> ${esc(ev.bank.note || '')}
     </div>` : '';
     const deadline = ev.deadline ? `
     <div style="display:flex;align-items:center;gap:8px;margin-bottom:16px;font-family:var(--font-display);font-size:var(--text-xs);font-weight:700;color:#b71c1c;text-transform:uppercase;letter-spacing:0.08em;">
@@ -381,12 +297,9 @@
       ${ev.contacts.map(c => `<span style="font-family:var(--font-display);font-size:var(--text-xs);font-weight:600;padding:6px 14px;border:1px solid rgba(29,67,130,0.2);color:var(--color-primary);background:var(--color-bg-alt);border-radius:20px;">📞 ${esc(c)}</span>`).join('')}
     </div>` : '';
 
-    const actions = [
-      ev.registerUrl && ev.status === 'upcoming'
-        ? `<a href="${ev.registerUrl}" target="_blank" class="ev-btn ev-btn--accent">Бүртгүүлэх →</a>` : '',
-      ev.facebookUrl
-        ? `<a href="${ev.facebookUrl}" target="_blank" class="ev-btn ev-btn--outline">Facebook →</a>` : '',
-    ].filter(Boolean);
+    const actions = ev.registerUrl && ev.status === 'upcoming'
+      ? `<a href="${ev.registerUrl}" target="_blank" class="ev-btn ev-btn--accent">Бүртгүүлэх →</a>`
+      : '';
 
     body.innerHTML = `
       <div class="modal-eyebrow">${esc(ev.eyebrow || '')}</div>
@@ -395,7 +308,7 @@
       ${infoGrid}
       <p class="modal-desc">${esc(ev.description)}</p>
       ${includes}${bonus}${bank}${deadline}${contacts}
-      ${actions.length ? `<div class="modal-actions">${actions.join('')}</div>` : ''}
+      ${actions ? `<div class="modal-actions">${actions}</div>` : ''}
     `;
 
     overlay.classList.add('active');

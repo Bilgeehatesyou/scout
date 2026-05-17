@@ -4,6 +4,19 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Түүх — Монголын Скаутын Холбоо</title>
+    <meta name="description" content="Скаутын хөдөлгөөний түүх — 1907 онд үүсч, Монголд 1991 оноос хөгжиж буй залуучуудын олон улсын хөдөлгөөн." />
+    <link rel="canonical" href="https://scout.mn/history/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://scout.mn/history/" />
+    <meta property="og:title" content="Түүх — Монголын Скаутын Холбоо" />
+    <meta property="og:description" content="Скаутын хөдөлгөөний түүх — 1907 онд үүсч, Монголд 1991 оноос хөгжиж буй." />
+    <meta property="og:image" content="https://scout.mn/img/history/history_hero.webp" />
+    <meta property="og:locale" content="mn_MN" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Түүх — Монголын Скаутын Холбоо" />
+    <meta name="twitter:description" content="Скаутын хөдөлгөөний түүх — 1907 онд үүсч, Монголд 1991 оноос хөгжиж буй." />
+    <meta name="twitter:image" content="https://scout.mn/img/history/history_hero.webp" />
+    <link rel="icon" type="image/png" href="/img/logo/tab_icon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap"
@@ -17,7 +30,7 @@
     <!-- ═══════════════ NAV ═══════════════ -->
     <nav id="main-nav">
       <div class="nav-inner">
-        <a href="index.html" class="nav-logo">
+        <a href="/" class="nav-logo">
           <img
             class="logo-white"
             src="/img/logo/tsagaan_logo_texttei.png"
@@ -35,7 +48,8 @@
           <li><a href="/history" class="nav-link--active">Түүх</a></li>
           <li><a href="/program">Хөтөлбөр</a></li>
           <li><a href="/events">Арга хэмжээ</a></li>
-          <li><a href="/#join">Нэгдэх</a></li>
+          <li><a href="/bulgem">Бүлгэм</a></li>
+          <li><a href="/join">Нэгдэх</a></li>
         </ul>
 
         <button class="nav-hamburger" id="navHamburger">
@@ -63,7 +77,7 @@
             Скаутын хөдөлгөөний эрхэм зорилго нь скаутын андгай хуульд
             тулгуурлан залуу үеийнхний боловсролд хувь нэмэр оруулж, ирээдүйн
             амьдарлаа цогцлон байгуулах, нийгэмд бүтээлч байр суурь эзлэх, бие
-            даасан хувь хүмүүсийг төлөвшүүлэхэд оршино.1 
+            даасан хувь хүмүүсийг төлөвшүүлэхэд оршино.
           </p>
         </div>
       </div>
@@ -363,7 +377,7 @@
             Нийслэлийн 9 дүүрэг, 21 аймагт байгаа скаутын бүлэгт элсэх
             боломжтой.
           </p>
-          <a href="index.html#join" class="btn-primary"
+          <a href="/join" class="btn-primary"
             >Элсэх хүсэлт илгээх →</a
           >
         </div>
@@ -389,7 +403,8 @@
               <li><a href="/history">Түүх</a></li>
               <li><a href="/program">Хөтөлбөр</a></li>
               <li><a href="/events">Арга хэмжээ</a></li>
-              <li><a href="/#join">Нэгдэх</a></li>
+              <li><a href="/bulgem">Бүлгэм</a></li>
+              <li><a href="/join">Нэгдэх</a></li>
             </ul>
           </div>
 
@@ -411,12 +426,13 @@
           </div>
         </div>
         <div class="footer-bottom">
-          <p>© 2026 Монголын Скаутын Холбоо. Бүх эрх хуулиар хамгаалагдсан.</p>
+          <p>© <span id="copyright-year">2026</span> Монголын Скаутын Холбоо. Бүх эрх хуулиар хамгаалагдсан.</p>
           <span class="footer-scout-law">Бэлэн бай</span>
         </div>
       </div>
     </footer>
 
     <script src="/js/nav.js"></script>
+    <script src="/js/dynamic-year.js"></script>
   </body>
 </html>

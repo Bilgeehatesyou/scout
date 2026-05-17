@@ -1,0 +1,22 @@
+<!-- Toolbar toggle button (sat next to the Жагсаалт button) -->
+<button class="view-btn view-btn--active" data-view="calendar" onclick="switchView('calendar')">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+  Хуанли
+</button>
+
+<!-- Calendar View block (sat inside .events-main, before view-list) -->
+<div id="view-calendar" class="events-calendar-view">
+  <div class="cal-header">
+    <button class="cal-nav" onclick="changeMonth(-1)">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15,18 9,12 15,6"/></svg>
+    </button>
+    <h2 id="cal-month-year">2026 оны 4-р сар</h2>
+    <button class="cal-nav" onclick="changeMonth(1)">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9,18 15,12 9,6"/></svg>
+    </button>
+  </div>
+  <div class="cal-weekdays">
+    <span>Ням</span><span>Мягмар</span><span>Лхагва</span><span>Пүрэв</span><span>Баасан</span><span>Бямба</span><span>Ням</span>
+  </div>
+  <div id="cal-grid" class="cal-grid"></div>
+</div>

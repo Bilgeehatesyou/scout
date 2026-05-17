@@ -9,7 +9,11 @@ html { scroll-behavior: smooth; }
 body {
   font-family: var(--font-body);
   font-weight: var(--weight-regular);
-  background: var(--color-bg);
+  background-color: var(--color-bg);
+  background-image: url('/img/logo/pattern_grey_color.png');
+  background-size: 320px auto;
+  background-repeat: repeat;
+  background-attachment: fixed;
   color: var(--color-text);
   overflow-x: hidden;
 }

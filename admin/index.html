@@ -4,958 +4,506 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Админ — Монголын Скаутын Холбоо</title>
+  <link rel="icon" type="image/png" href="/img/logo/tab_icon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/css/theme.css" />
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-      --color-primary: #1d4382;
-      --color-accent: #fec800;
-      --color-dark-blue: #112e50;
-      --color-surface: #ffffff;
-      --color-bg: #f4f6f8;
-      --color-text: #333;
-      --color-text-muted: #666;
-      --border-thin: 1px solid #e0e0e0;
-      --transition-fast: 0.15s ease;
-      --transition-base: 0.3s ease;
-      --font-display: 'Montserrat', sans-serif;
-      --weight-semibold: 600;
-      --weight-bold: 700;
-    }
-
-    body { font-family: var(--font-display); background: var(--color-bg); color: var(--color-text); }
-
-    /* Login */
-    .login-screen { display: flex; align-items: center; justify-content: center; min-height: 100vh; }
-    .login-box { background: var(--color-surface); padding: 40px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); width: 360px; }
-    .login-box h1 { font-size: 24px; margin-bottom: 24px; text-align: center; color: var(--color-primary); }
-    .login-box input { width: 100%; padding: 12px 16px; margin-bottom: 16px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px; font-family: inherit; }
-    .login-box button { width: 100%; padding: 12px; background: var(--color-primary); color: #fff; border: none; border-radius: 8px; font-size: 16px; font-weight: 600; cursor: pointer; transition: background 0.2s; }
-    .login-box button:hover { background: #2a4a6c; }
-    .login-error { color: #d32f2f; font-size: 14px; text-align: center; margin-top: 12px; display: none; }
-
-    /* Admin Layout */
-    .admin-wrap { display: none; min-height: 100vh; }
-    .admin-wrap.active { display: flex; }
-
-    /* Sidebar */
-    .sidebar { width: 260px; background: var(--color-dark-blue); color: #fff; padding: 24px 0; position: fixed; height: 100vh; overflow-y: auto; }
-    .sidebar-header { padding: 0 24px 24px; border-bottom: 1px solid rgba(255,255,255,0.1); margin-bottom: 24px; }
-    .sidebar-header h2 { font-size: 18px; font-weight: 700; }
-    .sidebar-header span { font-size: 12px; opacity: 0.7; }
-    .sidebar-nav a { display: flex; align-items: center; justify-content: space-between; padding: 12px 24px; color: rgba(255,255,255,0.8); text-decoration: none; transition: all 0.2s; }
-    .sidebar-nav a:hover, .sidebar-nav a.active { background: rgba(255,255,255,0.1); color: #fff; }
-    .sidebar-nav a .badge { background: #4caf50; padding: 2px 8px; border-radius: 12px; font-size: 11px; }
-
-    /* Main */
-    .main { flex: 1; margin-left: 260px; padding: 32px; }
-    .topbar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; }
-    .topbar h1 { font-size: 24px; font-weight: 700; color: var(--color-dark-blue); }
-
-    /* Calendar Nav */
-    .cal-nav { display: flex; align-items: center; gap: 16px; }
-    .cal-nav-btn { width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; background: var(--color-surface); border: 1px solid #ddd; border-radius: 50%; cursor: pointer; font-size: 18px; transition: all 0.2s; }
-    .cal-nav-btn:hover { background: var(--color-primary); color: #fff; border-color: var(--color-primary); }
-    .cal-nav-month { font-size: 18px; font-weight: 700; color: var(--color-dark-blue); min-width: 200px; text-align: center; }
-
-    /* Calendar Grid */
-    .calendar-container { background: var(--color-surface); border-radius: 16px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); overflow: hidden; }
-    .cal-weekdays { display: grid; grid-template-columns: repeat(7, 1fr); background: var(--color-bg); padding: 12px 0; border-bottom: 1px solid #eee; }
-    .cal-weekdays span { text-align: center; font-size: 12px; font-weight: 700; text-transform: uppercase; color: var(--color-text-muted); padding: 8px 0; }
-    .cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); align-content: start; align-items: start; }
-    .cal-cell { height: 80px; max-height: 80px; border-right: 1px solid #eee; border-bottom: 1px solid #eee; padding: 6px; cursor: pointer; transition: background 0.15s; position: relative; overflow: hidden; display: flex; flex-direction: column; }
-    .cal-cell:nth-child(7n) { border-right: none; }
-    .cal-cell:hover { background: rgba(29,67,130,0.04); }
-    .cal-cell.other-month { background: #fafafa; }
-    .cal-cell.today { background: rgba(254,216,0,0.1); }
-    .cal-day-num { font-size: 13px; font-weight: 600; color: var(--color-text); margin-bottom: 3px; }
-    .cal-cell.other-month .cal-day-num { color: #ccc; }
-    .cal-cell.today .cal-day-num { color: var(--color-primary); font-weight: 700; }
-    .cal-events { display: flex; flex-direction: column; gap: 2px; }
-    .cal-event-chip { font-size: 10px; padding: 2px 5px; border-radius: 4px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: #fff; cursor: pointer; }
-    .cal-event-chip:hover { opacity: 0.85; }
-    .cal-event-chip.camp { background: #2e7d32; }
-    .cal-event-chip.intl { background: #7b1fa2; }
-    .cal-event-chip.training { background: #e65100; }
-    .cal-event-chip.upcoming { background: var(--color-primary); }
-    .cal-event-chip.past { background: #9e9e9e; }
-    .cal-event-chip.inactive { background: #9e9e9e; opacity: 0.5; text-decoration: line-through; }
-
-    /* Add Event Button */
-    .topbar-actions { display: flex; gap: 12px; }
-    .btn { padding: 10px 20px; border: none; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer; transition: all 0.2s; font-family: inherit; }
-    .btn-primary { background: var(--color-primary); color: #fff; }
-    .btn-primary:hover { background: #2a4a6c; }
-    .btn-success { background: #4caf50; color: #fff; }
-    .btn-success:hover { background: #5cb860; }
-    .btn-danger { background: #d32f2f; color: #fff; }
-    .btn-danger:hover { background: #f44336; }
-    .btn-secondary { background: #e0e0e0; color: #333; }
-    .btn-secondary:hover { background: #d0d0d0; }
-    .btn-sm { padding: 6px 12px; font-size: 12px; }
-
-    /* Event Modal */
-    .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 1000; align-items: center; justify-content: center; padding: 20px; }
-    .modal-overlay.active { display: flex; }
-    .modal { background: var(--color-surface); border-radius: 16px; width: 100%; max-width: 600px; max-height: 90vh; overflow-y: auto; padding: 32px; position: relative; }
-    .modal-close { position: absolute; top: 16px; right: 16px; background: none; border: none; font-size: 28px; cursor: pointer; color: #999; line-height: 1; }
-    .modal-close:hover { color: #333; }
-    .modal h2 { font-size: 20px; margin-bottom: 24px; color: var(--color-dark-blue); font-weight: 700; }
-
-    /* Form */
-    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-    .form-group { margin-bottom: 16px; }
-    .form-group.full { grid-column: 1 / -1; }
-    .form-group label { display: block; font-size: 13px; font-weight: 600; margin-bottom: 6px; color: var(--color-text-muted); }
-    .form-group input, .form-group textarea, .form-group select { width: 100%; padding: 10px 14px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px; font-family: inherit; }
-    .form-group textarea { resize: vertical; min-height: 80px; }
-    .form-group input:focus, .form-group textarea:focus, .form-group select:focus { outline: none; border-color: var(--color-primary); }
-    .form-section { margin-top: 20px; padding-top: 20px; border-top: 1px solid #eee; }
-    .form-section-title { font-size: 14px; font-weight: 700; color: var(--color-dark-blue); margin-bottom: 12px; }
-    .checkbox-group { display: flex; gap: 16px; flex-wrap: wrap; }
-    .checkbox-group label { display: flex; align-items: center; gap: 6px; font-weight: 500; cursor: pointer; }
-    .checkbox-group input[type="checkbox"] { width: auto; }
-    .date-range { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-    .date-range .form-group { margin-bottom: 0; }
-
-    /* Toast */
-    .toast { position: fixed; bottom: 24px; right: 24px; padding: 14px 24px; border-radius: 8px; font-size: 14px; font-weight: 500; color: #fff; z-index: 2000; display: none; }
-    .toast.success { background: #4caf50; display: block; }
-    .toast.error { background: #d32f2f; display: block; }
-
-    /* Event List (sidebar mini list) */
-    .event-list-panel { margin-top: 24px; }
-    .event-list-title { font-size: 14px; font-weight: 700; color: var(--color-dark-blue); margin-bottom: 12px; padding-bottom: 8px; border-bottom: 2px solid var(--color-accent); display: inline-block; }
-    .event-mini-list { display: flex; flex-direction: column; gap: 8px; }
-    .event-mini-card { background: var(--color-surface); border: 1px solid #eee; border-radius: 8px; padding: 12px; cursor: pointer; transition: all 0.2s; }
-    .event-mini-card:hover { border-color: var(--color-primary); box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
-    .event-mini-card h4 { font-size: 13px; font-weight: 600; color: var(--color-dark-blue); margin-bottom: 4px; }
-    .event-mini-card p { font-size: 11px; color: var(--color-text-muted); }
-
-    /* Selected day indicator */
-    .selected-day-info { background: var(--color-surface); border-radius: 12px; padding: 20px; margin-bottom: 24px; display: flex; align-items: center; justify-content: space-between; }
-    .selected-day-info h3 { font-size: 16px; font-weight: 700; color: var(--color-dark-blue); }
-    .selected-day-info p { font-size: 13px; color: var(--color-text-muted); margin-top: 2px; }
-    .no-selection { color: var(--color-text-muted); font-style: italic; }
-
-    /* Delete zone */
-    .delete-zone { background: #fff3f3; border: 2px dashed #ffcdd2; border-radius: 12px; padding: 16px; text-align: center; color: #c62828; font-size: 13px; margin-top: 16px; }
-
-    /* News cards */
-    .news-card { background: var(--color-surface); border: 1px solid #eee; border-radius: 12px; padding: 16px; margin-bottom: 12px; display: flex; align-items: flex-start; gap: 12px; }
-    .news-card-info { flex: 1; }
-    .news-card h3 { font-size: 15px; font-weight: 600; color: var(--color-dark-blue); margin-bottom: 4px; }
-    .news-card p { font-size: 13px; color: #666; margin-bottom: 8px; line-height: 1.4; }
-    .news-card-meta { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
-    .news-card-actions { display: flex; gap: 8px; flex-shrink: 0; }
-    .news-badge { padding: 3px 10px; border-radius: 12px; font-size: 11px; font-weight: 600; }
-    .news-badge.info { background: #e3f2fd; color: #1565c0; }
-    .news-badge.urgent { background: #fce4ec; color: #c62828; }
-    .news-badge.update { background: #f3e5f5; color: #7b1fa2; }
-    .news-date { font-size: 11px; color: #999; }
-    .empty-state-news { text-align: center; padding: 40px 20px; color: var(--color-text-muted); }
-    .empty-state-news h3 { font-size: 16px; margin-bottom: 4px; color: var(--color-dark-blue); }
-    .empty-state-news p { font-size: 13px; }
-    .delete-zone span { font-size: 20px; display: block; margin-bottom: 4px; }
-
-    @media (max-width: 900px) {
-      .sidebar { display: none; }
-      .main { margin-left: 0; }
-      .form-grid { grid-template-columns: 1fr; }
-      .cal-cell { min-height: 70px; }
-    }
-  </style>
+  <link rel="stylesheet" href="/admin/admin.css" />
 </head>
 <body>
 
-<!-- Login Screen -->
+<!-- ════════════════ LOGIN SCREEN ════════════════ -->
 <div class="login-screen" id="loginScreen">
-  <div class="login-box">
-    <h1>Админ руу орох</h1>
-    <input type="password" id="passwordInput" placeholder="Нууц үг" />
-    <button onclick="attemptLogin()">Орох</button>
+  <div class="login-card">
+    <img class="login-logo" src="/img/logo/huh_logo_texttei.png" alt="Монголын Скаутын Холбоо" />
+    <h1>Админ панел</h1>
+    <p class="login-sub">Нууц үгээ оруулна уу</p>
+    <input type="password" id="passwordInput" placeholder="Нууц үг" autocomplete="current-password" />
+    <button class="btn btn--primary btn--full" onclick="attemptLogin()">Нэвтрэх</button>
     <p class="login-error" id="loginError">Нууц үг буруу байна</p>
   </div>
 </div>
 
-<!-- Admin Wrap -->
-<div class="admin-wrap" id="adminWrap">
+<!-- ════════════════ ADMIN SHELL ════════════════ -->
+<div class="admin-shell" id="adminShell">
+
+  <!-- Sidebar -->
   <aside class="sidebar">
-    <div class="sidebar-header">
-      <h2>Админ Панел</h2>
-      <span>Монголын Скаутын Холбоо</span>
+    <div class="sidebar-brand">
+      <img src="/img/logo/tsagaan_logo_texttei.png" alt="МСХ" />
+      <div>
+        <div class="sb-title">Админ панел</div>
+        <div class="sb-sub">Монголын Скаутын Холбоо</div>
+      </div>
     </div>
+
     <nav class="sidebar-nav">
-      <a href="#" onclick="showSection('calendar')">Арга хэмжээ <span id="eventCount"></span></a>
-      <a href="#" onclick="showSection('news')">Мэдэгдэл <span id="newsCount"></span></a>
-      <a href="#" onclick="logout()">Гарах</a>
+      <button class="sb-link is-active" data-view="dashboard" onclick="switchView('dashboard')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="9"/><rect x="14" y="3" width="7" height="5"/><rect x="14" y="12" width="7" height="9"/><rect x="3" y="16" width="7" height="5"/></svg>
+        <span>Хяналт</span>
+      </button>
+      <button class="sb-link" data-view="events" onclick="switchView('events')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        <span>Арга хэмжээ</span>
+        <span class="sb-count" id="countEvents">0</span>
+      </button>
+      <button class="sb-link" data-view="news" onclick="switchView('news')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/><path d="M18 14h-8"/><path d="M15 18h-5"/><path d="M10 6h8v4h-8z"/></svg>
+        <span>Мэдэгдэл</span>
+        <span class="sb-count" id="countNews">0</span>
+      </button>
+      <button class="sb-link" data-view="groups" onclick="switchView('groups')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <span>Бүлгэмүүд</span>
+        <span class="sb-count" id="countGroups">0</span>
+      </button>
+      <button class="sb-link" data-view="applications" onclick="switchView('applications')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 13V4a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h7"/><line x1="9" y1="9" x2="15" y2="9"/><line x1="9" y1="13" x2="13" y2="13"/><circle cx="18" cy="18" r="4"/><line x1="18" y1="16" x2="18" y2="18"/><line x1="18" y1="20" x2="18.01" y2="20"/></svg>
+        <span>Бүртгэлүүд</span>
+        <span class="sb-badge" id="badgeApplications" hidden>0</span>
+      </button>
     </nav>
+
+    <div class="sidebar-footer">
+      <a href="/" target="_blank" class="sb-link sb-link--ghost">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        <span>Сайтыг үзэх</span>
+      </a>
+      <button class="sb-link sb-link--ghost" onclick="logout()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+        <span>Гарах</span>
+      </button>
+    </div>
   </aside>
 
+  <!-- Main content -->
   <main class="main">
-    <!-- Calendar Section -->
-    <div id="calendarSection">
-      <div class="topbar">
-        <h1>Арга хэмжээ</h1>
-        <div class="cal-nav">
-          <button class="cal-nav-btn" onclick="changeMonth(-1)">&lt;</button>
-          <span class="cal-nav-month" id="currentMonth"></span>
-          <button class="cal-nav-btn" onclick="changeMonth(1)">&gt;</button>
-        </div>
-        <div class="topbar-actions">
-          <button class="btn btn-success" onclick="openAddModal()">+ Шинэ арга хэмжээ</button>
-        </div>
-      </div>
 
-      <!-- Selected Day Info -->
-      <div class="selected-day-info" id="selectedDayInfo">
+    <!-- ═══════════ DASHBOARD ═══════════ -->
+    <section class="view" id="view-dashboard">
+      <header class="page-header">
         <div>
-          <h3 class="no-selection" id="selectedDayTitle">Өдөр сонгоогүй</h3>
-          <p id="selectedDayDesc">Хуанли дээр өдөр дээр дарж, арга хэмжээ нэмнэ үү</p>
+          <h1>Сайн уу 👋</h1>
+          <p class="page-sub">Өнөөдрийн төлөв, шинэ үйл явдлууд</p>
         </div>
-        <button class="btn btn-primary btn-sm" id="addOnDayBtn" style="display:none" onclick="addEventOnDay()">+ Энэ өдөрт нэмэх</button>
+      </header>
+
+      <div class="stat-grid">
+        <div class="stat-card stat-card--primary">
+          <div class="stat-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          </div>
+          <div class="stat-label">Удахгүй болох</div>
+          <div class="stat-num" id="statUpcomingEvents">0</div>
+          <div class="stat-foot">арга хэмжээ</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div class="stat-label">Бүлгэм</div>
+          <div class="stat-num" id="statGroups">0</div>
+          <div class="stat-foot">бүх аймагт</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <div class="stat-label">Идэвхтэй скаут</div>
+          <div class="stat-num" id="statMembers">0</div>
+          <div class="stat-foot">бүртгэлтэй</div>
+        </div>
+        <div class="stat-card stat-card--accent">
+          <div class="stat-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 13V4a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h7"/><circle cx="18" cy="18" r="4"/><line x1="18" y1="16" x2="18" y2="18"/></svg>
+          </div>
+          <div class="stat-label">Шинэ бүртгэл</div>
+          <div class="stat-num" id="statNewApplications">0</div>
+          <div class="stat-foot">уншаагүй</div>
+        </div>
       </div>
 
-      <!-- Calendar -->
-      <div class="calendar-container">
-        <div class="cal-weekdays">
-          <span>Ням</span><span>Мягмар</span><span>Лхагва</span><span>Пүрэв</span><span>Баасан</span><span>Бямба</span><span>Ням</span>
+      <div class="dashboard-grid">
+        <div class="card">
+          <div class="card-header">
+            <h2>Элсэлтийн бүртгэл</h2>
+            <button class="btn btn--ghost btn--sm" onclick="switchView('applications')">Бүгдийг үзэх →</button>
+          </div>
+          <div id="dashRecentApplications" class="list-thin"></div>
         </div>
-        <div class="cal-grid" id="calGrid"></div>
-      </div>
 
-      <!-- Event List Panel -->
-      <div class="event-list-panel" id="eventListPanel">
-        <h3 class="event-list-title">Бүх арга хэмжээ</h3>
-        <div class="event-mini-list" id="eventMiniList"></div>
-      </div>
-    </div>
-
-    <!-- News Section -->
-    <div id="newsSection" style="display:none;">
-      <div class="topbar" style="margin-bottom:24px;">
-        <h1 style="font-size:24px;font-weight:700;color:var(--color-dark-blue);">Мэдэгдэл</h1>
-        <div class="topbar-actions">
-          <button class="btn btn-success" onclick="openNewsModal()">+ Шинэ мэдэгдэл</button>
+        <div class="card">
+          <div class="card-header">
+            <h2>Удахгүй болох</h2>
+            <button class="btn btn--ghost btn--sm" onclick="switchView('events')">Бүгдийг үзэх →</button>
+          </div>
+          <div id="dashUpcomingEvents" class="list-thin"></div>
         </div>
       </div>
-      <div id="newsList" class="events-list"></div>
-    </div>
+    </section>
+
+    <!-- ═══════════ EVENTS ═══════════ -->
+    <section class="view" id="view-events" hidden>
+      <header class="page-header">
+        <div>
+          <h1>Арга хэмжээ</h1>
+          <p class="page-sub">Кемп, жэмбори, сургалт, олон улсын арга хэмжээ</p>
+        </div>
+        <button class="btn btn--primary" onclick="openEventModal()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          Шинэ арга хэмжээ
+        </button>
+      </header>
+
+      <div class="toolbar">
+        <input type="search" id="eventsSearch" placeholder="Хайх — гарчиг, байршил..." oninput="renderEvents()" />
+        <div class="filter-pills">
+          <button class="pill is-active" data-filter="all" onclick="filterEvents('all')">Бүгд</button>
+          <button class="pill" data-filter="upcoming" onclick="filterEvents('upcoming')">Удахгүй</button>
+          <button class="pill" data-filter="past" onclick="filterEvents('past')">Өнгөрсөн</button>
+        </div>
+      </div>
+
+      <div id="eventsList" class="card-grid"></div>
+    </section>
+
+    <!-- ═══════════ NEWS ═══════════ -->
+    <section class="view" id="view-news" hidden>
+      <header class="page-header">
+        <div>
+          <h1>Мэдэгдэл</h1>
+          <p class="page-sub">Зар, яаралтай мэдээлэл, шинэчлэл</p>
+        </div>
+        <button class="btn btn--primary" onclick="openNewsModal()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          Шинэ мэдэгдэл
+        </button>
+      </header>
+
+      <div id="newsList" class="card-grid"></div>
+    </section>
+
+    <!-- ═══════════ GROUPS (map data) ═══════════ -->
+    <section class="view" id="view-groups" hidden>
+      <header class="page-header">
+        <div>
+          <h1>Бүлгэмүүд</h1>
+          <p class="page-sub">Аймаг бүрийн скаутын бүлгэмийн мэдээлэл — газрын зураг дээр харагдана</p>
+        </div>
+        <button class="btn btn--primary" onclick="openGroupModal()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          Шинэ бүлгэм
+        </button>
+      </header>
+
+      <div class="toolbar">
+        <input type="search" id="groupsSearch" placeholder="Хайх — нэр, аймаг, удирдагч..." oninput="renderGroups()" />
+        <select id="groupsAimagFilter" onchange="renderGroups()">
+          <option value="">Бүх аймаг</option>
+        </select>
+      </div>
+
+      <div id="groupsList" class="card-grid card-grid--3"></div>
+    </section>
+
+    <!-- ═══════════ APPLICATIONS (join requests) ═══════════ -->
+    <section class="view" id="view-applications" hidden>
+      <header class="page-header">
+        <div>
+          <h1>Бүртгэлүүд</h1>
+          <p class="page-sub">Сайтаар нэвтэрсэн шинэ элсэгчдийн хүсэлт</p>
+        </div>
+      </header>
+
+      <div class="toolbar">
+        <input type="search" id="appsSearch" placeholder="Хайх — нэр, имэйл, утас..." oninput="renderApplications()" />
+        <div class="filter-pills">
+          <button class="pill is-active" data-filter="all" onclick="filterApplications('all')">Бүгд</button>
+          <button class="pill" data-filter="new" onclick="filterApplications('new')">Шинэ</button>
+          <button class="pill" data-filter="contacted" onclick="filterApplications('contacted')">Холбогдсон</button>
+          <button class="pill" data-filter="archived" onclick="filterApplications('archived')">Архивласан</button>
+        </div>
+      </div>
+
+      <div id="applicationsList" class="card-list"></div>
+    </section>
+
   </main>
 </div>
 
-<!-- Event Modal -->
-<div class="modal-overlay" id="editModal">
-  <div class="modal">
-    <button class="modal-close" onclick="closeModal()">&times;</button>
-    <h2 id="modalTitle">Шинэ арга хэмжээ</h2>
+<!-- ════════════════ MODALS ════════════════ -->
+
+<!-- Event modal -->
+<div class="modal-overlay" id="eventModal">
+  <div class="modal modal--lg">
+    <div class="modal-head">
+      <h2 id="eventModalTitle">Шинэ арга хэмжээ</h2>
+      <button class="modal-x" onclick="closeEventModal()" aria-label="Хаах">×</button>
+    </div>
     <form id="eventForm" onsubmit="saveEvent(event)">
       <input type="hidden" id="eventId" />
 
-      <div class="form-grid">
-        <div class="form-group">
-          <label>ID</label>
-          <input type="text" id="evId" placeholder="auto-generated if empty" />
-        </div>
-        <div class="form-group">
-          <label>Төлөв</label>
-          <select id="evStatus">
-            <option value="upcoming">Удахгүй</option>
-            <option value="past">Өнгөрсөн</option>
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label>Гарчиг</label>
-          <input type="text" id="evTitle" required />
-        </div>
-        <div class="form-group">
-          <label>Дэд гарчиг</label>
-          <input type="text" id="evSubtitle" />
-        </div>
-
-        <!-- Date Range -->
-        <div class="form-group full">
-          <label>Эхлэх & Дуусах огноо</label>
-          <div class="date-range">
-            <div class="form-group">
-              <input type="date" id="evStartDate" required />
-            </div>
-            <div class="form-group">
-              <input type="date" id="evEndDate" />
-            </div>
+      <div class="form-section">
+        <div class="form-section-title">Үндсэн мэдээлэл</div>
+        <div class="form-grid">
+          <div class="form-group">
+            <label>Гарчиг *</label>
+            <input type="text" id="evTitle" required />
           </div>
-          <small style="color:var(--color-text-muted);font-size:11px;margin-top:4px;display:block;">Хэрэв нэг өдөрт бол only start date fill, end date хоосон орхиж болно</small>
-        </div>
-
-        <div class="form-group full">
-          <label>Тайлбар</label>
-          <textarea id="evDescription"></textarea>
-        </div>
-
-        <div class="form-group">
-          <label>Төрөл бичих</label>
-          <input type="text" id="evBadge" placeholder="Кемп" />
-        </div>
-        <div class="form-group">
-          <label>Төрөл сонгох</label>
-          <select id="evBadgeType">
-            <option value="camp">Кемп</option>
-            <option value="intl">Олон улс</option>
-            <option value="training">Сургалт</option>
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label>Eyebrow текст</label>
-          <input type="text" id="evEyebrow" placeholder="#137 дугаарат · Удахгүй" />
-        </div>
-        <div class="form-group">
-          <label>Байршил</label>
-          <input type="text" id="evLocation" />
-        </div>
-
-        <div class="form-group full">
-          <label>Зураг</label>
-          <div style="display:flex;gap:10px;align-items:center;">
-            <input type="text" id="evImage" placeholder="/img/data/bubashus.jpg" style="flex:1;" />
-            <input type="file" id="evImageFile" accept="image/*" style="display:none;" />
-            <button type="button" class="btn btn-secondary btn-sm" onclick="document.getElementById('evImageFile').click()">Upload</button>
+          <div class="form-group">
+            <label>Төлөв</label>
+            <select id="evStatus">
+              <option value="upcoming">Удахгүй</option>
+              <option value="past">Өнгөрсөн</option>
+            </select>
           </div>
-          <img id="evImagePreview" src="" style="margin-top:8px;max-width:200px;display:none;border-radius:8px;" />
-        </div>
-
-        <div class="form-group">
-          <label>Нас</label>
-          <input type="text" id="evAge" placeholder="+8 болон дээш" />
-        </div>
-        <div class="form-group">
-          <label>Төлбөр</label>
-          <input type="text" id="evFee" placeholder="515,000₮" />
-        </div>
-
-        <div class="form-group full checkbox-group">
-          <label><input type="checkbox" id="evFeatured" /> Featured</label>
-          <label><input type="checkbox" id="evHidden" /> Hidden</label>
-        </div>
-
-        <div class="form-group full">
-          <label>Төлбөрт багтах зүйлс (newline-ээр ялгана)</label>
-          <textarea id="evIncludes" rows="3" placeholder="Хоол, байр&#10;Унаа&#10;Бүч"></textarea>
-        </div>
-
-        <div class="form-group full">
-          <label>Урамшуулал</label>
-          <input type="text" id="evBonus" style="width:100%;padding:10px 14px;border:1px solid #ddd;border-radius:8px;font-size:14px;font-family:inherit;" />
-        </div>
-
-        <div class="form-group">
-          <label>Данс</label>
-          <input type="text" id="evBankAccount" />
-        </div>
-        <div class="form-group">
-          <label>Банк</label>
-          <input type="text" id="evBankName" />
-        </div>
-
-        <div class="form-group">
-          <label>Бүртгэл хаагдах огноо</label>
-          <input type="date" id="evDeadline" />
-        </div>
-        <div class="form-group">
-          <label>Утаснууд (comma-гаар ялгана)</label>
-          <input type="text" id="evContacts" />
-        </div>
-
-        <div class="form-group">
-          <label>Бүртгэл URL</label>
-          <input type="text" id="evRegisterUrl" />
-        </div>
-        <div class="form-group">
-          <label>Facebook URL</label>
-          <input type="text" id="evFacebookUrl" />
+          <div class="form-group full">
+            <label>Дэд гарчиг</label>
+            <input type="text" id="evSubtitle" />
+          </div>
+          <div class="form-group full">
+            <label>Тайлбар</label>
+            <textarea id="evDescription" rows="3"></textarea>
+          </div>
         </div>
       </div>
 
-      <div style="margin-top:24px;display:flex;gap:12px;justify-content:space-between;">
-        <button type="button" class="btn btn-danger" id="deleteEventBtn" onclick="deleteCurrentEvent()" style="display:none;">Устгах</button>
-        <div style="display:flex;gap:12px;margin-left:auto;">
-          <button type="button" class="btn btn-secondary" onclick="closeModal()">Болих</button>
-          <button type="submit" class="btn btn-success">Хадгалах</button>
+      <div class="form-section">
+        <div class="form-section-title">Огноо ба байршил</div>
+        <div class="form-grid">
+          <div class="form-group">
+            <label>Эхлэх *</label>
+            <input type="date" id="evStartDate" required />
+          </div>
+          <div class="form-group">
+            <label>Дуусах</label>
+            <input type="date" id="evEndDate" />
+          </div>
+          <div class="form-group full">
+            <label>Байршил</label>
+            <input type="text" id="evLocation" />
+          </div>
+        </div>
+      </div>
+
+      <div class="form-section">
+        <div class="form-section-title">Зураг ба ангилал</div>
+        <div class="form-grid">
+          <div class="form-group full">
+            <label>Зураг</label>
+            <div class="image-uploader">
+              <input type="text" id="evImage" placeholder="/img/data/..." />
+              <input type="file" id="evImageFile" accept="image/*" hidden />
+              <button type="button" class="btn btn--secondary btn--sm" onclick="document.getElementById('evImageFile').click()">Upload</button>
+            </div>
+            <img id="evImagePreview" alt="" />
+          </div>
+          <div class="form-group">
+            <label>Төрөл</label>
+            <select id="evBadgeType">
+              <option value="camp">Кемп</option>
+              <option value="intl">Олон улс</option>
+              <option value="training">Сургалт</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Badge текст</label>
+            <input type="text" id="evBadge" placeholder="Жэмбори" />
+          </div>
+          <div class="form-group">
+            <label>Eyebrow</label>
+            <input type="text" id="evEyebrow" placeholder="#137 · Удахгүй" />
+          </div>
+          <div class="form-group">
+            <label>Нас</label>
+            <input type="text" id="evAge" placeholder="+8" />
+          </div>
+          <div class="form-group">
+            <label>Төлбөр</label>
+            <input type="text" id="evFee" placeholder="515,000₮" />
+          </div>
+          <div class="form-group">
+            <label>Бүртгэл хаагдах</label>
+            <input type="date" id="evDeadline" />
+          </div>
+        </div>
+      </div>
+
+      <div class="form-section">
+        <div class="form-section-title">Дэлгэрэнгүй</div>
+        <div class="form-grid">
+          <div class="form-group full">
+            <label>Төлбөрт багтах зүйлс (мөр тус бүрт нэг)</label>
+            <textarea id="evIncludes" rows="3" placeholder="Хоол, байр&#10;Унаа&#10;Бүч"></textarea>
+          </div>
+          <div class="form-group full">
+            <label>Урамшуулал</label>
+            <input type="text" id="evBonus" />
+          </div>
+          <div class="form-group">
+            <label>Дансны дугаар</label>
+            <input type="text" id="evBankAccount" />
+          </div>
+          <div class="form-group">
+            <label>Банкны нэр</label>
+            <input type="text" id="evBankName" />
+          </div>
+          <div class="form-group full">
+            <label>Холбогдох утаснууд (таслалаар ялгана)</label>
+            <input type="text" id="evContacts" placeholder="99001122, 88334455" />
+          </div>
+          <div class="form-group">
+            <label>Бүртгэлийн URL</label>
+            <input type="text" id="evRegisterUrl" />
+          </div>
+          <div class="form-group">
+            <label>Facebook URL</label>
+            <input type="text" id="evFacebookUrl" />
+          </div>
+          <div class="form-group full checkbox-row">
+            <label><input type="checkbox" id="evFeatured" /> <span>Онцлох</span></label>
+            <label><input type="checkbox" id="evHidden" /> <span>Нуух</span></label>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-foot">
+        <button type="button" class="btn btn--danger" id="deleteEventBtn" onclick="deleteCurrentEvent()" hidden>Устгах</button>
+        <div class="modal-foot-right">
+          <button type="button" class="btn btn--secondary" onclick="closeEventModal()">Болих</button>
+          <button type="submit" class="btn btn--primary">Хадгалах</button>
         </div>
       </div>
     </form>
+  </div>
+</div>
+
+<!-- News modal -->
+<div class="modal-overlay" id="newsModal">
+  <div class="modal">
+    <div class="modal-head">
+      <h2 id="newsModalTitle">Шинэ мэдэгдэл</h2>
+      <button class="modal-x" onclick="closeNewsModal()">×</button>
+    </div>
+    <form id="newsForm" onsubmit="saveNews(event)">
+      <input type="hidden" id="newsId" />
+      <div class="form-section">
+        <div class="form-grid">
+          <div class="form-group full">
+            <label>Гарчиг *</label>
+            <input type="text" id="newsTitle" required />
+          </div>
+          <div class="form-group full">
+            <label>Агуулга *</label>
+            <textarea id="newsBody" rows="4" required></textarea>
+          </div>
+          <div class="form-group">
+            <label>Төрөл</label>
+            <select id="newsTag">
+              <option value="info">Зар</option>
+              <option value="urgent">Яаралтай</option>
+              <option value="update">Шинэчлэл</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Огноо</label>
+            <input type="date" id="newsDate" />
+          </div>
+        </div>
+      </div>
+      <div class="modal-foot">
+        <button type="button" class="btn btn--danger" id="deleteNewsBtn" onclick="deleteNews()" hidden>Устгах</button>
+        <div class="modal-foot-right">
+          <button type="button" class="btn btn--secondary" onclick="closeNewsModal()">Болих</button>
+          <button type="submit" class="btn btn--primary">Хадгалах</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Group modal -->
+<div class="modal-overlay" id="groupModal">
+  <div class="modal">
+    <div class="modal-head">
+      <h2 id="groupModalTitle">Шинэ бүлгэм</h2>
+      <button class="modal-x" onclick="closeGroupModal()">×</button>
+    </div>
+    <form id="groupForm" onsubmit="saveGroup(event)">
+      <input type="hidden" id="groupId" />
+      <div class="form-section">
+        <div class="form-grid">
+          <div class="form-group full">
+            <label>Бүлгэмийн нэр *</label>
+            <input type="text" id="grpName" required placeholder="УБ #1 Хан-Уул" />
+          </div>
+          <div class="form-group">
+            <label>Аймаг *</label>
+            <select id="grpAimag" required></select>
+          </div>
+          <div class="form-group">
+            <label>Сум / дүүрэг</label>
+            <input type="text" id="grpSum" placeholder="Хан-Уул дүүрэг" />
+          </div>
+          <div class="form-group">
+            <label>Удирдагч</label>
+            <input type="text" id="grpLeader" />
+          </div>
+          <div class="form-group">
+            <label>Холбоо барих</label>
+            <input type="text" id="grpContact" placeholder="99001122" />
+          </div>
+          <div class="form-group">
+            <label>Скаутын тоо</label>
+            <input type="number" id="grpMembers" placeholder="0" min="0" />
+          </div>
+          <div class="form-group">
+            <label>Цуглах цаг</label>
+            <input type="text" id="grpMeetingTime" placeholder="Бямба 14:00" />
+          </div>
+          <div class="form-group full">
+            <label>Насны ангилал</label>
+            <div class="checkbox-row">
+              <label><input type="checkbox" id="grpAgeCub" value="cub" /> <span>Каб (6–11)</span></label>
+              <label><input type="checkbox" id="grpAgeScout" value="scout" /> <span>Скаут (12–15)</span></label>
+              <label><input type="checkbox" id="grpAgeVenchir" value="venchir" /> <span>Венчир (16–17)</span></label>
+              <label><input type="checkbox" id="grpAgeRover" value="rover" /> <span>Ровер (18–25)</span></label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-foot">
+        <button type="button" class="btn btn--danger" id="deleteGroupBtn" onclick="deleteGroup()" hidden>Устгах</button>
+        <div class="modal-foot-right">
+          <button type="button" class="btn btn--secondary" onclick="closeGroupModal()">Болих</button>
+          <button type="submit" class="btn btn--primary">Хадгалах</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Application detail modal -->
+<div class="modal-overlay" id="appModal">
+  <div class="modal">
+    <div class="modal-head">
+      <h2>Бүртгэлийн хүсэлт</h2>
+      <button class="modal-x" onclick="closeAppModal()">×</button>
+    </div>
+    <div id="appModalBody" class="app-detail"></div>
+    <div class="modal-foot">
+      <button type="button" class="btn btn--danger" onclick="deleteApplication()">Устгах</button>
+      <div class="modal-foot-right">
+        <button type="button" class="btn btn--secondary" onclick="markAppStatus('archived')">Архивлах</button>
+        <button type="button" class="btn btn--primary" onclick="markAppStatus('contacted')">Холбогдсон</button>
+      </div>
+    </div>
   </div>
 </div>
 
 <!-- Toast -->
 <div class="toast" id="toast"></div>
 
-<!-- News Modal -->
-<div class="modal-overlay" id="newsModal">
-  <div class="modal">
-    <button class="modal-close" onclick="closeNewsModal()">&times;</button>
-    <h2 id="newsModalTitle">Шинэ мэдэгдэл</h2>
-    <form id="newsForm" onsubmit="saveNews(event)">
-      <input type="hidden" id="newsId" />
-
-      <div class="form-group">
-        <label>Гарчиг</label>
-        <input type="text" id="newsTitle" required />
-      </div>
-
-      <div class="form-group">
-        <label>Агуулга</label>
-        <textarea id="newsBody" rows="4" required></textarea>
-      </div>
-
-      <div class="form-group">
-        <label>Шошго</label>
-        <select id="newsTag">
-          <option value="info">Зар</option>
-          <option value="urgent">Яаралтай</option>
-          <option value="update">Шинэчлэл</option>
-        </select>
-      </div>
-
-      <div class="form-group">
-        <label>Огноо</label>
-        <input type="date" id="newsDate" />
-      </div>
-
-      <div style="margin-top:24px;display:flex;gap:12px;justify-content:space-between;">
-        <button type="button" class="btn btn-danger" id="deleteNewsBtn" onclick="deleteNews()" style="display:none;">Устгах</button>
-        <div style="display:flex;gap:12px;margin-left:auto;">
-          <button type="button" class="btn btn-secondary" onclick="closeNewsModal()">Болих</button>
-          <button type="submit" class="btn btn-success">Хадгалах</button>
-        </div>
-      </div>
-    </form>
-  </div>
-</div>
-
-<script>
-  let events = [];
-  let news = [];
-  let currentMonth = new Date();
-  let selectedDate = null;
-  let editingEventId = null;
-  let editingNewsId = null;
-
-  // ─── Auth ────────────────────────────────────────────────
-
-  function attemptLogin() {
-    const pw = document.getElementById('passwordInput').value;
-    fetch('/api/admin/login', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'x-admin-password': pw }
-    }).then(r => r.json()).then(data => {
-      if (data.ok) {
-        sessionStorage.setItem('adminLoggedIn', 'true');
-        sessionStorage.setItem('adminPassword', pw);
-        document.getElementById('loginScreen').style.display = 'none';
-        document.getElementById('adminWrap').classList.add('active');
-        loadEvents();
-      } else {
-        document.getElementById('loginError').style.display = 'block';
-      }
-    }).catch(() => {
-      document.getElementById('loginError').style.display = 'block';
-    });
-  }
-
-  function logout() {
-    sessionStorage.removeItem('adminLoggedIn');
-    sessionStorage.removeItem('adminPassword');
-    location.reload();
-  }
-
-  function apiFetch(url, options = {}) {
-    const pw = sessionStorage.getItem('adminPassword');
-    if (pw) {
-      url += (url.includes('?') ? '&' : '?') + 'password=' + encodeURIComponent(pw);
-    }
-    return fetch(url, options);
-  }
-
-  if (sessionStorage.getItem('adminLoggedIn') === 'true') {
-    document.getElementById('loginScreen').style.display = 'none';
-    document.getElementById('adminWrap').classList.add('active');
-    loadEvents();
-  }
-
-  // ─── Data Loading ────────────────────────────────────────
-
-  async function loadEvents() {
-    try {
-      const [eventsRes, newsRes] = await Promise.all([
-        apiFetch('/api/events'),
-        apiFetch('/api/news')
-      ]);
-      events = await eventsRes.json();
-      const newsData = await newsRes.json();
-      news = newsData;
-      document.getElementById('eventCount').textContent = events.length;
-      document.getElementById('newsCount').textContent = news.length;
-      renderCalendar();
-      renderEventMiniList();
-      renderNewsList();
-    } catch (err) {
-      showToast('Өгөгдөл авахад алдаа', 'error');
-    }
-  }
-
-  // ─── Calendar ──────────────────────────────────────────
-
-  function renderCalendar() {
-    const year = currentMonth.getFullYear();
-    const month = currentMonth.getMonth();
-
-    document.getElementById('currentMonth').textContent =
-      `${year} оны ${month + 1}-р сар`;
-
-    const firstDay = new Date(year, month, 1);
-    const lastDay = new Date(year, month + 1, 0);
-    const startDayOfWeek = firstDay.getDay();
-    const daysInMonth = lastDay.getDate();
-
-    const today = new Date();
-    const todayStr = formatDateStr(today);
-
-    let html = '';
-    let dayCount = 1;
-
-    // Previous month days
-    const prevMonth = new Date(year, month, 0);
-    const prevDays = prevMonth.getDate();
-    for (let i = startDayOfWeek - 1; i >= 0; i--) {
-      const d = prevDays - i;
-      html += `<div class="cal-cell other-month"><div class="cal-day-num">${d}</div><div class="cal-events"></div></div>`;
-    }
-
-    // Current month days
-    for (let d = 1; d <= daysInMonth; d++) {
-      const dateStr = `${year}-${String(month + 1).padStart(2, '0')}-${String(d).padStart(2, '0')}`;
-      const isToday = dateStr === todayStr;
-      const isSelected = dateStr === selectedDate;
-
-      const dayEvents = getEventsForDate(dateStr);
-      const maxVisible = 2;
-      const visibleEvents = dayEvents.slice(0, maxVisible);
-      const extraCount = dayEvents.length - maxVisible;
-      const eventsHtml = visibleEvents.map(ev => {
-        const badgeClass = ev.badgeType || (ev.status === 'past' ? 'past' : 'upcoming');
-        const shortTitle = ev.title && ev.title.length > 12 ? ev.title.substring(0, 12) + '…' : ev.title;
-        return `<div class="cal-event-chip ${badgeClass}" onclick="editEvent('${ev.id}')" title="${ev.title}">${shortTitle}</div>`;
-      }).join('');
-      const extraHtml = extraCount > 0 ? `<div class="cal-event-chip upcoming">+${extraCount}</div>` : '';
-
-      html += `<div class="cal-cell${isToday ? ' today' : ''}${isSelected ? ' selected' : ''}" onclick="selectDay('${dateStr}')">
-        <div class="cal-day-num">${d}</div>
-        <div class="cal-events">${eventsHtml}${extraHtml}</div>
-      </div>`;
-    }
-
-    // Next month days
-    const remaining = 42 - (startDayOfWeek + daysInMonth);
-    for (let i = 1; i <= remaining; i++) {
-      html += `<div class="cal-cell other-month"><div class="cal-day-num">${i}</div><div class="cal-events"></div></div>`;
-    }
-
-    document.getElementById('calGrid').innerHTML = html;
-  }
-
-  function getEventsForDate(dateStr) {
-    return events.filter(ev => {
-      if (!ev.startDate) return false;
-      const start = ev.startDate;
-      const end = ev.endDate || start;
-      return dateStr >= start && dateStr <= end;
-    });
-  }
-
-  function selectDay(dateStr) {
-    selectedDate = dateStr;
-    const dayEvents = getEventsForDate(dateStr);
-    const d = new Date(dateStr + 'T00:00:00');
-    const formatted = `${d.getFullYear()} оны ${d.getMonth() + 1}-р сарын ${d.getDate()}`;
-
-    document.getElementById('selectedDayTitle').textContent = formatted;
-    document.getElementById('selectedDayTitle').classList.remove('no-selection');
-    document.getElementById('selectedDayDesc').textContent = dayEvents.length > 0
-      ? `${dayEvents.length} арга хэмжээ байна`
-      : 'Арга хэмжээ алга байна';
-    document.getElementById('addOnDayBtn').style.display = 'inline-block';
-
-    renderCalendar();
-  }
-
-  function changeMonth(delta) {
-    currentMonth.setMonth(currentMonth.getMonth() + delta);
-    renderCalendar();
-  }
-
-  function formatDateStr(date) {
-    return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
-  }
-
-  // ─── Event Mini List ────────────────────────────────────
-
-  function renderEventMiniList() {
-    const list = document.getElementById('eventMiniList');
-    if (events.length === 0) {
-      list.innerHTML = '<p style="color:var(--color-text-muted);font-size:13px;">Арга хэмжээ алга</p>';
-      return;
-    }
-    list.innerHTML = events.map(ev => {
-      const start = ev.startDate ? formatDisplayDate(ev.startDate) : '';
-      const end = ev.endDate ? formatDisplayDate(ev.endDate) : start;
-      const dateRange = start === end ? start : `${start} — ${end}`;
-      return `<div class="event-mini-card" onclick="editEvent('${ev.id}')">
-        <h4>${ev.title || '(no title)'}</h4>
-        <p>${dateRange} ${ev.badge ? '· ' + ev.badge : ''}</p>
-      </div>`;
-    }).join('');
-  }
-
-  function formatDisplayDate(dateStr) {
-    if (!dateStr) return '';
-    const d = new Date(dateStr + 'T00:00:00');
-    return `${d.getFullYear()}.${String(d.getMonth() + 1).padStart(2, '0')}.${String(d.getDate()).padStart(2, '0')}`;
-  }
-
-  // ─── Modal ──────────────────────────────────────────────
-
-  function openAddModal() {
-    editingEventId = null;
-    document.getElementById('modalTitle').textContent = 'Шинэ арга хэмжээ';
-    document.getElementById('eventForm').reset();
-    document.getElementById('eventId').value = '';
-    document.getElementById('deleteEventBtn').style.display = 'none';
-    document.getElementById('evStartDate').value = selectedDate || '';
-    document.getElementById('evEndDate').value = '';
-    document.getElementById('editModal').classList.add('active');
-  }
-
-  function addEventOnDay() {
-    openAddModal();
-  }
-
-  function editEvent(id) {
-    const ev = events.find(e => e.id === id);
-    if (!ev) return;
-    editingEventId = id;
-
-    document.getElementById('modalTitle').textContent = 'Арга хэмжээ засах';
-    document.getElementById('eventId').value = id;
-    document.getElementById('evId').value = ev.id || '';
-    document.getElementById('evStatus').value = ev.status || 'upcoming';
-    document.getElementById('evTitle').value = ev.title || '';
-    document.getElementById('evSubtitle').value = ev.subtitle || '';
-    document.getElementById('evDescription').value = ev.description || '';
-    document.getElementById('evBadge').value = ev.badge || '';
-    document.getElementById('evBadgeType').value = ev.badgeType || 'camp';
-    document.getElementById('evEyebrow').value = ev.eyebrow || '';
-    document.getElementById('evLocation').value = ev.info?.location || '';
-    document.getElementById('evStartDate').value = ev.startDate || '';
-    document.getElementById('evEndDate').value = ev.endDate || '';
-    document.getElementById('evAge').value = ev.info?.age || '';
-    document.getElementById('evFee').value = ev.info?.fee || '';
-    document.getElementById('evImage').value = ev.image || '';
-    document.getElementById('evIncludes').value = (ev.includes || []).join('\n');
-    document.getElementById('evBonus').value = ev.bonus || '';
-    document.getElementById('evBankAccount').value = ev.bank?.account || '';
-    document.getElementById('evBankName').value = ev.bank?.bank || '';
-    document.getElementById('evDeadline').value = ev.deadline || '';
-    document.getElementById('evContacts').value = (ev.contacts || []).join(', ');
-    document.getElementById('evRegisterUrl').value = ev.registerUrl || '';
-    document.getElementById('evFacebookUrl').value = ev.facebookUrl || '';
-    document.getElementById('evFeatured').checked = ev.featured || false;
-    document.getElementById('evHidden').checked = ev.hidden || false;
-
-    const preview = document.getElementById('evImagePreview');
-    if (ev.image) {
-      preview.src = ev.image;
-      preview.style.display = 'block';
-    } else {
-      preview.style.display = 'none';
-    }
-
-    document.getElementById('deleteEventBtn').style.display = 'inline-block';
-    document.getElementById('editModal').classList.add('active');
-  }
-
-  function closeModal() {
-    document.getElementById('editModal').classList.remove('active');
-    editingEventId = null;
-  }
-
-  // ─── Save ───────────────────────────────────────────────
-
-  async function saveEvent(e) {
-    e.preventDefault();
-
-    let imageUrl = document.getElementById('evImage').value;
-    const fileInput = document.getElementById('evImageFile');
-    if (fileInput.files.length > 0) {
-      const formData = new FormData();
-      formData.append('image', fileInput.files[0]);
-      try {
-        const uploadRes = await apiFetch('/api/upload', { method: 'POST', body: formData });
-        const uploadData = await uploadRes.json();
-        imageUrl = uploadData.url;
-      } catch (err) {
-        showToast('Зураг upload хийхэд алдаа', 'error');
-        return;
-      }
-    }
-
-    const startDate = document.getElementById('evStartDate').value;
-    const endDate = document.getElementById('evEndDate').value;
-
-    // Build date display string from start/end dates
-    let dateDisplay = '';
-    if (startDate) {
-      const sd = new Date(startDate + 'T00:00:00');
-      const months = ['1-р сарын', '2-р сарын', '3-р сарын', '4-р сарын', '5-р сарын', '6-р сарын', '7-р сарын', '8-р сарын', '9-р сарын', '10-р сарын', '11-р сарын', '12-р сарын'];
-      const startStr = `${sd.getFullYear()} оны ${months[sd.getMonth()]} ${sd.getDate()}`;
-      if (endDate && endDate !== startDate) {
-        const ed = new Date(endDate + 'T00:00:00');
-        const endStr = `${ed.getDate()}`;
-        const dayDiff = Math.ceil((ed - sd) / (1000 * 60 * 60 * 24)) + 1;
-        dateDisplay = `${startStr}–${endStr} (${dayDiff} өдөр)`;
-      } else {
-        dateDisplay = startStr;
-      }
-    }
-
-    const payload = {
-      id: document.getElementById('evId').value || undefined,
-      status: document.getElementById('evStatus').value,
-      featured: document.getElementById('evFeatured').checked,
-      hidden: document.getElementById('evHidden').checked,
-      badge: document.getElementById('evBadge').value,
-      badgeType: document.getElementById('evBadgeType').value,
-      eyebrow: document.getElementById('evEyebrow').value,
-      title: document.getElementById('evTitle').value,
-      subtitle: document.getElementById('evSubtitle').value,
-      image: imageUrl,
-      description: document.getElementById('evDescription').value,
-      startDate: startDate,
-      endDate: endDate || startDate,
-      info: {
-        location: document.getElementById('evLocation').value,
-        date: dateDisplay,
-        age: document.getElementById('evAge').value,
-        fee: document.getElementById('evFee').value,
-      },
-      includes: document.getElementById('evIncludes').value.split('\n').map(s => s.trim()).filter(Boolean),
-      bonus: document.getElementById('evBonus').value,
-      bank: {
-        account: document.getElementById('evBankAccount').value,
-        bank: document.getElementById('evBankName').value,
-        note: '',
-      },
-      deadline: document.getElementById('evDeadline').value,
-      contacts: document.getElementById('evContacts').value.split(',').map(s => s.trim()).filter(Boolean),
-      registerUrl: document.getElementById('evRegisterUrl').value,
-      facebookUrl: document.getElementById('evFacebookUrl').value,
-    };
-
-    if (!payload.id) delete payload.id;
-
-    try {
-      let res;
-      const url = editingEventId ? `/api/events/${editingEventId}` : '/api/events';
-      const method = editingEventId ? 'PUT' : 'POST';
-      res = await apiFetch(url, { method, headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
-      if (!res.ok) throw new Error('Save failed');
-      showToast('Амжилттай хадгаллаа!', 'success');
-      closeModal();
-      loadEvents();
-    } catch (err) {
-      showToast('Хадгалах үед алдаа гарлаа', 'error');
-    }
-  }
-
-  async function deleteCurrentEvent() {
-    if (!editingEventId) return;
-    if (!confirm('Энэ арга хэмжээг устгах уу?')) return;
-    try {
-      const res = await apiFetch(`/api/events/${editingEventId}`, { method: 'DELETE' });
-      if (!res.ok) throw new Error('Delete failed');
-      showToast('Устгагдлаа', 'success');
-      closeModal();
-      loadEvents();
-    } catch (err) {
-      showToast('Устгах үед алдаа гарлаа', 'error');
-    }
-  }
-
-  // ─── UI Helpers ──────────────────────────────────────────
-
-  function showToast(msg, type) {
-    const t = document.getElementById('toast');
-    t.textContent = msg;
-    t.className = `toast ${type}`;
-    setTimeout(() => { t.className = 'toast'; }, 3000);
-  }
-
-  // Close modal on overlay click
-  document.getElementById('editModal').addEventListener('click', function(e) {
-    if (e.target === this) closeModal();
-  });
-
-  // Enter key on login
-  document.getElementById('passwordInput').addEventListener('keypress', function(e) {
-    if (e.key === 'Enter') attemptLogin();
-  });
-
-  // ─── Section Toggle ──────────────────────────────────────
-
-  function showSection(section) {
-    document.getElementById('calendarSection').style.display = section === 'calendar' ? 'block' : 'none';
-    document.getElementById('newsSection').style.display = section === 'news' ? 'block' : 'none';
-    document.querySelectorAll('.sidebar-nav a').forEach(a => a.classList.remove('active'));
-    if (section === 'calendar') {
-      document.querySelector('.sidebar-nav a:nth-child(1)').classList.add('active');
-    } else if (section === 'news') {
-      document.querySelector('.sidebar-nav a:nth-child(2)').classList.add('active');
-    }
-  }
-
-  // ─── News ───────────────────────────────────────────────
-
-  function renderNewsList() {
-    const list = document.getElementById('newsList');
-    if (news.length === 0) {
-      list.innerHTML = '<div class="empty-state-news"><h3>Мэдэгдэл алга</h3><p>Шинэ мэдэгдэл нэмнэ үү</p></div>';
-      return;
-    }
-    const tagLabels = { info: 'Зар', urgent: 'Яаралтай', update: 'Шинэчлэл' };
-    list.innerHTML = news.map(n => `
-      <div class="news-card">
-        <div class="news-card-info">
-          <h3>${esc(n.title || '')}</h3>
-          <p>${esc(n.body || '')}</p>
-          <div class="news-card-meta">
-            <span class="news-badge ${n.tagType || 'info'}">${tagLabels[n.tagType] || 'Зар'}</span>
-            <span class="news-date">${n.date || ''}</span>
-          </div>
-        </div>
-        <div class="news-card-actions">
-          <button class="btn btn-sm btn-secondary" onclick="editNews('${n.id}')">Засах</button>
-          <button class="btn btn-sm btn-danger" onclick="deleteNewsById('${n.id}')">Устгах</button>
-        </div>
-      </div>
-    `).join('');
-  }
-
-  function openNewsModal() {
-    editingNewsId = null;
-    document.getElementById('newsModalTitle').textContent = 'Шинэ мэдэгдэл';
-    document.getElementById('newsForm').reset();
-    document.getElementById('newsId').value = '';
-    document.getElementById('deleteNewsBtn').style.display = 'none';
-    document.getElementById('newsDate').value = new Date().toISOString().split('T')[0];
-    document.getElementById('newsModal').classList.add('active');
-  }
-
-  function editNews(id) {
-    const n = news.find(x => x.id === id);
-    if (!n) return;
-    editingNewsId = id;
-    document.getElementById('newsModalTitle').textContent = 'Мэдэгдэл засах';
-    document.getElementById('newsId').value = id;
-    document.getElementById('newsTitle').value = n.title || '';
-    document.getElementById('newsBody').value = n.body || '';
-    document.getElementById('newsTag').value = n.tagType || 'info';
-    document.getElementById('newsDate').value = n.date || '';
-    document.getElementById('deleteNewsBtn').style.display = 'inline-block';
-    document.getElementById('newsModal').classList.add('active');
-  }
-
-  function closeNewsModal() {
-    document.getElementById('newsModal').classList.remove('active');
-    editingNewsId = null;
-  }
-
-  async function saveNews(e) {
-    e.preventDefault();
-    const payload = {
-      id: document.getElementById('newsId').value || undefined,
-      title: document.getElementById('newsTitle').value,
-      body: document.getElementById('newsBody').value,
-      tag: document.getElementById('newsTag').value,
-      tagType: document.getElementById('newsTag').value,
-      date: document.getElementById('newsDate').value,
-    };
-    if (!payload.id) delete payload.id;
-
-    try {
-      const url = editingNewsId ? `/api/news/${editingNewsId}` : '/api/news';
-      const method = editingNewsId ? 'PUT' : 'POST';
-      const res = await apiFetch(url, { method, headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
-      if (!res.ok) throw new Error('Save failed');
-      showToast('Амжилттай хадгаллаа!', 'success');
-      closeNewsModal();
-      loadEvents();
-    } catch (err) {
-      showToast('Хадгалах үед алдаа', 'error');
-    }
-  }
-
-  async function deleteNews() {
-    if (!editingNewsId) return;
-    if (!confirm('Энэ мэдэгдэлг устгах уу?')) return;
-    try {
-      const res = await apiFetch(`/api/news/${editingNewsId}`, { method: 'DELETE' });
-      if (!res.ok) throw new Error('Delete failed');
-      showToast('Устгагдлаа', 'success');
-      closeNewsModal();
-      loadEvents();
-    } catch (err) {
-      showToast('Устгах үед алдаа', 'error');
-    }
-  }
-
-  async function deleteNewsById(id) {
-    if (!confirm('Энэ мэдэгдэлг устгах уу?')) return;
-    try {
-      const res = await apiFetch(`/api/news/${id}`, { method: 'DELETE' });
-      if (!res.ok) throw new Error('Delete failed');
-      showToast('Устгагдлаа', 'success');
-      loadEvents();
-    } catch (err) {
-      showToast('Устгах үед алдаа', 'error');
-    }
-  }
-
-  function esc(str) {
-    if (!str) return '';
-    return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-  }
-
-  // Close news modal on overlay click
-  document.getElementById('newsModal').addEventListener('click', function(e) {
-    if (e.target === this) closeNewsModal();
-  });
-
-  // Live image preview
-  document.getElementById('evImageFile').addEventListener('change', function(e) {
-    const file = e.target.files[0];
-    if (!file) return;
-    const reader = new FileReader();
-    reader.onload = function(ev) {
-      const preview = document.getElementById('evImagePreview');
-      preview.src = ev.target.result;
-      preview.style.display = 'block';
-      document.getElementById('evImage').value = '[uploaded file]';
-    };
-    reader.readAsDataURL(file);
-  });
-</script>
+<script src="/admin/admin.js"></script>
 </body>
 </html>
