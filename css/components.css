@@ -13,11 +13,14 @@
   height: 430px;
   overflow: hidden;
   padding-top: 24px;
+  touch-action: pan-y;
+  overscroll-behavior-x: contain;
 }
 .act-carousel {
   position: relative;
   width: 100%;
   height: 100%;
+  touch-action: pan-y;
 }
 .act-card {
   width: 240px; height: 360px;
