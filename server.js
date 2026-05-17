@@ -30,7 +30,18 @@ const upload = multer({ storage, limits: { fileSize: 10 * 1024 * 1024 } }); // 1
 
 // Middleware
 app.use(express.json());
-app.use(express.static(__dirname));
+app.use(express.static(__dirname, {
+  // Aggressive cache for images/fonts (rarely change), short cache for HTML/CSS/JS
+  setHeaders: (res, filePath) => {
+    if (/\.(webp|jpg|jpeg|png|gif|ico|svg|woff2?|ttf|otf|eot)$/i.test(filePath)) {
+      res.setHeader('Cache-Control', 'public, max-age=2592000, immutable'); // 30 days
+    } else if (/\.(css|js)$/i.test(filePath)) {
+      res.setHeader('Cache-Control', 'public, max-age=3600'); // 1 hour
+    } else if (/\.html?$/i.test(filePath)) {
+      res.setHeader('Cache-Control', 'no-cache'); // always revalidate HTML
+    }
+  },
+}));
 
 // MongoDB connection pool
 let db;

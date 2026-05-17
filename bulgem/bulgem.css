@@ -5,9 +5,13 @@
 /* Hero */
 .mt-hero {
   min-height: 36vh;
-  background:
+  background-color: var(--color-dark-blue);
+  background-image:
     linear-gradient(135deg, rgba(17,46,80,0.85), rgba(29,67,130,0.75)),
-    url('/img/home/landscape_break.webp') center / cover no-repeat;
+    url('/img/home/landscape_break.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   display: flex; align-items: center; justify-content: center;
   text-align: center;
   padding: calc(var(--nav-height) + var(--space-12)) var(--space-5) var(--space-12);

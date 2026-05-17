@@ -208,7 +208,8 @@
           <div class="mt-group">
             <div class="mt-group-name">${escapeHtml(g.name)}</div>
             <div class="mt-group-meta">
-              📍 ${escapeHtml(g.sum)} · 👥 ${g.members} скаут<br/>
+              ${escapeHtml(g.sum)}<br/>
+              Нийт ${g.members} скаут<br/>
               Удирдагч: ${escapeHtml(g.leader)} · 📞 ${escapeHtml(g.contact)}<br/>
               🕐 ${escapeHtml(g.meetingTime)}
             </div>

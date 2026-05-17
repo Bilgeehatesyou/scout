@@ -49,7 +49,11 @@
 /* ── Hero — z-index below nav ── */
 .events-hero {
   min-height: 55vh;
-  background: url('/img/events/oluulaa_gadaa_2.webp') center / cover no-repeat;
+  background-color: var(--color-dark-blue);
+  background-image: url('/img/events/oluulaa_gadaa_2.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
