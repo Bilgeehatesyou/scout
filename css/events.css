@@ -287,9 +287,14 @@
 }
 .ev-list-info {
   display: flex;
-  gap: var(--space-5);
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2) var(--space-5);
 }
 .ev-list-info span {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
   font-size: var(--text-xs);
   font-weight: var(--weight-semibold);
   color: var(--color-text-muted);
@@ -297,8 +302,12 @@
 .ev-list-info span svg {
   width: 14px;
   height: 14px;
-  vertical-align: middle;
-  margin-right: 4px;
+  flex-shrink: 0;
+  color: var(--color-primary);
+}
+.ev-fee-symbol {
+  display: inline-block;
+  font-weight: 800;
   color: var(--color-primary);
 }
 .ev-list-actions { display: flex; gap: var(--space-3); }

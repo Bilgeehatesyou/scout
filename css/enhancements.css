@@ -1,0 +1,421 @@
+/* ============================================================
+   enhancements.css
+   ─ Unified hero system (animation, Ken Burns, overlay)
+   ─ Glass / blur navbar on scroll
+   ─ Dark mode  ([data-theme="dark"])
+   ─ Blur-up / LQIP image fade-in
+   Loaded LAST on every page.
+   ============================================================ */
+
+
+/* ============================================================
+   1 ─ UNIFIED HERO SYSTEM
+   Аль ч хуудасны hero-г нэг адил харагдуулна:
+     • Ken Burns (background slow-zoom)
+     • Gradient overlay
+     • Hero text fade-up appearance
+   Per-page CSS зөвхөн --hero-bg-г л зааж өгнө.
+   ============================================================ */
+
+#hero,
+.events-hero,
+.join-hero,
+.hist-hero,
+.prog-hero,
+.mt-hero,
+.page-hero {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  background-color: var(--color-dark-blue);
+  /* Override per-page url() background-images — bg now lives in ::before */
+  background-image: none !important;
+}
+
+/* Background image layer (Ken Burns) */
+#hero::before,
+.events-hero::before,
+.join-hero::before,
+.hist-hero::before,
+.prog-hero::before,
+.mt-hero::before,
+.page-hero::before {
+  content: '';
+  position: absolute;
+  inset: -3% -2% -3% -2%;
+  background-image: var(--hero-bg, none);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transform-origin: center;
+  animation: kenBurns 24s ease-in-out infinite alternate;
+  z-index: -2;
+  will-change: transform;
+}
+
+/* Gradient overlay layer */
+#hero::after,
+.events-hero::after,
+.join-hero::after,
+.hist-hero::after,
+.prog-hero::after,
+.mt-hero::after,
+.page-hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--hero-overlay,
+    linear-gradient(to bottom,
+      rgba(17, 46, 80, 0.60) 0%,
+      rgba(17, 46, 80, 0.30) 45%,
+      rgba(17, 46, 80, 0.85) 100%)
+  );
+  z-index: -1;
+  pointer-events: none;
+}
+
+@keyframes kenBurns {
+  0%   { transform: scale(1.00) translate3d(0, 0, 0); }
+  100% { transform: scale(1.10) translate3d(-1.2%, -0.8%, 0); }
+}
+
+/* Per-page hero background images */
+#hero        { --hero-bg: url('/img/home/homescreen.webp'); }
+.events-hero { --hero-bg: url('/img/events/oluulaa_gadaa_2.webp'); }
+.join-hero   { --hero-bg: url('/img/home/oluulaa_alhaj_bna.webp'); }
+.hist-hero   { --hero-bg: url('/img/history/history_hero.webp'); }
+.prog-hero   { --hero-bg: url('/img/program/buunuuruu_alhah.webp'); }
+.mt-hero     { --hero-bg: url('/img/home/landscape_break.webp'); }
+
+/* Unified hero text fade-up — same timing on EVERY page */
+.hero-content,
+.events-hero-content,
+.join-hero-content,
+.hist-hero-content,
+.prog-hero-content,
+.mt-hero-content,
+.page-hero__content {
+  position: relative;
+  z-index: 1;
+  animation: heroFadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes heroFadeUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Accessibility — respect user's reduced-motion preference */
+@media (prefers-reduced-motion: reduce) {
+  #hero::before, .events-hero::before, .join-hero::before,
+  .hist-hero::before, .prog-hero::before, .mt-hero::before,
+  .page-hero::before { animation: none; }
+
+  .hero-content, .events-hero-content, .join-hero-content,
+  .hist-hero-content, .prog-hero-content, .mt-hero-content,
+  .page-hero__content { animation: none; }
+
+  img.lqip-img { transition: none; filter: none; opacity: 1; }
+}
+
+
+/* ============================================================
+   2 ─ (Glass navbar removed — keep original solid white scroll
+        style defined in base.css / per-page CSS)
+   ============================================================ */
+
+
+/* ============================================================
+   3 ─ DARK MODE  ([data-theme="dark"])
+   ============================================================ */
+
+[data-theme="dark"] {
+  --color-bg:             #0b1a2f;
+  --color-bg-alt:         #112644;
+  --color-surface:        #0f2240;
+  --color-surface-dark:   #060e1c;
+  --color-surface-mid:    #1d4382;
+
+  --color-primary-pale:   #1a2d4f;
+
+  --color-text:               #e9edf5;
+  --color-text-muted:         rgba(233, 237, 245, 0.65);
+  --color-text-faint:         rgba(233, 237, 245, 0.40);
+  --color-text-on-dark:       #ffffff;
+  --color-text-on-dark-muted: rgba(255, 255, 255, 0.70);
+
+  --border-thin:   1px solid rgba(255, 255, 255, 0.10);
+  --border-white:  1px solid rgba(255, 255, 255, 0.18);
+
+  --shadow-sm: 0 4px 12px rgba(0,0,0,0.40);
+  --shadow-md: 0 8px 24px rgba(0,0,0,0.50);
+  --shadow-lg: 0 20px 48px rgba(0,0,0,0.60);
+}
+
+[data-theme="dark"] body {
+  background-color: var(--color-bg);
+  background-image: none;
+  color: var(--color-text);
+}
+
+/* ── Nav (dark) ── */
+[data-theme="dark"] nav:not(.nav-scrolled),
+[data-theme="dark"] #main-nav:not(.nav-scrolled) {
+  background: rgba(8, 18, 36, 0.85) !important;
+  border-bottom-color: rgba(254, 216, 0, 0.30) !important;
+}
+[data-theme="dark"] nav.nav-scrolled,
+[data-theme="dark"] #main-nav.nav-scrolled {
+  background: rgba(11, 26, 47, 0.65) !important;
+  border-bottom: 1px solid rgba(255,255,255,0.08) !important;
+  box-shadow: 0 4px 30px rgba(0,0,0,0.35) !important;
+}
+[data-theme="dark"] nav.nav-scrolled .nav-inner a,
+[data-theme="dark"] nav.nav-scrolled ul li a,
+[data-theme="dark"] #main-nav.nav-scrolled .nav-inner a,
+[data-theme="dark"] #main-nav.nav-scrolled ul li a {
+  color: rgba(255,255,255,0.85) !important;
+}
+[data-theme="dark"] nav.nav-scrolled .nav-logo .logo-white,
+[data-theme="dark"] #main-nav.nav-scrolled .nav-logo .logo-white { display: block !important; }
+[data-theme="dark"] nav.nav-scrolled .nav-logo .logo-color,
+[data-theme="dark"] #main-nav.nav-scrolled .nav-logo .logo-color { display: none !important; }
+[data-theme="dark"] nav.nav-scrolled .nav-hamburger span,
+[data-theme="dark"] #main-nav.nav-scrolled .nav-hamburger span { background: #fff !important; }
+
+/* ── Section surfaces (white→dark) ── */
+[data-theme="dark"] #about,
+[data-theme="dark"] #values,
+[data-theme="dark"] #programs,
+[data-theme="dark"] #gallery,
+[data-theme="dark"] #join,
+[data-theme="dark"] .events-layout,
+[data-theme="dark"] .hist-section,
+[data-theme="dark"] .prog-section,
+[data-theme="dark"] .mt-map-section,
+[data-theme="dark"] .join-page {
+  background: rgba(11, 26, 47, 0.94) !important;
+}
+[data-theme="dark"] .hist-section--alt,
+[data-theme="dark"] .prog-section--alt {
+  background: rgba(17, 38, 68, 0.95) !important;
+}
+
+/* Text colors */
+[data-theme="dark"] .section-title,
+[data-theme="dark"] .subsection-title,
+[data-theme="dark"] .section-intro,
+[data-theme="dark"] .about-text p,
+[data-theme="dark"] .hist-body p,
+[data-theme="dark"] .age-name,
+[data-theme="dark"] .age-range,
+[data-theme="dark"] .act-name,
+[data-theme="dark"] .age-desc,
+[data-theme="dark"] .act-desc,
+[data-theme="dark"] .about-quote,
+[data-theme="dark"] .prog-card-body h3,
+[data-theme="dark"] .prog-card-body p,
+[data-theme="dark"] .form-title,
+[data-theme="dark"] .form-lead,
+[data-theme="dark"] .form-group label,
+[data-theme="dark"] .stat-num,
+[data-theme="dark"] .fact-num,
+[data-theme="dark"] .stat-label,
+[data-theme="dark"] .fact-label,
+[data-theme="dark"] .promise-text,
+[data-theme="dark"] .hist-stat-num,
+[data-theme="dark"] .hist-stat-label,
+[data-theme="dark"] .join-form-title,
+[data-theme="dark"] .join-form-lead,
+[data-theme="dark"] .form-section-block h4 {
+  color: var(--color-text) !important;
+}
+[data-theme="dark"] .section-title em { color: var(--color-accent) !important; }
+[data-theme="dark"] .section-label    { color: rgba(254, 216, 0, 0.85) !important; }
+
+/* Cards / surfaces */
+[data-theme="dark"] .age-card,
+[data-theme="dark"] .act-card,
+[data-theme="dark"] .prog-card,
+[data-theme="dark"] .join-form,
+[data-theme="dark"] .join-form-full,
+[data-theme="dark"] .sidebar-card,
+[data-theme="dark"] .stat,
+[data-theme="dark"] .form-section-block,
+[data-theme="dark"] .hist-stats-box,
+[data-theme="dark"] .hist-stat-item,
+[data-theme="dark"] .mt-panel,
+[data-theme="dark"] .promise-box,
+[data-theme="dark"] .stats-box {
+  background: #0f2240 !important;
+  border-color: rgba(255,255,255,0.10) !important;
+  color: var(--color-text);
+}
+
+/* Form inputs */
+[data-theme="dark"] input,
+[data-theme="dark"] select,
+[data-theme="dark"] textarea {
+  background: rgba(255,255,255,0.05) !important;
+  border-color: rgba(255,255,255,0.15) !important;
+  color: var(--color-text) !important;
+}
+[data-theme="dark"] input::placeholder,
+[data-theme="dark"] textarea::placeholder {
+  color: rgba(255,255,255,0.35) !important;
+}
+
+/* Footer (already dark, just deepen) */
+[data-theme="dark"] footer { background: #060e1c !important; }
+
+/* Pattern decorations — hide in dark for cleaner look */
+[data-theme="dark"] body { background-image: none !important; }
+
+/* ── Hardcoded-white card surfaces ──
+   These cards use literal #fff / rgba(255,255,255,…) instead of
+   var(--color-surface), so the variable swap doesn't reach them and
+   their (now-light) text was rendering invisible on a white card. */
+[data-theme="dark"] .hist-timeline-content,
+[data-theme="dark"] .law-bullet-list,
+[data-theme="dark"] .act-card,
+[data-theme="dark"] .act-body,
+[data-theme="dark"] .age-stage,
+[data-theme="dark"] .compare-body,
+[data-theme="dark"] .badge-tier,
+[data-theme="dark"] .training-step,
+[data-theme="dark"] .training-card {
+  background: #0f2240 !important;
+  border-color: rgba(255, 255, 255, 0.10) !important;
+}
+/* Active carousel card stays a touch deeper than its neighbours */
+[data-theme="dark"] .act-card--active .act-body { background: #0a1730 !important; }
+[data-theme="dark"] .act-card--active .act-name { color: var(--color-accent) !important; }
+[data-theme="dark"] .act-card--active .act-desc { color: rgba(255, 255, 255, 0.7) !important; }
+
+/* Headings coloured with --color-surface-dark (a near-black) become
+   invisible once their card/section turns dark — force them light. */
+[data-theme="dark"] .hist-timeline-content h4,
+[data-theme="dark"] .cta-block__title,
+[data-theme="dark"] .step-content h4,
+[data-theme="dark"] .ev-list-title,
+[data-theme="dark"] .modal-title,
+[data-theme="dark"] .modal-info-value,
+[data-theme="dark"] .modal-bank strong,
+[data-theme="dark"] .sidebar-title,
+[data-theme="dark"] .sidebar-item-title,
+[data-theme="dark"] .news-item-title,
+[data-theme="dark"] .mt-panel-empty h3,
+[data-theme="dark"] .mt-panel h2,
+[data-theme="dark"] .mt-group-name,
+[data-theme="dark"] .mt-panel-stat-num {
+  color: var(--color-text) !important;
+}
+
+/* Active past/upcoming tab: dark-blue text on a dark pill → accent on a
+   subtly lit pill so the active state reads clearly. */
+[data-theme="dark"] .view-btn--active {
+  color: var(--color-accent) !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+}
+[data-theme="dark"] .cta-block__title em { color: var(--color-accent) !important; }
+
+/* Dark mode force-hides the decorative pattern, so the pattern toggle is
+   redundant there — hide it and let the theme switch take the corner. */
+[data-theme="dark"] .pattern-switch { display: none; }
+[data-theme="dark"] .theme-switch { right: 28px; }
+
+/* Scout-law numbers: faint blue → readable accent on dark */
+[data-theme="dark"] .law-num { color: var(--color-accent) !important; opacity: 0.55; }
+
+/* Pill/tag chips: dark-blue text on a pale-blue fill turns into
+   blue-on-dark in dark mode — switch to light text on a subtle fill. */
+[data-theme="dark"] .age-tag,
+[data-theme="dark"] .ev-chip,
+[data-theme="dark"] .mt-group-tag {
+  color: var(--color-text) !important;
+  background: rgba(255, 255, 255, 0.06) !important;
+  border-color: rgba(255, 255, 255, 0.18) !important;
+}
+/* Small blue section label that sits on a now-dark card → accent */
+[data-theme="dark"] .modal-includes-label { color: var(--color-accent) !important; }
+
+/* Timeline rail + node connectors */
+[data-theme="dark"] .hist-timeline::before { background: rgba(255, 255, 255, 0.12) !important; }
+[data-theme="dark"] .hist-timeline-content::before { background: var(--color-accent) !important; }
+
+/* Map loading overlay (white box → dark so its text stays visible) */
+[data-theme="dark"] .mt-loading { background: rgba(11, 26, 47, 0.7) !important; }
+
+
+/* ============================================================
+   4 ─ THEME TOGGLE BUTTON
+   Pattern-switch товчны зэрэгцээ суух bottom-right toggle.
+   ============================================================ */
+
+.theme-switch {
+  position: fixed;
+  bottom: 28px;
+  right: 84px;            /* sits to the LEFT of pattern-switch */
+  z-index: 999;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-surface-dark);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+  transition: background 0.2s, transform 0.2s, color 0.2s;
+  color: rgba(255,255,255,0.85);
+  padding: 0;
+}
+.theme-switch:hover { background: var(--color-primary); transform: scale(1.08); }
+.theme-switch svg { width: 20px; height: 20px; transition: transform 0.4s ease; }
+
+[data-theme="dark"] .theme-switch {
+  background: var(--color-accent);
+  color: var(--color-surface-dark);
+  border-color: var(--color-accent);
+}
+[data-theme="dark"] .theme-switch svg { transform: rotate(180deg); }
+
+
+/* ============================================================
+   5 ─ LQIP / BLUR-UP IMAGE FADE-IN
+   JS бүх <img>-д lqip-img class нэмнэ. Зураг ачаалагдмагц
+   lqip-loaded нэмэгдэж blur арилна.
+   ============================================================ */
+
+img.lqip-img {
+  opacity: 0;
+  filter: blur(12px);
+  transform: translateZ(0);
+  transition: opacity 0.55s ease, filter 0.55s ease;
+}
+img.lqip-img.lqip-loaded {
+  opacity: 1;
+  filter: blur(0);
+}
+
+/* Optional .lqip wrapper — uses --lqip-src CSS var for placeholder */
+.lqip {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #1d4382 0%, #112e50 100%);
+}
+.lqip::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: var(--lqip-src, none);
+  background-size: cover;
+  background-position: center;
+  filter: blur(20px);
+  transform: scale(1.08);
+  transition: opacity 0.5s ease;
+}
+.lqip.lqip-done::before { opacity: 0; }
+.lqip > img,
+.lqip > picture { position: relative; display: block; width: 100%; height: 100%; }

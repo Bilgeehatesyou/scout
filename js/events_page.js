@@ -149,10 +149,7 @@
                 <circle cx="9" cy="7" r="4"/>
               </svg>${esc(ev.info.age)}</span>` : ''}
             ${ev.info?.fee  ? `<span>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14">
-                <line x1="12" y1="1" x2="12" y2="23"/>
-                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
-              </svg>${esc(ev.info.fee)}</span>` : ''}
+              <span class="ev-fee-symbol" aria-hidden="true">₮</span>${esc(stripTugrik(ev.info.fee))}</span>` : ''}
           </div>
           <div class="ev-list-actions">
             ${ev.registerUrl && ev.status === 'upcoming'
@@ -257,7 +254,7 @@
       ev.info?.location && { label: 'Байршил', value: ev.info.location },
       ev.info?.date     && { label: 'Огноо',   value: ev.info.date },
       ev.info?.age      && { label: 'Нас',      value: ev.info.age },
-      ev.info?.fee      && { label: 'Төлбөр',   value: ev.info.fee },
+      ev.info?.fee      && { label: 'Төлбөр',   value: stripTugrik(ev.info.fee) + '₮' },
     ].filter(Boolean);
 
     const infoGrid = infoItems.length ? `
@@ -324,6 +321,12 @@
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
 
   /* ── Utility ── */
+  // Removes a trailing/embedded ₮ (or "төгрөг") so the prefix symbol
+  // isn't duplicated for fees that already include it.
+  function stripTugrik(str) {
+    return String(str || '').replace(/\s*(₮|төгрөг)\s*$/i, '').trim();
+  }
+
   function esc(str) {
     if (!str) return '';
     return String(str)

@@ -3,23 +3,30 @@ const fs = require('fs');
 const path = require('path');
 
 const CONFIG = [
-  { dir: 'img/home/slider', maxW: 1440, quality: 80 },
-  { dir: 'img/home/carousel', maxW: 720, quality: 80 },
-  { dir: 'img/home/gallery', maxW: 960, quality: 80 },
-  { dir: 'img/events', maxW: 1440, quality: 80 },
-  { dir: 'img/history', maxW: 1440, quality: 80 },
-  { dir: 'img/program', maxW: 960, quality: 80 },
+  { dir: 'img/home/slider',   maxW: 1600, quality: 82 },
+  { dir: 'img/home/carousel', maxW: 1280, quality: 80 },
+  { dir: 'img/home/gallery',  maxW: 1280, quality: 80 },
+  { dir: 'img/events',        maxW: 1920, quality: 82 },
+  { dir: 'img/history',       maxW: 1920, quality: 82 },
+  { dir: 'img/program',       maxW: 1920, quality: 82 },
 ];
 
+/* Per-file overrides — applied AFTER dir walk, so these win.
+   Heroes (full-bleed bg images) need 1920w; cards ~1280w is plenty. */
 const SINGLE = [
-  { file: 'img/home/homescreen.jpg', maxW: 1920, quality: 80 },
-  { file: 'img/home/landscape_break.jpg', maxW: 1920, quality: 80 },
-  { file: 'img/home/30jil_jamboree.jpg', maxW: 1920, quality: 80 },
-  { file: 'img/home/oluulaa_gadaa_alhah.jpg', maxW: 1440, quality: 80 },
-  { file: 'img/home/oluulaa_alhaj_bna.jpg', maxW: 800, quality: 80 },
-  { file: 'img/home/temdegt.jpg', maxW: 800, quality: 80 },
-  { file: 'img/home/gadaa_jagssan.jpg', maxW: 800, quality: 80 },
-  { file: 'img/home/udirdagch_surgalt.jpg', maxW: 800, quality: 80 },
+  /* Full-bleed hero photos */
+  { file: 'img/home/homescreen.jpg',          maxW: 1920, quality: 82 },
+  { file: 'img/home/landscape_break.jpg',     maxW: 1920, quality: 82 },
+  { file: 'img/home/30jil_jamboree.jpg',      maxW: 1920, quality: 82 },
+  { file: 'img/home/oluulaa_gadaa_alhah.jpg', maxW: 1920, quality: 82 },
+  { file: 'img/home/oluulaa_alhaj_bna.jpg',   maxW: 1920, quality: 82 },  // join hero + home card
+  { file: 'img/program/buunuuruu_alhah.jpg',  maxW: 1920, quality: 82 },  // program hero
+  { file: 'img/history/history_hero.jpg',     maxW: 1920, quality: 82 },
+
+  /* Home program cards (display ~400px wide, retina-safe at 1280w) */
+  { file: 'img/home/udirdagch_surgalt.jpg',   maxW: 1280, quality: 80 },
+  { file: 'img/home/temdegt.jpg',             maxW: 1280, quality: 80 },
+  { file: 'img/home/gadaa_jagssan.jpg',       maxW: 1280, quality: 80 },
 ];
 
 async function processFile(inputPath, maxW, quality) {

@@ -16,7 +16,10 @@
       "Bash(findstr /v _archive)",
       "Bash(findstr /r \"\\\\.html$ \\\\.js$ \\\\.css$\")",
       "Bash(findstr /n \".\")",
-      "Bash(findstr \"^[0-9]*[0-9]:\")"
+      "Bash(findstr \"^[0-9]*[0-9]:\")",
+      "Bash(grep -nA6 \"\\\\.mt-group-tag\" bulgem/bulgem.css)",
+      "Bash(git rev-list *)",
+      "Bash(echo \"EXIT_CODE=$?\")"
     ]
   }
 }
