@@ -54,15 +54,6 @@
   btn.addEventListener('click', () => {
     setTheme(currentTheme() === 'dark' ? 'light' : 'dark');
   });
-
-  /* React to OS-level changes only if user hasn't picked manually */
-  if (window.matchMedia) {
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
-      let saved = null;
-      try { saved = localStorage.getItem(KEY); } catch (err) {}
-      if (!saved) setTheme(e.matches ? 'dark' : 'light');
-    });
-  }
 })();
 
 

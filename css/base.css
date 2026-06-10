@@ -279,7 +279,7 @@ nav.nav-scrolled .nav-hamburger span { background: var(--color-primary); }
   .footer-grid { grid-template-columns: 1fr; }
 }
 
-/* ── Pattern switch товч ── */
+/* ── Pattern switch товч (дэвсгэр хээ асаах/унтраах) ── */
 .pattern-switch {
   position: fixed;
   bottom: 28px;
@@ -298,9 +298,9 @@ nav.nav-scrolled .nav-hamburger span { background: var(--color-primary); }
   transition: all 0.2s;
 }
 .pattern-switch:hover { background: var(--color-primary); transform: scale(1.1); }
-.pattern-switch svg { width: 20px; height: 20px; color: rgba(255,255,255,0.8); transition: transform 0.3s; }
+.pattern-switch svg { width: 20px; height: 20px; color: rgba(255,255,255,0.8); }
 .pattern-switch--on { background: var(--color-accent); border-color: var(--color-accent); }
-.pattern-switch--on svg { color: var(--color-surface-dark); transform: rotate(180deg); }
+.pattern-switch--on svg { color: var(--color-surface-dark); }
 
 /* ============================================================
    PATTERN TOGGLE — body:not(.show-pattern) үед бүх section-ийн pattern-ийг нуух

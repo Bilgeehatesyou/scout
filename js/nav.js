@@ -63,10 +63,37 @@
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 })();
 
-/* ── Decorative background pattern ──
-   The standalone toggle button was removed (it duplicated the theme
-   switch and confused users). The pattern is simply on by default in
-   light mode; dark mode hides it via CSS. */
+/* ── PATTERN TOGGLE — ALL pages ──
+   Background pattern on/off. Sits to the LEFT of the theme switch.
+   Uses a grid icon so it's visually distinct from the sun/moon theme btn. */
 (function () {
-  document.body.classList.add('show-pattern');
+  const KEY = 'scout-pattern-all';
+
+  const stored = localStorage.getItem(KEY);
+  const isOn   = stored === null ? true : stored === 'true';
+  if (isOn) document.body.classList.add('show-pattern');
+
+  const btn = document.createElement('button');
+  btn.className = 'pattern-switch' + (isOn ? ' pattern-switch--on' : '');
+  btn.type = 'button';
+  btn.setAttribute('aria-label', 'Дэвсгэр хээ асаах/унтраах');
+  btn.innerHTML = `
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="3" y="3" width="7" height="7" rx="1"/>
+      <rect x="14" y="3" width="7" height="7" rx="1"/>
+      <rect x="3" y="14" width="7" height="7" rx="1"/>
+      <rect x="14" y="14" width="7" height="7" rx="1"/>
+    </svg>
+  `;
+
+  btn.addEventListener('click', () => {
+    const nowOn = document.body.classList.toggle('show-pattern');
+    localStorage.setItem(KEY, String(nowOn));
+    btn.classList.toggle('pattern-switch--on', nowOn);
+    document.body.style.backgroundImage = nowOn
+      ? "url('/img/logo/pattern_grey_color.png')"
+      : 'none';
+  });
+
+  document.body.appendChild(btn);
 })();
