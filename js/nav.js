@@ -63,39 +63,10 @@
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 })();
 
-/* ── PATTERN TOGGLE — ALL pages ── */
+/* ── Decorative background pattern ──
+   The standalone toggle button was removed (it duplicated the theme
+   switch and confused users). The pattern is simply on by default in
+   light mode; dark mode hides it via CSS. */
 (function () {
-  const KEY = 'scout-pattern-all';
-
-  const stored = localStorage.getItem(KEY);
-  const isOn   = stored === null ? true : stored === 'true';
-  if (isOn) document.body.classList.add('show-pattern');
-
-  const btn = document.createElement('button');
-  btn.className = 'pattern-switch' + (isOn ? ' pattern-switch--on' : '');
-  btn.setAttribute('aria-label', 'Pattern toggle');
-  btn.innerHTML = `
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="pattern-switch__icon">
-      <circle cx="12" cy="12" r="5"/>
-      <line x1="12" y1="1" x2="12" y2="3"/>
-      <line x1="12" y1="21" x2="12" y2="23"/>
-      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
-      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
-      <line x1="1" y1="12" x2="3" y2="12"/>
-      <line x1="21" y1="12" x2="23" y2="12"/>
-      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
-      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
-    </svg>
-  `;
-
-  btn.addEventListener('click', () => {
-    const nowOn = document.body.classList.toggle('show-pattern');
-    localStorage.setItem(KEY, String(nowOn));
-    btn.classList.toggle('pattern-switch--on', nowOn);
-    document.body.style.backgroundImage = nowOn
-      ? "url('/img/logo/pattern_grey_color.png')"
-      : 'none';
-  });
-
-  document.body.appendChild(btn);
+  document.body.classList.add('show-pattern');
 })();

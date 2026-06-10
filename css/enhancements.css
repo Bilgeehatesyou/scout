@@ -166,9 +166,11 @@
 }
 [data-theme="dark"] nav.nav-scrolled,
 [data-theme="dark"] #main-nav.nav-scrolled {
-  background: rgba(11, 26, 47, 0.65) !important;
+  background: rgba(11, 26, 47, 0.95) !important;
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
   border-bottom: 1px solid rgba(255,255,255,0.08) !important;
-  box-shadow: 0 4px 30px rgba(0,0,0,0.35) !important;
+  box-shadow: 0 4px 30px rgba(0,0,0,0.45) !important;
 }
 [data-theme="dark"] nav.nav-scrolled .nav-inner a,
 [data-theme="dark"] nav.nav-scrolled ul li a,
@@ -319,11 +321,6 @@
 }
 [data-theme="dark"] .cta-block__title em { color: var(--color-accent) !important; }
 
-/* Dark mode force-hides the decorative pattern, so the pattern toggle is
-   redundant there — hide it and let the theme switch take the corner. */
-[data-theme="dark"] .pattern-switch { display: none; }
-[data-theme="dark"] .theme-switch { right: 28px; }
-
 /* Scout-law numbers: faint blue → readable accent on dark */
 [data-theme="dark"] .law-num { color: var(--color-accent) !important; opacity: 0.55; }
 
@@ -355,7 +352,7 @@
 .theme-switch {
   position: fixed;
   bottom: 28px;
-  right: 84px;            /* sits to the LEFT of pattern-switch */
+  right: 28px;            /* single floating control, bottom-right corner */
   z-index: 999;
   width: 44px;
   height: 44px;
