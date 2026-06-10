@@ -101,6 +101,34 @@ nav.nav-scrolled ul li a:hover { color: var(--color-accent); }
 /* Active link — program.html дээр Programs-г тодруулна */
 .nav-link--active { color: var(--color-accent) !important; }
 
+/* ── Language switch (МН ⇄ EN) — JS-ээр nav-д автоматаар оруулна ── */
+/* Keep the links + lang button grouped to the right (logo stays left) */
+nav .nav-inner > ul { margin-left: auto; }
+.lang-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-left: 18px;
+  padding: 6px 12px;
+  border: none;
+  border-radius: var(--radius-full);
+  background: var(--color-accent);
+  color: var(--color-dark-blue);
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: var(--weight-bold);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+.lang-switch:hover { transform: translateY(-1px); box-shadow: 0 4px 14px rgba(254, 216, 0, 0.4); }
+.lang-switch svg { width: 14px; height: 14px; }
+@media (max-width: 900px) {
+  .lang-switch { margin-left: auto; margin-right: 12px; padding: 5px 10px; }
+}
+
 /* ============================================================
    BUTTONS
    ============================================================ */

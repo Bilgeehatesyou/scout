@@ -19,7 +19,10 @@
       "Bash(findstr \"^[0-9]*[0-9]:\")",
       "Bash(grep -nA6 \"\\\\.mt-group-tag\" bulgem/bulgem.css)",
       "Bash(git rev-list *)",
-      "Bash(echo \"EXIT_CODE=$?\")"
+      "Bash(echo \"EXIT_CODE=$?\")",
+      "Bash(node --check js/i18n.js)",
+      "Bash(node --check js/nav.js)",
+      "Bash(node --check js/enhancements.js)"
     ]
   }
 }
